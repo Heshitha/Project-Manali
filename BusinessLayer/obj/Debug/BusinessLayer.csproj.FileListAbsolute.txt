@@ -7,3 +7,12 @@ D:\Workspace\Champi Siriwardhana\Project-Manali\BusinessLayer\bin\Debug\DataAcce
 D:\Workspace\Champi Siriwardhana\Project-Manali\BusinessLayer\bin\Debug\ModelLayer.pdb
 D:\Workspace\Champi Siriwardhana\Project-Manali\BusinessLayer\obj\Debug\BusinessLayer.dll
 D:\Workspace\Champi Siriwardhana\Project-Manali\BusinessLayer\obj\Debug\BusinessLayer.pdb
+D:\Workspace\Project-Manali\BusinessLayer\bin\Debug\BusinessLayer.dll
+D:\Workspace\Project-Manali\BusinessLayer\bin\Debug\BusinessLayer.pdb
+D:\Workspace\Project-Manali\BusinessLayer\bin\Debug\DataAccessLayer.dll
+D:\Workspace\Project-Manali\BusinessLayer\bin\Debug\ModelLayer.dll
+D:\Workspace\Project-Manali\BusinessLayer\bin\Debug\DataAccessLayer.pdb
+D:\Workspace\Project-Manali\BusinessLayer\bin\Debug\ModelLayer.pdb
+D:\Workspace\Project-Manali\BusinessLayer\obj\Debug\BusinessLayer.csprojResolveAssemblyReference.cache
+D:\Workspace\Project-Manali\BusinessLayer\obj\Debug\BusinessLayer.dll
+D:\Workspace\Project-Manali\BusinessLayer\obj\Debug\BusinessLayer.pdb

@@ -6,3 +6,11 @@ D:\Workspace\Champi Siriwardhana\Project-Manali\DataAccessLayer\bin\Debug\ModelL
 D:\Workspace\Champi Siriwardhana\Project-Manali\DataAccessLayer\obj\Debug\DataAccessLayer.csprojResolveAssemblyReference.cache
 D:\Workspace\Champi Siriwardhana\Project-Manali\DataAccessLayer\obj\Debug\DataAccessLayer.dll
 D:\Workspace\Champi Siriwardhana\Project-Manali\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
+D:\Workspace\Project-Manali\DataAccessLayer\bin\Debug\DataAccessLayer.dll.config
+D:\Workspace\Project-Manali\DataAccessLayer\bin\Debug\DataAccessLayer.dll
+D:\Workspace\Project-Manali\DataAccessLayer\bin\Debug\DataAccessLayer.pdb
+D:\Workspace\Project-Manali\DataAccessLayer\bin\Debug\ModelLayer.dll
+D:\Workspace\Project-Manali\DataAccessLayer\bin\Debug\ModelLayer.pdb
+D:\Workspace\Project-Manali\DataAccessLayer\obj\Debug\DataAccessLayer.csprojResolveAssemblyReference.cache
+D:\Workspace\Project-Manali\DataAccessLayer\obj\Debug\DataAccessLayer.dll
+D:\Workspace\Project-Manali\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
