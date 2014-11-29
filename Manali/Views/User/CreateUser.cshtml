@@ -1,35 +1,44 @@
-﻿<script src="~/js/user.js"></script>
+﻿@model ModelLayer.UserDTO
+
 @{
     Layout = null;
+    
+    bool ifUserExists = false;
+    if (Model != null)
+    {
+        ifUserExists = true;
+    }
+    
 }
 
 <form>
     <fieldset>
         <legend>
-            Create User
+            @(ifUserExists ? "Edit User" : "Create User")
         </legend>
     </fieldset>
     <div class="fieldConteiner">
+        <input type="hidden" id="userID" value="@(ifUserExists ? Model.userID : 0)" />
         <div class="leftFieldSet">
             <label>Name</label>
             <div class="input-control text" data-role="input-control">
-                <input type="text" placeholder="type full name" required  id="txtFullName"/>
+                <input type="text" placeholder="type full name" required  id="txtFullName" value="@(ifUserExists ? Model.Name : "")"/>
             </div>
             <label>NIC</label>
             <div class="input-control text" data-role="input-control">
-                <input type="text" placeholder="type nic" maxlength="10" required  id="txtNIC"/>
+                <input type="text" placeholder="type nic" maxlength="10" required id="txtNIC" value="@(ifUserExists ? Model.NIC : "")" />
             </div>
             <label>Mobile</label>
             <div class="input-control text" data-role="input-control">
-                <input type="text" placeholder="type mobile no" maxlength="15" required id="txtMobileNo"/>
+                <input type="text" placeholder="type mobile no" maxlength="15" required id="txtMobileNo" value="@(ifUserExists ? Model.Mobile : "")" />
             </div>
             <label>Address</label>
             <div class="input-control text" data-role="input-control">
-                <input type="text" placeholder="type address" required id="txtAddress"/>
+                <input type="text" placeholder="type address" required id="txtAddress" value="@(ifUserExists ? Model.Address : "")" />
             </div>
             <label>Username</label>
             <div class="input-control text" data-role="input-control">
-                <input type="text" placeholder="type username" required id="txtUsername"/>
+                <input type="text" placeholder="type username" required id="txtUsername" value="@(ifUserExists ? Model.Username : "")" />
             </div>
             <label>Password</label>
             <div class="input-control password" data-role="input-control">
@@ -42,7 +51,7 @@
         </div>
         <div class="rightFieldSet">
             <div class="profileImageContainer">
-                <img src="~/Images/blank-profile-hi.png" class="profileImage" id="profileImage"/>
+                <img src="@(ifUserExists ? Model.ImagePath : "/Images/blank-profile-hi.png")" class="profileImage" id="profileImage" />
             </div>
             <button class="large success" type="button" id="flupProfileImageButton">Upload Image</button>
             <input type="file" id="flupProfileImage" hidden />
@@ -70,6 +79,8 @@
         }
 
 </style>
+
+<script src="~/js/user.js"></script>
 
 <script type="text/javascript">
 

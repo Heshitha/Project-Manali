@@ -13,5 +13,15 @@ namespace BusinessLayer.BusinessStore
         {
             return DataAccessLayer.Datastore.UserDataStore.CreateNewUser(userDTO);
         }
+
+        public static List<UserDTO> GetAllUserDetails()
+        {
+            return DataAccessLayer.Datastore.UserDataStore.GetAllUserDetails();
+        }
+
+        public static UserDTO GetUserDetailsByID(int userID)
+        {
+            return DataAccessLayer.Datastore.UserDataStore.GetUserDetailsByID(userID);
+        }
     }
 }

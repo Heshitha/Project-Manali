@@ -33,7 +33,7 @@ namespace Manali.Controllers
                 Image image = Image.FromStream(imagestream);
                 path = Path.Combine(Server.MapPath("~/SystemData/UserImages"), userDTO.Username + "-thumb" + Path.GetExtension(file.FileName));
                 image.Save(path, System.Drawing.Imaging.ImageFormat.Jpeg);
-                userDTO.ImagePath = "SystemData/UserImages/" + userDTO.Username + Path.GetExtension(file.FileName);
+                userDTO.ImagePath = "/SystemData/UserImages/" + userDTO.Username + Path.GetExtension(file.FileName);
             }
             else {
                 userDTO.ImagePath = "/Images/blank-profile-hi.png";
@@ -42,14 +42,30 @@ namespace Manali.Controllers
             return Json(messageType, JsonRequestBehavior.AllowGet);
         }
 
-        public ActionResult CreateUser()
+        public ActionResult CreateUser(int uid = 0)
         {
-            return View();
+            if (uid == 0)
+            {
+                return View();
+            }
+            else
+            {
+                UserDTO userDetails = BusinessLayer.BusinessStore.User.GetUserDetailsByID(uid);
+                return View(userDetails);
+            }
+            
         }
 
         public ActionResult UserList()
         {
-            return View();
+            List<UserDTO> lstUsers = BusinessLayer.BusinessStore.User.GetAllUserDetails();
+            return View(lstUsers);
+        }
+
+        public ActionResult EditUser(int uid = 0)
+        {
+            UserDTO userDetails = BusinessLayer.BusinessStore.User.GetUserDetailsByID(uid);
+            return View(userDetails);
         }
     
         public static Stream GetResizedImageStream(Stream inputStream, int x, int y, int w, int h, int orgWidth, int orgHeight)

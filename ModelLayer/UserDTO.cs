@@ -8,6 +8,7 @@ namespace ModelLayer
 {
     public class UserDTO
     {
+        public int userID { get; set; }
         public string Name { get; set; }
         public string NIC { get; set; }
         public string Mobile { get; set; }
