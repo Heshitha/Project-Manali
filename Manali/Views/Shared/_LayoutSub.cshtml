@@ -1,0 +1,102 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_LayoutMain.cshtml";
+}
+
+<nav class="navigation-bar white border fixed-top">
+    <div class="navigation-bar-content">
+        <a href="javascript:return false;" class="element LogoHolder">
+            <img src="~/Images/name.png" />
+        </a>
+        <span class="element-divider"></span>
+        <ul class="element-menu">
+            <li>
+                <a class="dropdown-toggle" href="javascript:return false;">
+                    Quotation
+                </a>
+                <ul class="dropdown-menu" data-role="dropdown">
+                    <li>
+                        <a href="javascript:GetContent('/Quotation/Index', '.mainContent');">
+                            Create Quotation
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:return false;">
+                            Quotation List
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <ul class="element-menu">
+            <li>
+                <a class="dropdown-toggle" href="javascript:return false;">
+                    User
+                </a>
+                <ul class="dropdown-menu" data-role="dropdown">
+                    <li>
+                        <a href="javascript:return false;">
+                            Create User
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:return false;">
+                            Users List
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div id="GeneralProgressVisualizer">
+    <div class="customizedProgressBarHolder" id="GeneralProgressBar">
+        <div class="customizedProgressBar">
+        </div>
+    </div>
+    <div class="ProgressOverlay">
+
+    </div>
+</div>
+
+
+@RenderBody()
+
+
+<script type="text/javascript">
+
+    function GetContent(url, element) {
+        $('#GeneralProgressVisualizer').show();
+
+        $.ajax({
+            url: url,
+            type: 'GET',
+            contentType: 'application/json; charset=utf-8',
+            success: function (data) {
+                $(element).html(data);
+                $('#GeneralProgressVisualizer').fadeOut();
+            },
+            error: function () {
+
+            }
+        });
+
+        setTimeout(function () {
+            $('#GeneralProgressVisualizer').fadeOut();
+        }, 2000);
+    }
+
+</script>
+
+<style type="text/css">
+
+    .LogoHolder{
+        padding:0 15px !important;
+    }
+
+    .LogoHolder img{
+        height:45px;
+    }
+
+    
+</style>

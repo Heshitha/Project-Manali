@@ -1,0 +1,79 @@
+﻿
+@{
+    ViewBag.Title = "Login To Manali System";
+    Layout = "~/Views/Shared/_LayoutMain.cshtml";
+}
+
+<div id="LoginBox" class="loginbox">
+    <div class="example ">
+        <div class="loginboxlogo">
+            <img src="~/Images/name.png" />
+        </div>
+        <form>
+            <fieldset>
+                <legend>
+                    Login Here
+                </legend>
+                <label>Username</label>
+                <div class="input-control text" data-role="input-control">
+                    <input type="text" placeholder="type username" />
+                    <button class="btn-clear" tabindex="-1" type="button"></button>
+                </div>
+                <label>Password</label>
+                <div class="input-control password" data-role="input-control">
+                    <input type="password" placeholder="type password" />
+                    <button class="btn-clear" tabindex="-1" type="button"></button>
+                </div>
+            </fieldset>
+            <br />
+            <button class="button large success" type="button" id="LoginButton">Login</button>
+            <span class="error loginError" id="LoginError">
+            </span>
+
+        </form>
+    </div>
+    <div class="customizedProgressBarHolder" id="loginProgressBar">
+        <div class="customizedProgressBar">
+        </div>
+    </div>
+</div>
+    
+
+    
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+            setLoginBoxPosition();
+
+            $(window).bind('resize', function () {
+                setLoginBoxPosition();
+            });
+
+            $('#LoginButton').bind('click tap', function () {
+                $('#loginProgressBar').fadeIn();
+
+                setTimeout(function () {
+                    $('#LoginError').text('Please check username and password');
+                    $('#loginProgressBar').fadeOut();
+
+                }, 1500);
+
+
+            });
+
+        });
+
+        function setLoginBoxPosition() {
+            var viewPortHeight = window.innerHeight;
+            var loginBoxHeigt = $('#LoginBox').outerHeight();
+
+            var topValue = (viewPortHeight - loginBoxHeigt) / 2;
+
+            $('#LoginBox').css('top', topValue);
+        }
+
+
+
+    </script>
+
