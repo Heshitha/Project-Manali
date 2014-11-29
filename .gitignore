@@ -8,3 +8,5 @@ Manali/obj/Debug/Manali.csproj.FileListAbsolute.txt
 Manali/obj/Debug/Manali.csprojResolveAssemblyReference.cache
 Manali/obj/Debug/Manali.dll
 Manali/obj/Debug/Manali.pdb
+*.pdb
+*.suo

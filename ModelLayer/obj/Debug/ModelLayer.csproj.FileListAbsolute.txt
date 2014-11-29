@@ -2,3 +2,4 @@ D:\Workspace\Champi Siriwardhana\Project-Manali\ModelLayer\bin\Debug\ModelLayer.
 D:\Workspace\Champi Siriwardhana\Project-Manali\ModelLayer\bin\Debug\ModelLayer.pdb
 D:\Workspace\Champi Siriwardhana\Project-Manali\ModelLayer\obj\Debug\ModelLayer.dll
 D:\Workspace\Champi Siriwardhana\Project-Manali\ModelLayer\obj\Debug\ModelLayer.pdb
+D:\Workspace\Champi Siriwardhana\Project-Manali\ModelLayer\obj\Debug\ModelLayer.csprojResolveAssemblyReference.cache
