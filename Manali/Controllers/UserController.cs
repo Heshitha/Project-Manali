@@ -16,7 +16,7 @@ namespace Manali.Controllers
             return View();
         }
 
-        public JsonResult  CreateUser(UserDTO userDTO)
+        public JsonResult  SaveUser(UserDTO userDTO)
         {
             int messageType = BusinessLayer.BusinessStore.User.CreateUser(userDTO);
             return Json(messageType, JsonRequestBehavior.AllowGet);
@@ -26,5 +26,5 @@ namespace Manali.Controllers
         {
             return View();
         }
-	}
+}
 }
