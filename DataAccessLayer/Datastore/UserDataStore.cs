@@ -13,14 +13,15 @@ namespace DataAccessLayer.Datastore
 
         public static int CreateNewUser(UserDTO userDTO)
         {
-            var newuser = userDB.Manali_CreateUser(userDTO.Name,
+           return (userDB.Manali_CreateUser(userDTO.Name,
                                    userDTO.NIC,
                                    userDTO.Mobile,
                                    userDTO.Address,
                                    userDTO.Username, 
                                    userDTO.Password, 
-                                   userDTO.ImagePath);
-            return Convert.ToInt32(newuser.FirstOrDefault().MessageType);
+                                   userDTO.ImagePath).Single()).MessageType.Value;
+
+    
 
         }
     }
