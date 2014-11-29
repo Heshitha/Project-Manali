@@ -26,5 +26,10 @@ namespace Manali.Controllers
         {
             return View();
         }
-}
+
+        public ActionResult UserList()
+        {
+            return View();
+        }
+    }
 }
