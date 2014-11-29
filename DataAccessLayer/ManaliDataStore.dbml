@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Manali" Class="ManaliDataStoreDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=CMSCOUT2;Initial Catalog=Manali;User ID=sa" SettingsObjectName="DataAccessLayer.Properties.Settings" SettingsPropertyName="ManaliConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.[User]" Member="Users">
+    <Type Name="User">
+      <Column Name="UserID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="NIC" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Mobile" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="Address" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="Username" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Image" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Function Name="dbo.Manali_CreateUser" Method="Manali_CreateUser">
+    <Parameter Name="name" Type="System.String" DbType="VarChar(MAX)" />
+    <Parameter Name="nic" Type="System.String" DbType="VarChar(10)" />
+    <Parameter Name="mobile" Type="System.String" DbType="VarChar(15)" />
+    <Parameter Name="userAddress" Type="System.String" DbType="VarChar(MAX)" />
+    <Parameter Name="username" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="password" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="imagePath" Type="System.String" DbType="VarChar(MAX)" />
+    <ElementType Name="Manali_CreateUserResult">
+      <Column Name="MessageType" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+</Database>
