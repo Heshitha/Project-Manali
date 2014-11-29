@@ -1,0 +1,10 @@
+*.dll
+*.dll
+*.suo
+Manali/bin/Manali.dll
+Manali/bin/Manali.pdb
+Manali/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+Manali/obj/Debug/Manali.csproj.FileListAbsolute.txt
+Manali/obj/Debug/Manali.csprojResolveAssemblyReference.cache
+Manali/obj/Debug/Manali.dll
+Manali/obj/Debug/Manali.pdb
