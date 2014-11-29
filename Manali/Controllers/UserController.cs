@@ -15,13 +15,14 @@ namespace Manali.Controllers
         {
             return View();
         }
-        
-
         public JsonResult  CreateUser(UserDTO userDTO)
         {
             int messageType = BusinessLayer.BusinessStore.User.CreateUser(userDTO);
             return Json(messageType, JsonRequestBehavior.AllowGet);
-
+        }
+        public ActionResult CreateUser()
+        {
+            return View();
         }
 	}
 }

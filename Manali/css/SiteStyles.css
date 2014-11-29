@@ -82,3 +82,38 @@
         opacity:0.5;
         display:block;
     }
+
+    div.fieldConteiner:after {
+        content: '.';
+        display: block;
+        height: 0;
+        clear: both;
+        visibility: hidden;
+    }
+
+    .fieldConteiner {
+        position: relative;
+        width: 100%;
+    }
+
+        .fieldConteiner .leftFieldSet {
+            position: relative;
+            width: 325px;
+            float: left;
+        }
+
+        .fieldConteiner .rightFieldSet {
+            position: relative;
+            width: 325px;
+            float: right;
+        }
+
+    .checkItem {
+        display: none;
+    }
+
+    .triggerRadioTick{
+        cursor:pointer;
+        width:19px;
+        height:auto;
+    }

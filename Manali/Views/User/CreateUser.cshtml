@@ -1,0 +1,86 @@
+﻿
+@{
+    Layout = null;
+}
+
+<form>
+    <fieldset>
+        <legend>
+            Create User
+        </legend>
+    </fieldset>
+    <div class="fieldConteiner">
+        <div class="leftFieldSet">
+            <label>Name</label>
+            <div class="input-control text" data-role="input-control">
+                <input type="text" placeholder="type full name" required />
+            </div>
+            <label>NIC</label>
+            <div class="input-control text" data-role="input-control">
+                <input type="text" placeholder="type nic" maxlength="10" required />
+            </div>
+            <label>Mobile</label>
+            <div class="input-control text" data-role="input-control">
+                <input type="text" placeholder="type mobile no" maxlength="15" required />
+            </div>
+            <label>Address</label>
+            <div class="input-control text" data-role="input-control">
+                <input type="text" placeholder="type address" required />
+            </div>
+            <label>Username</label>
+            <div class="input-control text" data-role="input-control">
+                <input type="text" placeholder="type username" required />
+            </div>
+            <label>Password</label>
+            <div class="input-control password" data-role="input-control">
+                <input type="password" placeholder="type password" required />
+            </div>
+            <label>Confirm Password</label>
+            <div class="input-control password" data-role="input-control">
+                <input type="password" placeholder="retype password" required />
+            </div>
+        </div>
+        <div class="rightFieldSet">
+            <div class="profileImageContainer">
+                <img src="~/Images/blank-profile-hi.png" class="profileImage" id="profileImage"/>
+            </div>
+            <button class="large success" type="button" id="flupProfileImageButton">Upload Image</button>
+            <input type="file" id="flupProfileImage" hidden/>
+        </div>
+    </div>
+</form>
+<button class="large danger" type="button"> 
+    Save User
+</button>
+
+<style type="text/css">
+
+    .profileImageContainer {
+        position: relative;
+        width: 100%;
+        margin: 0 0 10px 0;
+    }
+
+        .profileImageContainer .profileImage{
+            position:relative;
+            margin:0;
+            padding:0;
+            width:100%;
+            display:block;
+        }
+
+</style>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        $('#flupProfileImageButton').bind('click tap', function () {
+            $('#flupProfileImage').click();
+        });
+
+
+
+    });
+
+</script>
