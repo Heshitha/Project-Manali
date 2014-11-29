@@ -35,3 +35,21 @@ D:\Workspace\Champi Siriwardhana\Project Manali\Manali\Manali\bin\Microsoft.Web.
 D:\Workspace\Champi Siriwardhana\Project Manali\Manali\Manali\bin\System.Web.Mvc.dll
 D:\Workspace\Champi Siriwardhana\Project Manali\Manali\Manali\bin\System.Web.Mvc.xml
 D:\Workspace\Champi Siriwardhana\Project Manali\Manali\Manali\obj\Debug\Manali.csprojResolveAssemblyReference.cache
+D:\Workspace\Project-Manali\Manali\bin\Manali.dll
+D:\Workspace\Project-Manali\Manali\bin\Manali.pdb
+D:\Workspace\Project-Manali\Manali\bin\Microsoft.Web.Infrastructure.dll
+D:\Workspace\Project-Manali\Manali\bin\System.Web.Helpers.dll
+D:\Workspace\Project-Manali\Manali\bin\System.Web.Mvc.dll
+D:\Workspace\Project-Manali\Manali\bin\System.Web.Razor.dll
+D:\Workspace\Project-Manali\Manali\bin\System.Web.WebPages.Deployment.dll
+D:\Workspace\Project-Manali\Manali\bin\System.Web.WebPages.dll
+D:\Workspace\Project-Manali\Manali\bin\System.Web.WebPages.Razor.dll
+D:\Workspace\Project-Manali\Manali\bin\System.Web.Helpers.xml
+D:\Workspace\Project-Manali\Manali\bin\System.Web.Mvc.xml
+D:\Workspace\Project-Manali\Manali\bin\System.Web.Razor.xml
+D:\Workspace\Project-Manali\Manali\bin\System.Web.WebPages.xml
+D:\Workspace\Project-Manali\Manali\bin\System.Web.WebPages.Deployment.xml
+D:\Workspace\Project-Manali\Manali\bin\System.Web.WebPages.Razor.xml
+D:\Workspace\Project-Manali\Manali\obj\Debug\Manali.csprojResolveAssemblyReference.cache
+D:\Workspace\Project-Manali\Manali\obj\Debug\Manali.dll
+D:\Workspace\Project-Manali\Manali\obj\Debug\Manali.pdb
