@@ -14,5 +14,10 @@ namespace Manali.Controllers
         {
             return View();
         }
+
+        public ActionResult CreateUser()
+        {
+            return View();
+        }
 	}
 }

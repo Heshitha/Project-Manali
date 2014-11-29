@@ -125,6 +125,7 @@
     <Content Include="css\metro-bootstrap.min.css" />
     <Content Include="css\SiteStyles.css" />
     <Content Include="Global.asax" />
+    <Content Include="Images\blank-profile-hi.png" />
     <Content Include="Images\ControlImages\tick-Ash.png" />
     <Content Include="Images\ControlImages\tick-Green.png" />
     <Content Include="Images\name.png" />
@@ -260,6 +261,7 @@
     <Content Include="Views\Quotation\_Quotation.cshtml" />
     <Content Include="Views\Quotation\Index.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
+    <Content Include="Views\User\CreateUser.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
