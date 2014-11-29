@@ -1,8 +1,20 @@
-﻿
+﻿$(document).ready(function () {
+    $("#txtConfirmPassword").keyup(checkPasswordMatch);
+});
+
+function checkPasswordMatch()
+{
+    var password = $("#txtPassword").val();
+    var confirmPassword = $("#txtConfirmPassword").val();
+
+    if (password != confirmPassword)
+        $("#spnCheckPasswordMatch").html("Passwords do not match!");
+    else
+        $("#spnCheckPasswordMatch").html("Passwords match.");
+}
 
 function SaveUser()
 {
-    debugger;
     var form_Data = new FormData();
     form_Data.append("Name", $("#txtFullName").val());
     form_Data.append("NIC", $("#txtNIC").val());
@@ -28,5 +40,7 @@ function SaveUser()
         error: function () {
         }
     });
+
+
 }
 
