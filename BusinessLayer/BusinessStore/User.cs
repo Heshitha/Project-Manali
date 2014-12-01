@@ -23,5 +23,10 @@ namespace BusinessLayer.BusinessStore
         {
             return DataAccessLayer.Datastore.UserDataStore.GetUserDetailsByID(userID);
         }
+
+        public static void UpdateUserDetails(UserDTO user)
+        {
+            DataAccessLayer.Datastore.UserDataStore.UpdateUserDetails(user);
+        }
     }
 }

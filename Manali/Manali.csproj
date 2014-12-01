@@ -168,6 +168,7 @@
     <Content Include="js\metro\metro-touch-handler.js" />
     <Content Include="js\metro\metro-treeview.js" />
     <Content Include="js\metro\metro-wizard.js" />
+    <None Include="Properties\PublishProfiles\ManaliPublishProfile.pubxml" />
     <None Include="Scripts\jquery-2.1.1.intellisense.js" />
     <Content Include="js\user.js" />
     <Content Include="Scripts\jquery-2.1.1.js" />
@@ -179,6 +180,10 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="SystemData\UserImages\Heshitha-thumb.jpg" />
+    <Content Include="SystemData\UserImages\Heshitha.jpg" />
+    <Content Include="SystemData\UserImages\lasanthika-thumb.JPG" />
+    <Content Include="SystemData\UserImages\lasanthika.JPG" />
     <Content Include="Web.config" />
     <Content Include="Scripts\jquery-2.1.1.min.map" />
     <Content Include="Views\Login\Index.cshtml" />
@@ -263,6 +268,9 @@
     <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\User\CreateUser.cshtml" />
     <Content Include="Views\User\UserList.cshtml" />
+    <Content Include="Views\Quotation\CreateQuotation.cshtml" />
+    <Content Include="Views\Quotation\QuotationList.cshtml" />
+    <Content Include="Views\Quotation\EditQuotation.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -273,7 +281,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="SystemData\UserImages\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BusinessLayer\BusinessLayer.csproj">

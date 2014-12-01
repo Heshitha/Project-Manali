@@ -1,0 +1,550 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit http://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>C:\Users\User\Desktop\Manalin</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="bin/BusinessLayer.dll">
+      <publishTime>11/30/2014 09:50:31</publishTime>
+    </File>
+    <File Include="bin/DataAccessLayer.dll">
+      <publishTime>11/30/2014 09:50:31</publishTime>
+    </File>
+    <File Include="bin/Manali.dll">
+      <publishTime>11/30/2014 10:07:50</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Web.Infrastructure.dll">
+      <publishTime>11/28/2014 19:34:58</publishTime>
+    </File>
+    <File Include="bin/ModelLayer.dll">
+      <publishTime>11/30/2014 09:50:31</publishTime>
+    </File>
+    <File Include="bin/System.Web.Helpers.dll">
+      <publishTime>11/28/2014 19:34:58</publishTime>
+    </File>
+    <File Include="bin/System.Web.Mvc.dll">
+      <publishTime>11/28/2014 19:34:58</publishTime>
+    </File>
+    <File Include="bin/System.Web.Razor.dll">
+      <publishTime>11/28/2014 19:34:58</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Deployment.dll">
+      <publishTime>11/28/2014 19:34:58</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.dll">
+      <publishTime>11/28/2014 19:34:58</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Razor.dll">
+      <publishTime>11/28/2014 19:34:58</publishTime>
+    </File>
+    <File Include="Content/themes/base/accordion.css">
+      <publishTime>11/26/2014 10:06:32</publishTime>
+    </File>
+    <File Include="Content/themes/base/all.css">
+      <publishTime>11/26/2014 10:06:32</publishTime>
+    </File>
+    <File Include="Content/themes/base/autocomplete.css">
+      <publishTime>11/26/2014 10:06:32</publishTime>
+    </File>
+    <File Include="Content/themes/base/base.css">
+      <publishTime>11/26/2014 10:06:32</publishTime>
+    </File>
+    <File Include="Content/themes/base/button.css">
+      <publishTime>11/26/2014 10:06:32</publishTime>
+    </File>
+    <File Include="Content/themes/base/core.css">
+      <publishTime>11/26/2014 10:06:32</publishTime>
+    </File>
+    <File Include="Content/themes/base/datepicker.css">
+      <publishTime>11/26/2014 10:06:32</publishTime>
+    </File>
+    <File Include="Content/themes/base/dialog.css">
+      <publishTime>11/26/2014 10:06:32</publishTime>
+    </File>
+    <File Include="Content/themes/base/draggable.css">
+      <publishTime>11/26/2014 10:06:32</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_flat_0_aaaaaa_40x100.png">
+      <publishTime>11/26/2014 10:06:32</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_flat_75_ffffff_40x100.png">
+      <publishTime>11/26/2014 10:06:32</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_glass_55_fbf9ee_1x400.png">
+      <publishTime>11/26/2014 10:06:32</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_glass_65_ffffff_1x400.png">
+      <publishTime>11/26/2014 10:06:32</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_glass_75_dadada_1x400.png">
+      <publishTime>11/26/2014 10:06:32</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_glass_75_e6e6e6_1x400.png">
+      <publishTime>11/26/2014 10:06:32</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_glass_95_fef1ec_1x400.png">
+      <publishTime>11/26/2014 10:06:32</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_highlight-soft_75_cccccc_1x100.png">
+      <publishTime>11/26/2014 10:06:32</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-icons_222222_256x240.png">
+      <publishTime>11/26/2014 10:06:32</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-icons_2e83ff_256x240.png">
+      <publishTime>11/26/2014 10:06:32</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-icons_454545_256x240.png">
+      <publishTime>11/26/2014 10:06:32</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-icons_888888_256x240.png">
+      <publishTime>11/26/2014 10:06:32</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-icons_cd0a0a_256x240.png">
+      <publishTime>11/26/2014 10:06:32</publishTime>
+    </File>
+    <File Include="Content/themes/base/menu.css">
+      <publishTime>11/26/2014 10:06:32</publishTime>
+    </File>
+    <File Include="Content/themes/base/progressbar.css">
+      <publishTime>11/26/2014 10:06:32</publishTime>
+    </File>
+    <File Include="Content/themes/base/resizable.css">
+      <publishTime>11/26/2014 10:06:32</publishTime>
+    </File>
+    <File Include="Content/themes/base/selectable.css">
+      <publishTime>11/26/2014 10:06:32</publishTime>
+    </File>
+    <File Include="Content/themes/base/selectmenu.css">
+      <publishTime>11/26/2014 10:06:32</publishTime>
+    </File>
+    <File Include="Content/themes/base/slider.css">
+      <publishTime>11/26/2014 10:06:32</publishTime>
+    </File>
+    <File Include="Content/themes/base/sortable.css">
+      <publishTime>11/26/2014 10:06:32</publishTime>
+    </File>
+    <File Include="Content/themes/base/spinner.css">
+      <publishTime>11/26/2014 10:06:32</publishTime>
+    </File>
+    <File Include="Content/themes/base/tabs.css">
+      <publishTime>11/26/2014 10:06:32</publishTime>
+    </File>
+    <File Include="Content/themes/base/theme.css">
+      <publishTime>11/26/2014 10:06:31</publishTime>
+    </File>
+    <File Include="Content/themes/base/tooltip.css">
+      <publishTime>11/26/2014 10:06:31</publishTime>
+    </File>
+    <File Include="css/iconFont.min.css">
+      <publishTime>11/26/2014 10:02:12</publishTime>
+    </File>
+    <File Include="css/metro-bootstrap-responsive.css">
+      <publishTime>11/26/2014 10:02:12</publishTime>
+    </File>
+    <File Include="css/metro-bootstrap-responsive.min.css">
+      <publishTime>11/26/2014 10:02:12</publishTime>
+    </File>
+    <File Include="css/metro-bootstrap.css">
+      <publishTime>11/26/2014 11:15:43</publishTime>
+    </File>
+    <File Include="css/metro-bootstrap.min.css">
+      <publishTime>11/26/2014 10:02:12</publishTime>
+    </File>
+    <File Include="css/SiteStyles.css">
+      <publishTime>11/29/2014 12:40:55</publishTime>
+    </File>
+    <File Include="fonts/iconFont.dev.svg">
+      <publishTime>11/26/2014 10:02:12</publishTime>
+    </File>
+    <File Include="fonts/iconFont.eot">
+      <publishTime>11/26/2014 10:02:12</publishTime>
+    </File>
+    <File Include="fonts/iconFont.json">
+      <publishTime>11/26/2014 10:02:12</publishTime>
+    </File>
+    <File Include="fonts/iconFont.svg">
+      <publishTime>11/26/2014 10:02:12</publishTime>
+    </File>
+    <File Include="fonts/iconFont.ttf">
+      <publishTime>11/26/2014 10:02:12</publishTime>
+    </File>
+    <File Include="fonts/iconFont.woff">
+      <publishTime>11/26/2014 10:02:12</publishTime>
+    </File>
+    <File Include="fonts/metroSysIcons.svg">
+      <publishTime>11/26/2014 10:02:12</publishTime>
+    </File>
+    <File Include="fonts/metroSysIcons.ttf">
+      <publishTime>11/26/2014 10:02:12</publishTime>
+    </File>
+    <File Include="fonts/metroSysIcons.woff">
+      <publishTime>11/26/2014 10:02:12</publishTime>
+    </File>
+    <File Include="Global.asax">
+      <publishTime>11/26/2014 09:58:38</publishTime>
+    </File>
+    <File Include="Images/ControlImages/tick-Ash.png">
+      <publishTime>11/29/2014 07:52:07</publishTime>
+    </File>
+    <File Include="Images/ControlImages/tick-Green.png">
+      <publishTime>11/28/2014 22:27:29</publishTime>
+    </File>
+    <File Include="Images/name.png">
+      <publishTime>11/26/2014 12:09:38</publishTime>
+    </File>
+    <File Include="Images/ProgressBarBackGround.gif">
+      <publishTime>11/26/2014 12:17:57</publishTime>
+    </File>
+    <File Include="Images/w1.jpg">
+      <publishTime>11/26/2014 12:07:29</publishTime>
+    </File>
+    <File Include="js/metro.min.js">
+      <publishTime>11/26/2014 10:02:12</publishTime>
+    </File>
+    <File Include="js/metro/metro-accordion.js">
+      <publishTime>11/26/2014 10:02:12</publishTime>
+    </File>
+    <File Include="js/metro/metro-button-set.js">
+      <publishTime>11/26/2014 10:02:12</publishTime>
+    </File>
+    <File Include="js/metro/metro-calendar.js">
+      <publishTime>11/26/2014 10:02:12</publishTime>
+    </File>
+    <File Include="js/metro/metro-carousel.js">
+      <publishTime>11/26/2014 10:02:12</publishTime>
+    </File>
+    <File Include="js/metro/metro-core.js">
+      <publishTime>11/26/2014 10:02:12</publishTime>
+    </File>
+    <File Include="js/metro/metro-countdown.js">
+      <publishTime>11/26/2014 10:02:12</publishTime>
+    </File>
+    <File Include="js/metro/metro-date-format.js">
+      <publishTime>11/26/2014 10:02:12</publishTime>
+    </File>
+    <File Include="js/metro/metro-datepicker.js">
+      <publishTime>11/26/2014 10:02:12</publishTime>
+    </File>
+    <File Include="js/metro/metro-dialog.js">
+      <publishTime>11/26/2014 10:02:12</publishTime>
+    </File>
+    <File Include="js/metro/metro-drag-tile.js">
+      <publishTime>11/26/2014 10:02:12</publishTime>
+    </File>
+    <File Include="js/metro/metro-dropdown.js">
+      <publishTime>11/26/2014 10:02:12</publishTime>
+    </File>
+    <File Include="js/metro/metro-fluentmenu.js">
+      <publishTime>11/26/2014 10:02:12</publishTime>
+    </File>
+    <File Include="js/metro/metro-global.js">
+      <publishTime>11/26/2014 10:02:12</publishTime>
+    </File>
+    <File Include="js/metro/metro-hint.js">
+      <publishTime>11/26/2014 10:02:12</publishTime>
+    </File>
+    <File Include="js/metro/metro-initiator.js">
+      <publishTime>11/26/2014 10:02:12</publishTime>
+    </File>
+    <File Include="js/metro/metro-input-control.js">
+      <publishTime>11/26/2014 10:02:12</publishTime>
+    </File>
+    <File Include="js/metro/metro-listview.js">
+      <publishTime>11/26/2014 10:02:12</publishTime>
+    </File>
+    <File Include="js/metro/metro-live-tile.js">
+      <publishTime>11/26/2014 10:02:12</publishTime>
+    </File>
+    <File Include="js/metro/metro-loader.js">
+      <publishTime>11/26/2014 10:02:12</publishTime>
+    </File>
+    <File Include="js/metro/metro-locale.js">
+      <publishTime>11/26/2014 10:02:12</publishTime>
+    </File>
+    <File Include="js/metro/metro-notify.js">
+      <publishTime>11/26/2014 10:02:12</publishTime>
+    </File>
+    <File Include="js/metro/metro-panel.js">
+      <publishTime>11/26/2014 10:02:12</publishTime>
+    </File>
+    <File Include="js/metro/metro-plugin-template.js">
+      <publishTime>11/26/2014 10:02:12</publishTime>
+    </File>
+    <File Include="js/metro/metro-progressbar.js">
+      <publishTime>11/26/2014 10:02:12</publishTime>
+    </File>
+    <File Include="js/metro/metro-pull.js">
+      <publishTime>11/26/2014 10:02:12</publishTime>
+    </File>
+    <File Include="js/metro/metro-rating.js">
+      <publishTime>11/26/2014 10:02:12</publishTime>
+    </File>
+    <File Include="js/metro/metro-scroll.js">
+      <publishTime>11/26/2014 10:02:12</publishTime>
+    </File>
+    <File Include="js/metro/metro-slider.js">
+      <publishTime>11/26/2014 10:02:12</publishTime>
+    </File>
+    <File Include="js/metro/metro-stepper.js">
+      <publishTime>11/26/2014 10:02:12</publishTime>
+    </File>
+    <File Include="js/metro/metro-streamer.js">
+      <publishTime>11/26/2014 10:02:12</publishTime>
+    </File>
+    <File Include="js/metro/metro-tab-control.js">
+      <publishTime>11/26/2014 10:02:12</publishTime>
+    </File>
+    <File Include="js/metro/metro-table.js">
+      <publishTime>11/26/2014 10:02:12</publishTime>
+    </File>
+    <File Include="js/metro/metro-tile-transform.js">
+      <publishTime>11/26/2014 10:02:12</publishTime>
+    </File>
+    <File Include="js/metro/metro-times.js">
+      <publishTime>11/26/2014 10:02:12</publishTime>
+    </File>
+    <File Include="js/metro/metro-touch-handler.js">
+      <publishTime>11/26/2014 10:02:12</publishTime>
+    </File>
+    <File Include="js/metro/metro-treeview.js">
+      <publishTime>11/26/2014 10:02:12</publishTime>
+    </File>
+    <File Include="js/metro/metro-wizard.js">
+      <publishTime>11/26/2014 10:02:12</publishTime>
+    </File>
+    <File Include="js/user.js">
+      <publishTime>11/29/2014 17:56:17</publishTime>
+    </File>
+    <File Include="less/accordion.less">
+      <publishTime>11/26/2014 10:02:12</publishTime>
+    </File>
+    <File Include="less/balloon.less">
+      <publishTime>11/26/2014 10:02:11</publishTime>
+    </File>
+    <File Include="less/breadcrumbs.less">
+      <publishTime>11/26/2014 10:02:11</publishTime>
+    </File>
+    <File Include="less/buttons.less">
+      <publishTime>11/26/2014 10:02:11</publishTime>
+    </File>
+    <File Include="less/calendar.less">
+      <publishTime>11/26/2014 10:02:11</publishTime>
+    </File>
+    <File Include="less/carousel.less">
+      <publishTime>11/26/2014 10:02:11</publishTime>
+    </File>
+    <File Include="less/colors.less">
+      <publishTime>11/26/2014 10:02:11</publishTime>
+    </File>
+    <File Include="less/countdown.less">
+      <publishTime>11/26/2014 10:02:11</publishTime>
+    </File>
+    <File Include="less/dataTables.less">
+      <publishTime>11/26/2014 10:02:11</publishTime>
+    </File>
+    <File Include="less/fluent-menu.less">
+      <publishTime>11/26/2014 10:02:11</publishTime>
+    </File>
+    <File Include="less/forms.less">
+      <publishTime>11/26/2014 10:02:11</publishTime>
+    </File>
+    <File Include="less/funcs.less">
+      <publishTime>11/26/2014 10:02:11</publishTime>
+    </File>
+    <File Include="less/grid.less">
+      <publishTime>11/26/2014 10:02:11</publishTime>
+    </File>
+    <File Include="less/hint.less">
+      <publishTime>11/26/2014 10:02:11</publishTime>
+    </File>
+    <File Include="less/iconFont-content.less">
+      <publishTime>11/26/2014 10:02:11</publishTime>
+    </File>
+    <File Include="less/iconFont.less">
+      <publishTime>11/26/2014 10:02:11</publishTime>
+    </File>
+    <File Include="less/icons.less">
+      <publishTime>11/26/2014 10:02:11</publishTime>
+    </File>
+    <File Include="less/images.less">
+      <publishTime>11/26/2014 10:02:11</publishTime>
+    </File>
+    <File Include="less/layout.less">
+      <publishTime>11/26/2014 10:02:11</publishTime>
+    </File>
+    <File Include="less/lists.less">
+      <publishTime>11/26/2014 10:02:11</publishTime>
+    </File>
+    <File Include="less/menus.less">
+      <publishTime>11/26/2014 10:02:11</publishTime>
+    </File>
+    <File Include="less/metro-bootstrap-responsive.less">
+      <publishTime>11/26/2014 10:02:11</publishTime>
+    </File>
+    <File Include="less/metro-bootstrap.less">
+      <publishTime>11/26/2014 10:02:11</publishTime>
+    </File>
+    <File Include="less/misc.less">
+      <publishTime>11/26/2014 10:02:11</publishTime>
+    </File>
+    <File Include="less/navigation-bar.less">
+      <publishTime>11/26/2014 10:02:11</publishTime>
+    </File>
+    <File Include="less/notice.less">
+      <publishTime>11/26/2014 10:02:11</publishTime>
+    </File>
+    <File Include="less/notify.less">
+      <publishTime>11/26/2014 10:02:11</publishTime>
+    </File>
+    <File Include="less/pagination.less">
+      <publishTime>11/26/2014 10:02:11</publishTime>
+    </File>
+    <File Include="less/panels.less">
+      <publishTime>11/26/2014 10:02:11</publishTime>
+    </File>
+    <File Include="less/progress-bar.less">
+      <publishTime>11/26/2014 10:02:11</publishTime>
+    </File>
+    <File Include="less/rating.less">
+      <publishTime>11/26/2014 10:02:11</publishTime>
+    </File>
+    <File Include="less/reset.less">
+      <publishTime>11/26/2014 10:02:11</publishTime>
+    </File>
+    <File Include="less/scroll.less">
+      <publishTime>11/26/2014 10:02:11</publishTime>
+    </File>
+    <File Include="less/sidebar.less">
+      <publishTime>11/26/2014 10:02:11</publishTime>
+    </File>
+    <File Include="less/slider.less">
+      <publishTime>11/26/2014 10:02:11</publishTime>
+    </File>
+    <File Include="less/stepper.less">
+      <publishTime>11/26/2014 10:02:11</publishTime>
+    </File>
+    <File Include="less/streamer.less">
+      <publishTime>11/26/2014 10:02:11</publishTime>
+    </File>
+    <File Include="less/tab-control.less">
+      <publishTime>11/26/2014 10:02:11</publishTime>
+    </File>
+    <File Include="less/tables.less">
+      <publishTime>11/26/2014 10:02:11</publishTime>
+    </File>
+    <File Include="less/tiles.less">
+      <publishTime>11/26/2014 10:02:11</publishTime>
+    </File>
+    <File Include="less/transform.less">
+      <publishTime>11/26/2014 10:02:11</publishTime>
+    </File>
+    <File Include="less/treeview.less">
+      <publishTime>11/26/2014 10:02:11</publishTime>
+    </File>
+    <File Include="less/typography.less">
+      <publishTime>11/26/2014 10:02:11</publishTime>
+    </File>
+    <File Include="less/utils.less">
+      <publishTime>11/26/2014 10:02:11</publishTime>
+    </File>
+    <File Include="less/variables.less">
+      <publishTime>11/26/2014 10:02:11</publishTime>
+    </File>
+    <File Include="less/window.less">
+      <publishTime>11/26/2014 10:02:11</publishTime>
+    </File>
+    <File Include="less/wizard.less">
+      <publishTime>11/26/2014 10:02:11</publishTime>
+    </File>
+    <File Include="packages.config">
+      <publishTime>11/28/2014 19:35:04</publishTime>
+    </File>
+    <File Include="Scripts/jquery-2.1.1.js">
+      <publishTime>11/26/2014 10:06:16</publishTime>
+    </File>
+    <File Include="Scripts/jquery-2.1.1.min.js">
+      <publishTime>11/26/2014 10:06:16</publishTime>
+    </File>
+    <File Include="Scripts/jquery-2.1.1.min.map">
+      <publishTime>11/26/2014 10:06:16</publishTime>
+    </File>
+    <File Include="Scripts/jquery-ui-1.11.2.js">
+      <publishTime>11/26/2014 10:06:31</publishTime>
+    </File>
+    <File Include="Scripts/jquery-ui-1.11.2.min.js">
+      <publishTime>11/26/2014 10:06:31</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.js">
+      <publishTime>11/26/2014 10:06:41</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.min.js">
+      <publishTime>11/26/2014 10:06:41</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.unobtrusive.js">
+      <publishTime>11/26/2014 10:10:02</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.unobtrusive.min.js">
+      <publishTime>11/26/2014 10:10:02</publishTime>
+    </File>
+    <File Include="SystemData/UserImages/Heshitha-thumb.jpg">
+      <publishTime>11/29/2014 15:19:32</publishTime>
+    </File>
+    <File Include="SystemData/UserImages/Heshitha.jpg">
+      <publishTime>11/29/2014 15:19:32</publishTime>
+    </File>
+    <File Include="SystemData/UserImages/lasanthika-thumb.JPG">
+      <publishTime>11/29/2014 17:56:50</publishTime>
+    </File>
+    <File Include="SystemData/UserImages/lasanthika.JPG">
+      <publishTime>11/29/2014 17:56:45</publishTime>
+    </File>
+    <File Include="Views/Home/Index.cshtml">
+      <publishTime>11/30/2014 09:58:20</publishTime>
+    </File>
+    <File Include="Views/Login/Index.cshtml">
+      <publishTime>11/30/2014 09:59:38</publishTime>
+    </File>
+    <File Include="Views/Quotation/CreateQuotation.cshtml">
+      <publishTime>11/30/2014 09:46:53</publishTime>
+    </File>
+    <File Include="Views/Quotation/EditQuotation.cshtml">
+      <publishTime>11/30/2014 00:13:29</publishTime>
+    </File>
+    <File Include="Views/Quotation/Index.cshtml">
+      <publishTime>11/29/2014 20:26:20</publishTime>
+    </File>
+    <File Include="Views/Quotation/QuotationList.cshtml">
+      <publishTime>11/29/2014 23:56:11</publishTime>
+    </File>
+    <File Include="Views/Quotation/_Quotation.cshtml">
+      <publishTime>11/28/2014 21:07:22</publishTime>
+    </File>
+    <File Include="Views/Shared/_LayoutMain.cshtml">
+      <publishTime>11/28/2014 21:25:14</publishTime>
+    </File>
+    <File Include="Views/Shared/_LayoutSub.cshtml">
+      <publishTime>11/29/2014 23:56:58</publishTime>
+    </File>
+    <File Include="Views/User/CreateUser.cshtml">
+      <publishTime>11/29/2014 17:10:24</publishTime>
+    </File>
+    <File Include="Views/User/Index.cshtml">
+      <publishTime>11/29/2014 12:40:55</publishTime>
+    </File>
+    <File Include="Views/User/UserList.cshtml">
+      <publishTime>11/29/2014 17:10:24</publishTime>
+    </File>
+    <File Include="Views/web.config">
+      <publishTime>11/26/2014 09:58:38</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>11/30/2014 09:50:32</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

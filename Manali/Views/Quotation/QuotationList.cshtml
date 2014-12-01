@@ -1,0 +1,25 @@
+﻿@model List<ModelLayer.QuotationDTO>
+
+@{
+    Layout = null;
+}
+
+<h3>Quotation List</h3>
+
+<div class="listview-outlook">
+
+    @foreach (ModelLayer.QuotationDTO item in Model)
+    {
+        <a href="javascript:GetContent('/Quotation/EditQuotation?quotationID=@item.QuotationID', '.mainContent');" class="list">
+            <div class="list-content">
+                <span class="list-title">@item.NameOfBride weds @item.NameOfGroom</span>
+                <span class="list-subtitle">@item.QuotationID</span>
+                <span class="list-remark">Wedding : @item.DateOfWedding.ToShortDateString()</span>
+                <span class="list-remark">Home coming : @item.DateOfHomecoming.ToShortDateString()</span>
+            </div>
+        </a>
+    }
+
+</div>
+
+<script src="~/js/metro/metro-listview.js"></script>

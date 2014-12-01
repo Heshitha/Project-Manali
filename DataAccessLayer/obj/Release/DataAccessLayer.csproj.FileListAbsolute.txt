@@ -1,0 +1,8 @@
+D:\Workspace\Champi Siriwardhana\Project-Manali\DataAccessLayer\bin\Release\DataAccessLayer.dll.config
+D:\Workspace\Champi Siriwardhana\Project-Manali\DataAccessLayer\bin\Release\DataAccessLayer.dll
+D:\Workspace\Champi Siriwardhana\Project-Manali\DataAccessLayer\bin\Release\DataAccessLayer.pdb
+D:\Workspace\Champi Siriwardhana\Project-Manali\DataAccessLayer\bin\Release\ModelLayer.dll
+D:\Workspace\Champi Siriwardhana\Project-Manali\DataAccessLayer\bin\Release\ModelLayer.pdb
+D:\Workspace\Champi Siriwardhana\Project-Manali\DataAccessLayer\obj\Release\DataAccessLayer.csprojResolveAssemblyReference.cache
+D:\Workspace\Champi Siriwardhana\Project-Manali\DataAccessLayer\obj\Release\DataAccessLayer.dll
+D:\Workspace\Champi Siriwardhana\Project-Manali\DataAccessLayer\obj\Release\DataAccessLayer.pdb

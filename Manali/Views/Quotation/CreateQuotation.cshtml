@@ -1,0 +1,185 @@
+﻿@model List<ModelLayer.QuotationItemDTO>
+
+@{
+    Layout = null;
+}
+
+<form>
+    <fieldset>
+        <legend>
+            Create Quotation
+        </legend>
+        <div class="fieldConteiner">
+            <div class="leftFieldSet">
+                <label>Date of Wedding</label>
+                <div class="input-control text datepicker" data-role="datepicker">
+                    <input type="text" placeholder="type wedding date" id="txtDateOfWedding" />
+                    <button class="btn-date" tabindex="-1" type="button"></button>
+                </div>
+                <label>Name of Bride</label>
+                <div class="input-control text" data-role="input-control">
+                    <input type="text" placeholder="type bride's name" id="txtBridesName"/>
+                </div>
+                <label>Address</label>
+                <div class="input-control text" data-role="input-control">
+                    <input type="text" placeholder="type address" id="txtBridesAddress"/>
+                </div>
+                <label>E Mail</label>
+                <div class="input-control email" data-role="input-control">
+                    <input type="email" placeholder="type email" id="txtBridesEmail"/>
+                </div>
+                <label>Contact No</label>
+                <div class="input-control tel" data-role="input-control">
+                    <input type="tel" placeholder="type contact no" id="txtBrideContactNo"/>
+                </div>
+            </div>
+            <div class="rightFieldSet">
+                <label>Date of Homecoming</label>
+                <div class="input-control text datepicker" data-role="datepicker">
+                    <input type="text" placeholder="type homecoming date" id="txtHomecomingDate"/>
+                    <button class="btn-date" tabindex="-1" type="button"></button>
+                </div>
+                <label>Name of Groom</label>
+                <div class="input-control text" data-role="input-control">
+                    <input type="text" placeholder="type groom's name" id="txtGroomsName"/>
+                </div>
+                <label>Address</label>
+                <div class="input-control text" data-role="input-control">
+                    <input type="text" placeholder="type address" id="txtGroomsAddress"/>
+                </div>
+                <label>Contact No</label>
+                <div class="input-control tel" data-role="input-control">
+                    <input type="tel" placeholder="type contact no" id="txtGroomsContactNo"/>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+</form>
+
+<br />
+
+<h3>Charges for Dressing</h3>
+
+<br />
+
+<table class="table bordered striped hovered">
+    <tbody class="">
+
+        @{
+            string mainCatagory = "";
+            string subCatagory = "";
+            
+            foreach (ModelLayer.QuotationItemDTO item in Model)
+            {
+                string[] splittedCatagory = item.ItemName.Split('|');
+                
+                <tr>
+                    @if(mainCatagory != splittedCatagory[0])
+                    {
+                        mainCatagory = splittedCatagory[0];
+                        <td>@mainCatagory</td>
+                    }
+                    else
+                    {
+                        <td></td>
+                    }
+                    @if (subCatagory != splittedCatagory[1])
+                    {
+                        subCatagory = splittedCatagory[1];
+                        <td>@subCatagory</td>
+                    }
+                    else
+                    {
+                        <td></td>
+                    }
+                    <td>@splittedCatagory[2]</td>
+                    <td style="text-align:right">@(item.Price)@(item.IsUpwards ? " Upwards" : ".00")</td>
+                    <td style="text-align:center">
+                        <img src="~/Images/ControlImages/tick-Ash.png" class="triggerRadioTick" />
+                        <input type="checkbox" class="checkItem" data-itemid="@(item.ItemID)" data-itemvalue="@(item.Price)" />
+                    </td>
+                </tr>
+                
+            }
+        }
+        
+    </tbody>
+</table>
+
+<label>Minimum Total Price</label>
+<div class="input-control text" data-role="input-control">
+    <input type="text" placeholder="Total Price" readonly id="totalPrice"/>
+</div>
+
+<br />
+
+<button class="large danger" type="button" id="btnSaveQuotation">Save Quotaion</button>
+
+<script src="~/js/metro/metro-table.js"></script>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        $('.datepicker').datepicker();
+
+        $('.triggerRadioTick').bind('click tap', function () {
+            $(this).siblings('.checkItem').click();
+        });
+
+        var selectedItems = '';
+
+        $('.checkItem').bind('change', function () {
+
+            if ($(this).is(':checked')) {
+                $(this).siblings('.triggerRadioTick').attr('src', '/Images/ControlImages/tick-Green.png');
+            }
+            else {
+                $(this).siblings('.triggerRadioTick').attr('src', '/Images/ControlImages/tick-Ash.png');
+            }
+
+            var totalPrice = 0;
+            selectedItems = '';
+
+            $('.checkItem:checked').each(function () {
+                var itemValue = Number($(this).attr('data-itemvalue'));
+                totalPrice += itemValue;
+
+                $('#totalPrice').val(totalPrice + ".00");
+                if (selectedItems == '') {
+                    selectedItems = $(this).attr('data-itemid');
+                }
+                else {
+                    selectedItems = $(this).attr('data-itemid') + ',' + selectedItems;
+                }
+            });
+
+            if ($('.checkItem:checked').length == 0) {
+                $('#totalPrice').val('');
+                selectedItems = '';
+            }
+        });
+
+        $('#btnSaveQuotation').bind('click tap', function () {
+            $.ajax({
+                url: '/Quotation/SaveQuotation',
+                type: 'POST',
+                data: JSON.stringify({
+                    DateOfWedding: $('#txtDateOfWedding').val(),
+                    DateOfHomecoming: $('#txtHomecomingDate').val(),
+                    NameOfBride: $('#txtBridesName').val(),
+                    BrideAddress: $('#txtBridesAddress').val(),
+                    BrideEmail: $('#txtBridesEmail').val(),
+                    BrideContactNo: $('#txtBrideContactNo').val(),
+                    NameOfGroom: $('#txtGroomsName').val(),
+                    GroomAddress: $('#txtGroomsAddress').val(),
+                    GroomContactNo: $('#txtGroomsContactNo').val(),
+                    selectedItems: selectedItems,
+                }),
+                contentType: 'application/json; charset=utf-8',
+                success: function () { alert('Successfully Saved') },
+                error: function () { alert('Error Occured') }
+            });
+        });
+    });
+
+</script>
+

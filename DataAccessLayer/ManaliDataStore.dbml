@@ -10,6 +10,53 @@
       <Column Name="Username" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
       <Column Name="Password" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
       <Column Name="Image" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Association Name="User_Quotation" Member="Quotations" ThisKey="UserID" OtherKey="CreatedBy" Type="Quotation" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Quotation" Member="Quotations">
+    <Type Name="Quotation">
+      <Column Name="QuotationID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DateOfWedding" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Bride" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="BrideAddress" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="BrideEmail" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="BrideContactNo" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="DateOfHomecoming" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Groom" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="GroomAddress" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="GroomContactNo" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Quotation_QuotationSelectedItem" Member="QuotationSelectedItems" ThisKey="QuotationID" OtherKey="QuotationID" Type="QuotationSelectedItem" />
+      <Association Name="User_Quotation" Member="User" ThisKey="CreatedBy" OtherKey="UserID" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.QutationItem" Member="QutationItems">
+    <Type Name="QutationItem">
+      <Column Name="ItemID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ItemName" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Association Name="QutationItem_QuotationItemPrice" Member="QuotationItemPrices" ThisKey="ItemID" OtherKey="ItemID" Type="QuotationItemPrice" />
+      <Association Name="QutationItem_QuotationSelectedItem" Member="QuotationSelectedItems" ThisKey="ItemID" OtherKey="ItemID" Type="QuotationSelectedItem" />
+    </Type>
+  </Table>
+  <Table Name="dbo.QuotationItemPrice" Member="QuotationItemPrices">
+    <Type Name="QuotationItemPrice">
+      <Column Name="QIPID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Price" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="isUpwards" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="StartingDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="EndDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="ItemID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="QutationItem_QuotationItemPrice" Member="QutationItem" ThisKey="ItemID" OtherKey="ItemID" Type="QutationItem" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.QuotationSelectedItem" Member="QuotationSelectedItems">
+    <Type Name="QuotationSelectedItem">
+      <Column Name="QSIID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="QuotationID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ItemID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Quotation_QuotationSelectedItem" Member="Quotation" ThisKey="QuotationID" OtherKey="QuotationID" Type="Quotation" IsForeignKey="true" />
+      <Association Name="QutationItem_QuotationSelectedItem" Member="QutationItem" ThisKey="ItemID" OtherKey="ItemID" Type="QutationItem" IsForeignKey="true" />
     </Type>
   </Table>
   <Function Name="dbo.Manali_CreateUser" Method="Manali_CreateUser">
@@ -46,5 +93,74 @@
       <Column Name="Name" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
       <Column Name="UserID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
     </ElementType>
+  </Function>
+  <Function Name="dbo.Manali_User_EditUserDetails" Method="Manali_User_EditUserDetails">
+    <Parameter Name="userID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="mobile" Type="System.String" DbType="VarChar(15)" />
+    <Parameter Name="userAddress" Type="System.String" DbType="VarChar(MAX)" />
+    <Parameter Name="password" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="imagePath" Type="System.String" DbType="VarChar(MAX)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.Manali_Quotation_GetQuotationItemPriceList" Method="Manali_Quotation_GetQuotationItemPriceList">
+    <ElementType Name="Manali_Quotation_GetQuotationItemPriceListResult">
+      <Column Name="ItemID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ItemName" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Price" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="isUpwards" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Manali_Quotation_SelectAQuotation" Method="Manali_Quotation_SelectAQuotation">
+    <Parameter Name="quotationID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="Manali_Quotation_SelectAQuotationResult">
+      <Column Name="QuotationID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DateOfWedding" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Bride" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="BrideAddress" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="BrideEmail" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="BrideContactNo" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="DateOfHomecoming" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Groom" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="GroomAddress" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="GroomContactNo" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Manali_Quotation_SelectQuotationSelectedItems" Method="Manali_Quotation_SelectQuotationSelectedItems">
+    <Parameter Name="quotationID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="Manali_Quotation_SelectQuotationSelectedItemsResult">
+      <Column Name="ItemID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Manali_Quotation_GetAllQuotation" Method="Manali_Quotation_GetAllQuotation">
+    <ElementType Name="Manali_Quotation_GetAllQuotationResult">
+      <Column Name="QuotationID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DateOfWedding" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Bride" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="BrideContactNo" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="DateOfHomecoming" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Groom" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="GroomAddress" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="GroomContactNo" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="BrideEmail" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="BrideAddress" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Manali_Quotation_SaveQuotation" Method="Manali_Quotation_SaveQuotation">
+    <Parameter Name="DateOfWedding" Parameter="dateOfWedding" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="Bride" Parameter="bride" Type="System.String" DbType="VarChar(MAX)" />
+    <Parameter Name="BrideAddress" Parameter="brideAddress" Type="System.String" DbType="VarChar(MAX)" />
+    <Parameter Name="BrideEmail" Parameter="brideEmail" Type="System.String" DbType="VarChar(MAX)" />
+    <Parameter Name="BrideContactNo" Parameter="brideContactNo" Type="System.String" DbType="VarChar(15)" />
+    <Parameter Name="DateOfHomecoming" Parameter="dateOfHomecoming" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="Groom" Parameter="groom" Type="System.String" DbType="VarChar(MAX)" />
+    <Parameter Name="GroomAddress" Parameter="groomAddress" Type="System.String" DbType="VarChar(MAX)" />
+    <Parameter Name="GroomContactNo" Parameter="groomContactNo" Type="System.String" DbType="VarChar(15)" />
+    <Parameter Name="SelectedItems" Parameter="selectedItems" Type="System.String" DbType="VarChar(MAX)" />
+    <Parameter Name="CreatedBy" Parameter="createdBy" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
   </Function>
 </Database>

@@ -1,0 +1,36 @@
+﻿@model List<ModelLayer.UserDTO>
+
+
+@{
+    Layout = null;
+}
+
+<h3>User List</h3>
+
+<div class="listview-outlook">
+
+    @foreach (ModelLayer.UserDTO item in Model)
+{
+    <a href="javascript:GetContent('/User/CreateUser?uid=@item.userID', '.mainContent');" class="list">
+        <div class="list-content">
+            <span class="list-icon">
+
+                @{
+    if (item.ImagePath != "/Images/blank-profile-hi.png")
+    {
+        item.ImagePath = "/SystemData/UserImages/" + item.Username + "-thumb" + Path.GetExtension(item.ImagePath);
+    }
+                }
+
+                <img src="@item.ImagePath" />
+            </span>
+            <span class="list-title">@item.Name</span>
+            <span class="list-subtitle">#@item.Username</span>
+            <span class="list-remark">@item.Mobile - @item.Address</span>
+        </div>
+    </a>
+}
+
+</div>
+
+<script src="~/js/metro/metro-listview.js"></script>

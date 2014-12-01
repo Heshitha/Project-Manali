@@ -1,0 +1,172 @@
+﻿@model List<ModelLayer.QuotationItemDTO>
+
+@{
+    Layout = null;
+
+    ModelLayer.QuotationDTO quotation = ViewBag.Quotation;
+    
+}
+
+<form>
+    <fieldset>
+        <legend>
+            Edit Quotation
+        </legend>
+        <div class="fieldConteiner">
+            <div class="leftFieldSet">
+                <label>Date of Wedding</label>
+                <div class="input-control text datepicker" data-role="datepicker">
+                    <input type="text" placeholder="type wedding date" value="@quotation.DateOfWedding.ToLongDateString()"/>
+                    <button class="btn-date" tabindex="-1" type="button"></button>
+                </div>
+                <label>Name of Bride</label>
+                <div class="input-control text" data-role="input-control">
+                    <input type="text" placeholder="type bride's name" value="@quotation.NameOfBride" />
+                </div>
+                <label>Address</label>
+                <div class="input-control text" data-role="input-control">
+                    <input type="text" placeholder="type address" value="@quotation.BrideAddress" />
+                </div>
+                <label>E Mail</label>
+                <div class="input-control email" data-role="input-control">
+                    <input type="email" placeholder="type email" value="@quotation.BrideEmail" />
+                </div>
+                <label>Contact No</label>
+                <div class="input-control tel" data-role="input-control">
+                    <input type="tel" placeholder="type contact no" value="@quotation.BrideContactNo" />
+                </div>
+            </div>
+            <div class="rightFieldSet">
+                <label>Date of Homecoming</label>
+                <div class="input-control text datepicker" data-role="datepicker">
+                    <input type="text" placeholder="type homecoming date" value="@quotation.DateOfHomecoming.ToLongDateString()" />
+                    <button class="btn-date" tabindex="-1" type="button"></button>
+                </div>
+                <label>Name of Groom</label>
+                <div class="input-control text" data-role="input-control">
+                    <input type="text" placeholder="type groom's name" value="@quotation.NameOfGroom" />
+                </div>
+                <label>Address</label>
+                <div class="input-control text" data-role="input-control">
+                    <input type="text" placeholder="type address" value="@quotation.GroomAddress" />
+                </div>
+                <label>Contact No</label>
+                <div class="input-control tel" data-role="input-control">
+                    <input type="tel" placeholder="type contact no" value="@quotation.GroomContactNo" />
+                </div>
+            </div>
+        </div>
+    </fieldset>
+</form>
+
+<br />
+
+<h3>Charges for Dressing</h3>
+
+<br />
+
+<table class="table bordered striped hovered">
+    <tbody class="">
+
+        @{
+            string mainCatagory = "";
+            string subCatagory = "";
+
+            foreach (ModelLayer.QuotationItemDTO item in Model)
+            {
+                bool isSelected = false;
+                if (quotation.SelectedItem.Where(e => e.ItemID == item.ItemID).SingleOrDefault() != null)
+                {
+                    isSelected = true;
+                }
+                
+                string[] splittedCatagory = item.ItemName.Split('|');
+
+                <tr>
+                    @if (mainCatagory != splittedCatagory[0])
+                    {
+                        mainCatagory = splittedCatagory[0];
+                        <td>@mainCatagory</td>
+                    }
+                    else
+                    {
+                        <td></td>
+                    }
+                    @if (subCatagory != splittedCatagory[1])
+                    {
+                        subCatagory = splittedCatagory[1];
+                        <td>@subCatagory</td>
+                    }
+                    else
+                    {
+                        <td></td>
+                    }
+                    <td>@splittedCatagory[2]</td>
+                    <td style="text-align:right">@(item.Price)@(item.IsUpwards ? " Upwards" : ".00")</td>
+                    <td style="text-align:center">
+                        <img src="~/Images/ControlImages/tick-@(isSelected ? "Green" : "Ash").png" class="triggerRadioTick" />
+                        <input type="checkbox" @(isSelected ? "checked" : "") class="checkItem" data-itemid="@(item.ItemID)" data-itemvalue="@(item.Price)" />
+                    </td>
+                </tr>
+
+            }
+        }
+
+    </tbody>
+</table>
+
+<label>Minimum Total Price</label>
+<div class="input-control text" data-role="input-control">
+    <input type="text" placeholder="Total Price" readonly id="totalPrice" />
+</div>
+
+<br />
+
+<button class="large danger" type="button" id="btnSaveQuotation">Save Quotaion</button>
+
+<script src="~/js/metro/metro-table.js"></script>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        $('.datepicker').datepicker();
+
+        $('.triggerRadioTick').bind('click tap', function () {
+            $(this).siblings('.checkItem').click();
+        });
+
+        var totalPrice = 0;
+
+        $('.checkItem:checked').each(function () {
+            var itemValue = Number($(this).attr('data-itemvalue'));
+            totalPrice += itemValue;
+
+            $('#totalPrice').val(totalPrice + ".00");
+        });
+
+        $('.checkItem').bind('change', function () {
+
+            if ($(this).is(':checked')) {
+                $(this).siblings('.triggerRadioTick').attr('src', '/Images/ControlImages/tick-Green.png');
+            }
+            else {
+                $(this).siblings('.triggerRadioTick').attr('src', '/Images/ControlImages/tick-Ash.png');
+            }
+
+            totalPrice = 0;
+
+            $('.checkItem:checked').each(function () {
+                var itemValue = Number($(this).attr('data-itemvalue'));
+                totalPrice += itemValue;
+
+                $('#totalPrice').val(totalPrice + ".00");
+            });
+
+            if ($('.checkItem:checked').length == 0) {
+                $('#totalPrice').val('');
+            }
+        });
+
+    });
+
+</script>
+

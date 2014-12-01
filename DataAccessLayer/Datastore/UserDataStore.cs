@@ -89,5 +89,17 @@ namespace DataAccessLayer.Datastore
                 throw;
             }
         }
+
+        public static void UpdateUserDetails(UserDTO user)
+        {
+            try
+            {
+                userDB.Manali_User_EditUserDetails(user.userID, user.Mobile, user.Address, user.Password, user.ImagePath);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }

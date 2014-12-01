@@ -1,0 +1,9 @@
+D:\Workspace\Champi Siriwardhana\Project-Manali\BusinessLayer\bin\Release\BusinessLayer.dll
+D:\Workspace\Champi Siriwardhana\Project-Manali\BusinessLayer\bin\Release\BusinessLayer.pdb
+D:\Workspace\Champi Siriwardhana\Project-Manali\BusinessLayer\bin\Release\DataAccessLayer.dll
+D:\Workspace\Champi Siriwardhana\Project-Manali\BusinessLayer\bin\Release\ModelLayer.dll
+D:\Workspace\Champi Siriwardhana\Project-Manali\BusinessLayer\bin\Release\DataAccessLayer.pdb
+D:\Workspace\Champi Siriwardhana\Project-Manali\BusinessLayer\bin\Release\ModelLayer.pdb
+D:\Workspace\Champi Siriwardhana\Project-Manali\BusinessLayer\obj\Release\BusinessLayer.csprojResolveAssemblyReference.cache
+D:\Workspace\Champi Siriwardhana\Project-Manali\BusinessLayer\obj\Release\BusinessLayer.dll
+D:\Workspace\Champi Siriwardhana\Project-Manali\BusinessLayer\obj\Release\BusinessLayer.pdb

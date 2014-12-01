@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="ManaliDataStore">
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 9.375" name="ManaliDataStore">
   <DataContextMoniker Name="/ManaliDataStoreDataContext" />
   <nestedChildShapes>
     <classShape Id="be9844c0-0d1f-469d-ae0e-efcb5e2be49e" absoluteBounds="1.5, 1.375, 2, 2.3478011067708335">
@@ -8,5 +8,57 @@
         <elementListCompartment Id="26c48b49-c8e4-4c85-a854-6eca56ddbef3" absoluteBounds="1.5150000000000001, 1.835, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
+    <classShape Id="84eaa85a-9414-483a-bc8c-a6356c9d24f6" absoluteBounds="4.375, 6, 2, 3.1170068359375005">
+      <DataClassMoniker Name="/ManaliDataStoreDataContext/Quotation" />
+      <nestedChildShapes>
+        <elementListCompartment Id="356bda19-0411-4291-af89-67fcdd4ecff0" absoluteBounds="4.39, 6.46, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="23cdd002-b45b-4e2e-bd4e-6828c454a01d" absoluteBounds="4.375, 2.5, 2, 1.1939925130208335">
+      <DataClassMoniker Name="/ManaliDataStoreDataContext/QutationItem" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3bd7ac56-528b-40e5-9e6b-d4c159b9fb8d" absoluteBounds="4.39, 2.96, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2e81f7f8-dc86-4b04-b96b-f528b29b2285" absoluteBounds="7.125, 4.25, 2, 1.9631982421875005">
+      <DataClassMoniker Name="/ManaliDataStoreDataContext/QuotationItemPrice" />
+      <nestedChildShapes>
+        <elementListCompartment Id="eb6a8bb5-264e-4203-99f8-4e6834be86c9" absoluteBounds="7.14, 4.71, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a7a963ef-6834-4ce7-85cf-d6c5a63d2266" absoluteBounds="7.125, 1.375, 2, 1.3862939453124998">
+      <DataClassMoniker Name="/ManaliDataStoreDataContext/QuotationSelectedItem" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2d965eda-3819-434a-acea-749880aec259" absoluteBounds="7.14, 1.835, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.5 : 3.72280110677083); (2.5 : 7.55850341796875); (4.375 : 7.55850341796875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/ManaliDataStoreDataContext/User/User_Quotation" />
+      <nodes>
+        <classShapeMoniker Id="be9844c0-0d1f-469d-ae0e-efcb5e2be49e" />
+        <classShapeMoniker Id="84eaa85a-9414-483a-bc8c-a6356c9d24f6" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(6.375 : 3.69307305724159); (6.75 : 4.06807305724159); (6.75 : 3.875); (7.125 : 4.25)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/ManaliDataStoreDataContext/QutationItem/QutationItem_QuotationItemPrice" />
+      <nodes>
+        <classShapeMoniker Id="23cdd002-b45b-4e2e-bd4e-6828c454a01d" />
+        <classShapeMoniker Id="2e81f7f8-dc86-4b04-b96b-f528b29b2285" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(6.375 : 6.06153746153846); (6.9375 : 5.49903746153846); (6.9375 : 2.06814697265625); (7.125 : 2.06814697265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/ManaliDataStoreDataContext/Quotation/Quotation_QuotationSelectedItem" />
+      <nodes>
+        <classShapeMoniker Id="84eaa85a-9414-483a-bc8c-a6356c9d24f6" />
+        <classShapeMoniker Id="a7a963ef-6834-4ce7-85cf-d6c5a63d2266" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(6.375 : 2.63064697265625); (6.85416666666667 : 2.63064697265625 : JumpStart); (7.02083333333333 : 2.63064697265625 : JumpEnd); (7.125 : 2.63064697265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/ManaliDataStoreDataContext/QutationItem/QutationItem_QuotationSelectedItem" />
+      <nodes>
+        <classShapeMoniker Id="23cdd002-b45b-4e2e-bd4e-6828c454a01d" />
+        <classShapeMoniker Id="a7a963ef-6834-4ce7-85cf-d6c5a63d2266" />
+      </nodes>
+    </associationConnector>
   </nestedChildShapes>
 </ordesignerObjectsDiagram>

@@ -62,10 +62,27 @@ namespace Manali.Controllers
             return View(lstUsers);
         }
 
-        public ActionResult EditUser(int uid = 0)
+        public JsonResult EditUser(UserDTO userDTO, HttpPostedFileBase file = null)
         {
-            UserDTO userDetails = BusinessLayer.BusinessStore.User.GetUserDetailsByID(uid);
-            return View(userDetails);
+            if (file != null && file.ContentLength > 0)
+            {
+                string path = Path.Combine(Server.MapPath("~/SystemData/UserImages"), userDTO.Username + Path.GetExtension(file.FileName));
+                file.SaveAs(path);
+                Bitmap img = new Bitmap(file.InputStream);
+                var imageHeight = Convert.ToInt32(((350.0 / img.Width) * img.Height));
+
+                Stream imagestream = GetResizedImageStream(file.InputStream, 0, 0, 160, 160, 350, imageHeight);
+                Image image = Image.FromStream(imagestream);
+                path = Path.Combine(Server.MapPath("~/SystemData/UserImages"), userDTO.Username + "-thumb" + Path.GetExtension(file.FileName));
+                image.Save(path, System.Drawing.Imaging.ImageFormat.Jpeg);
+                userDTO.ImagePath = "/SystemData/UserImages/" + userDTO.Username + Path.GetExtension(file.FileName);
+            }
+            else
+            {
+                userDTO.ImagePath = "";
+            }
+            BusinessLayer.BusinessStore.User.UpdateUserDetails(userDTO);
+            return Json(true, JsonRequestBehavior.AllowGet);
         }
     
         public static Stream GetResizedImageStream(Stream inputStream, int x, int y, int w, int h, int orgWidth, int orgHeight)

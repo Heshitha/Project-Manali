@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusinessStore\Quotation.cs" />
     <Compile Include="BusinessStore\User.cs" />
     <Compile Include="BusinessStore\UtilityMethods.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

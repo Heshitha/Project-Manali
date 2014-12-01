@@ -33,6 +33,18 @@ namespace DataAccessLayer
     partial void InsertUser(User instance);
     partial void UpdateUser(User instance);
     partial void DeleteUser(User instance);
+    partial void InsertQuotation(Quotation instance);
+    partial void UpdateQuotation(Quotation instance);
+    partial void DeleteQuotation(Quotation instance);
+    partial void InsertQutationItem(QutationItem instance);
+    partial void UpdateQutationItem(QutationItem instance);
+    partial void DeleteQutationItem(QutationItem instance);
+    partial void InsertQuotationItemPrice(QuotationItemPrice instance);
+    partial void UpdateQuotationItemPrice(QuotationItemPrice instance);
+    partial void DeleteQuotationItemPrice(QuotationItemPrice instance);
+    partial void InsertQuotationSelectedItem(QuotationSelectedItem instance);
+    partial void UpdateQuotationSelectedItem(QuotationSelectedItem instance);
+    partial void DeleteQuotationSelectedItem(QuotationSelectedItem instance);
     #endregion
 		
 		public ManaliDataStoreDataContext() : 
@@ -73,6 +85,38 @@ namespace DataAccessLayer
 			}
 		}
 		
+		public System.Data.Linq.Table<Quotation> Quotations
+		{
+			get
+			{
+				return this.GetTable<Quotation>();
+			}
+		}
+		
+		public System.Data.Linq.Table<QutationItem> QutationItems
+		{
+			get
+			{
+				return this.GetTable<QutationItem>();
+			}
+		}
+		
+		public System.Data.Linq.Table<QuotationItemPrice> QuotationItemPrices
+		{
+			get
+			{
+				return this.GetTable<QuotationItemPrice>();
+			}
+		}
+		
+		public System.Data.Linq.Table<QuotationSelectedItem> QuotationSelectedItems
+		{
+			get
+			{
+				return this.GetTable<QuotationSelectedItem>();
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.Manali_CreateUser")]
 		public ISingleResult<Manali_CreateUserResult> Manali_CreateUser([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(MAX)")] string name, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(10)")] string nic, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(15)")] string mobile, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(MAX)")] string userAddress, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(20)")] string username, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(20)")] string password, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(MAX)")] string imagePath)
 		{
@@ -92,6 +136,48 @@ namespace DataAccessLayer
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), userId);
 			return ((ISingleResult<Manali_User_SelectAUserResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.Manali_User_EditUserDetails")]
+		public int Manali_User_EditUserDetails([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> userID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(15)")] string mobile, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(MAX)")] string userAddress, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(20)")] string password, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(MAX)")] string imagePath)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), userID, mobile, userAddress, password, imagePath);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.Manali_Quotation_GetQuotationItemPriceList")]
+		public ISingleResult<Manali_Quotation_GetQuotationItemPriceListResult> Manali_Quotation_GetQuotationItemPriceList()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<Manali_Quotation_GetQuotationItemPriceListResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.Manali_Quotation_SelectAQuotation")]
+		public ISingleResult<Manali_Quotation_SelectAQuotationResult> Manali_Quotation_SelectAQuotation([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> quotationID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), quotationID);
+			return ((ISingleResult<Manali_Quotation_SelectAQuotationResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.Manali_Quotation_SelectQuotationSelectedItems")]
+		public ISingleResult<Manali_Quotation_SelectQuotationSelectedItemsResult> Manali_Quotation_SelectQuotationSelectedItems([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> quotationID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), quotationID);
+			return ((ISingleResult<Manali_Quotation_SelectQuotationSelectedItemsResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.Manali_Quotation_GetAllQuotation")]
+		public ISingleResult<Manali_Quotation_GetAllQuotationResult> Manali_Quotation_GetAllQuotation()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<Manali_Quotation_GetAllQuotationResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.Manali_Quotation_SaveQuotation")]
+		public int Manali_Quotation_SaveQuotation([global::System.Data.Linq.Mapping.ParameterAttribute(Name="DateOfWedding", DbType="Date")] System.Nullable<System.DateTime> dateOfWedding, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Bride", DbType="VarChar(MAX)")] string bride, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="BrideAddress", DbType="VarChar(MAX)")] string brideAddress, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="BrideEmail", DbType="VarChar(MAX)")] string brideEmail, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="BrideContactNo", DbType="VarChar(15)")] string brideContactNo, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DateOfHomecoming", DbType="Date")] System.Nullable<System.DateTime> dateOfHomecoming, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Groom", DbType="VarChar(MAX)")] string groom, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="GroomAddress", DbType="VarChar(MAX)")] string groomAddress, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="GroomContactNo", DbType="VarChar(15)")] string groomContactNo, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SelectedItems", DbType="VarChar(MAX)")] string selectedItems, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CreatedBy", DbType="Int")] System.Nullable<int> createdBy)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), dateOfWedding, bride, brideAddress, brideEmail, brideContactNo, dateOfHomecoming, groom, groomAddress, groomContactNo, selectedItems, createdBy);
+			return ((int)(result.ReturnValue));
 		}
 	}
 	
@@ -117,6 +203,8 @@ namespace DataAccessLayer
 		
 		private string _Image;
 		
+		private EntitySet<Quotation> _Quotations;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -141,6 +229,7 @@ namespace DataAccessLayer
 		
 		public User()
 		{
+			this._Quotations = new EntitySet<Quotation>(new Action<Quotation>(this.attach_Quotations), new Action<Quotation>(this.detach_Quotations));
 			OnCreated();
 		}
 		
@@ -300,6 +389,983 @@ namespace DataAccessLayer
 					this._Image = value;
 					this.SendPropertyChanged("Image");
 					this.OnImageChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_Quotation", Storage="_Quotations", ThisKey="UserID", OtherKey="CreatedBy")]
+		public EntitySet<Quotation> Quotations
+		{
+			get
+			{
+				return this._Quotations;
+			}
+			set
+			{
+				this._Quotations.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Quotations(Quotation entity)
+		{
+			this.SendPropertyChanging();
+			entity.User = this;
+		}
+		
+		private void detach_Quotations(Quotation entity)
+		{
+			this.SendPropertyChanging();
+			entity.User = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Quotation")]
+	public partial class Quotation : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _QuotationID;
+		
+		private System.Nullable<System.DateTime> _DateOfWedding;
+		
+		private string _Bride;
+		
+		private string _BrideAddress;
+		
+		private string _BrideEmail;
+		
+		private string _BrideContactNo;
+		
+		private System.Nullable<System.DateTime> _DateOfHomecoming;
+		
+		private string _Groom;
+		
+		private string _GroomAddress;
+		
+		private string _GroomContactNo;
+		
+		private System.Nullable<int> _CreatedBy;
+		
+		private System.Nullable<System.DateTime> _CreatedDate;
+		
+		private EntitySet<QuotationSelectedItem> _QuotationSelectedItems;
+		
+		private EntityRef<User> _User;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnQuotationIDChanging(int value);
+    partial void OnQuotationIDChanged();
+    partial void OnDateOfWeddingChanging(System.Nullable<System.DateTime> value);
+    partial void OnDateOfWeddingChanged();
+    partial void OnBrideChanging(string value);
+    partial void OnBrideChanged();
+    partial void OnBrideAddressChanging(string value);
+    partial void OnBrideAddressChanged();
+    partial void OnBrideEmailChanging(string value);
+    partial void OnBrideEmailChanged();
+    partial void OnBrideContactNoChanging(string value);
+    partial void OnBrideContactNoChanged();
+    partial void OnDateOfHomecomingChanging(System.Nullable<System.DateTime> value);
+    partial void OnDateOfHomecomingChanged();
+    partial void OnGroomChanging(string value);
+    partial void OnGroomChanged();
+    partial void OnGroomAddressChanging(string value);
+    partial void OnGroomAddressChanged();
+    partial void OnGroomContactNoChanging(string value);
+    partial void OnGroomContactNoChanged();
+    partial void OnCreatedByChanging(System.Nullable<int> value);
+    partial void OnCreatedByChanged();
+    partial void OnCreatedDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnCreatedDateChanged();
+    #endregion
+		
+		public Quotation()
+		{
+			this._QuotationSelectedItems = new EntitySet<QuotationSelectedItem>(new Action<QuotationSelectedItem>(this.attach_QuotationSelectedItems), new Action<QuotationSelectedItem>(this.detach_QuotationSelectedItems));
+			this._User = default(EntityRef<User>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_QuotationID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int QuotationID
+		{
+			get
+			{
+				return this._QuotationID;
+			}
+			set
+			{
+				if ((this._QuotationID != value))
+				{
+					this.OnQuotationIDChanging(value);
+					this.SendPropertyChanging();
+					this._QuotationID = value;
+					this.SendPropertyChanged("QuotationID");
+					this.OnQuotationIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateOfWedding", DbType="Date")]
+		public System.Nullable<System.DateTime> DateOfWedding
+		{
+			get
+			{
+				return this._DateOfWedding;
+			}
+			set
+			{
+				if ((this._DateOfWedding != value))
+				{
+					this.OnDateOfWeddingChanging(value);
+					this.SendPropertyChanging();
+					this._DateOfWedding = value;
+					this.SendPropertyChanged("DateOfWedding");
+					this.OnDateOfWeddingChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Bride", DbType="VarChar(MAX)")]
+		public string Bride
+		{
+			get
+			{
+				return this._Bride;
+			}
+			set
+			{
+				if ((this._Bride != value))
+				{
+					this.OnBrideChanging(value);
+					this.SendPropertyChanging();
+					this._Bride = value;
+					this.SendPropertyChanged("Bride");
+					this.OnBrideChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BrideAddress", DbType="VarChar(MAX)")]
+		public string BrideAddress
+		{
+			get
+			{
+				return this._BrideAddress;
+			}
+			set
+			{
+				if ((this._BrideAddress != value))
+				{
+					this.OnBrideAddressChanging(value);
+					this.SendPropertyChanging();
+					this._BrideAddress = value;
+					this.SendPropertyChanged("BrideAddress");
+					this.OnBrideAddressChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BrideEmail", DbType="VarChar(MAX)")]
+		public string BrideEmail
+		{
+			get
+			{
+				return this._BrideEmail;
+			}
+			set
+			{
+				if ((this._BrideEmail != value))
+				{
+					this.OnBrideEmailChanging(value);
+					this.SendPropertyChanging();
+					this._BrideEmail = value;
+					this.SendPropertyChanged("BrideEmail");
+					this.OnBrideEmailChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BrideContactNo", DbType="VarChar(15)")]
+		public string BrideContactNo
+		{
+			get
+			{
+				return this._BrideContactNo;
+			}
+			set
+			{
+				if ((this._BrideContactNo != value))
+				{
+					this.OnBrideContactNoChanging(value);
+					this.SendPropertyChanging();
+					this._BrideContactNo = value;
+					this.SendPropertyChanged("BrideContactNo");
+					this.OnBrideContactNoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateOfHomecoming", DbType="Date")]
+		public System.Nullable<System.DateTime> DateOfHomecoming
+		{
+			get
+			{
+				return this._DateOfHomecoming;
+			}
+			set
+			{
+				if ((this._DateOfHomecoming != value))
+				{
+					this.OnDateOfHomecomingChanging(value);
+					this.SendPropertyChanging();
+					this._DateOfHomecoming = value;
+					this.SendPropertyChanged("DateOfHomecoming");
+					this.OnDateOfHomecomingChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Groom", DbType="VarChar(MAX)")]
+		public string Groom
+		{
+			get
+			{
+				return this._Groom;
+			}
+			set
+			{
+				if ((this._Groom != value))
+				{
+					this.OnGroomChanging(value);
+					this.SendPropertyChanging();
+					this._Groom = value;
+					this.SendPropertyChanged("Groom");
+					this.OnGroomChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GroomAddress", DbType="VarChar(MAX)")]
+		public string GroomAddress
+		{
+			get
+			{
+				return this._GroomAddress;
+			}
+			set
+			{
+				if ((this._GroomAddress != value))
+				{
+					this.OnGroomAddressChanging(value);
+					this.SendPropertyChanging();
+					this._GroomAddress = value;
+					this.SendPropertyChanged("GroomAddress");
+					this.OnGroomAddressChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GroomContactNo", DbType="VarChar(15)")]
+		public string GroomContactNo
+		{
+			get
+			{
+				return this._GroomContactNo;
+			}
+			set
+			{
+				if ((this._GroomContactNo != value))
+				{
+					this.OnGroomContactNoChanging(value);
+					this.SendPropertyChanging();
+					this._GroomContactNo = value;
+					this.SendPropertyChanged("GroomContactNo");
+					this.OnGroomContactNoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedBy", DbType="Int")]
+		public System.Nullable<int> CreatedBy
+		{
+			get
+			{
+				return this._CreatedBy;
+			}
+			set
+			{
+				if ((this._CreatedBy != value))
+				{
+					if (this._User.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnCreatedByChanging(value);
+					this.SendPropertyChanging();
+					this._CreatedBy = value;
+					this.SendPropertyChanged("CreatedBy");
+					this.OnCreatedByChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedDate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> CreatedDate
+		{
+			get
+			{
+				return this._CreatedDate;
+			}
+			set
+			{
+				if ((this._CreatedDate != value))
+				{
+					this.OnCreatedDateChanging(value);
+					this.SendPropertyChanging();
+					this._CreatedDate = value;
+					this.SendPropertyChanged("CreatedDate");
+					this.OnCreatedDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Quotation_QuotationSelectedItem", Storage="_QuotationSelectedItems", ThisKey="QuotationID", OtherKey="QuotationID")]
+		public EntitySet<QuotationSelectedItem> QuotationSelectedItems
+		{
+			get
+			{
+				return this._QuotationSelectedItems;
+			}
+			set
+			{
+				this._QuotationSelectedItems.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_Quotation", Storage="_User", ThisKey="CreatedBy", OtherKey="UserID", IsForeignKey=true)]
+		public User User
+		{
+			get
+			{
+				return this._User.Entity;
+			}
+			set
+			{
+				User previousValue = this._User.Entity;
+				if (((previousValue != value) 
+							|| (this._User.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._User.Entity = null;
+						previousValue.Quotations.Remove(this);
+					}
+					this._User.Entity = value;
+					if ((value != null))
+					{
+						value.Quotations.Add(this);
+						this._CreatedBy = value.UserID;
+					}
+					else
+					{
+						this._CreatedBy = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("User");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_QuotationSelectedItems(QuotationSelectedItem entity)
+		{
+			this.SendPropertyChanging();
+			entity.Quotation = this;
+		}
+		
+		private void detach_QuotationSelectedItems(QuotationSelectedItem entity)
+		{
+			this.SendPropertyChanging();
+			entity.Quotation = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.QutationItem")]
+	public partial class QutationItem : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ItemID;
+		
+		private string _ItemName;
+		
+		private EntitySet<QuotationItemPrice> _QuotationItemPrices;
+		
+		private EntitySet<QuotationSelectedItem> _QuotationSelectedItems;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnItemIDChanging(int value);
+    partial void OnItemIDChanged();
+    partial void OnItemNameChanging(string value);
+    partial void OnItemNameChanged();
+    #endregion
+		
+		public QutationItem()
+		{
+			this._QuotationItemPrices = new EntitySet<QuotationItemPrice>(new Action<QuotationItemPrice>(this.attach_QuotationItemPrices), new Action<QuotationItemPrice>(this.detach_QuotationItemPrices));
+			this._QuotationSelectedItems = new EntitySet<QuotationSelectedItem>(new Action<QuotationSelectedItem>(this.attach_QuotationSelectedItems), new Action<QuotationSelectedItem>(this.detach_QuotationSelectedItems));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ItemID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ItemID
+		{
+			get
+			{
+				return this._ItemID;
+			}
+			set
+			{
+				if ((this._ItemID != value))
+				{
+					this.OnItemIDChanging(value);
+					this.SendPropertyChanging();
+					this._ItemID = value;
+					this.SendPropertyChanged("ItemID");
+					this.OnItemIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ItemName", DbType="VarChar(MAX)")]
+		public string ItemName
+		{
+			get
+			{
+				return this._ItemName;
+			}
+			set
+			{
+				if ((this._ItemName != value))
+				{
+					this.OnItemNameChanging(value);
+					this.SendPropertyChanging();
+					this._ItemName = value;
+					this.SendPropertyChanged("ItemName");
+					this.OnItemNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="QutationItem_QuotationItemPrice", Storage="_QuotationItemPrices", ThisKey="ItemID", OtherKey="ItemID")]
+		public EntitySet<QuotationItemPrice> QuotationItemPrices
+		{
+			get
+			{
+				return this._QuotationItemPrices;
+			}
+			set
+			{
+				this._QuotationItemPrices.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="QutationItem_QuotationSelectedItem", Storage="_QuotationSelectedItems", ThisKey="ItemID", OtherKey="ItemID")]
+		public EntitySet<QuotationSelectedItem> QuotationSelectedItems
+		{
+			get
+			{
+				return this._QuotationSelectedItems;
+			}
+			set
+			{
+				this._QuotationSelectedItems.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_QuotationItemPrices(QuotationItemPrice entity)
+		{
+			this.SendPropertyChanging();
+			entity.QutationItem = this;
+		}
+		
+		private void detach_QuotationItemPrices(QuotationItemPrice entity)
+		{
+			this.SendPropertyChanging();
+			entity.QutationItem = null;
+		}
+		
+		private void attach_QuotationSelectedItems(QuotationSelectedItem entity)
+		{
+			this.SendPropertyChanging();
+			entity.QutationItem = this;
+		}
+		
+		private void detach_QuotationSelectedItems(QuotationSelectedItem entity)
+		{
+			this.SendPropertyChanging();
+			entity.QutationItem = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.QuotationItemPrice")]
+	public partial class QuotationItemPrice : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _QIPID;
+		
+		private System.Nullable<double> _Price;
+		
+		private System.Nullable<bool> _isUpwards;
+		
+		private System.Nullable<System.DateTime> _StartingDate;
+		
+		private System.Nullable<System.DateTime> _EndDate;
+		
+		private System.Nullable<int> _ItemID;
+		
+		private EntityRef<QutationItem> _QutationItem;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnQIPIDChanging(int value);
+    partial void OnQIPIDChanged();
+    partial void OnPriceChanging(System.Nullable<double> value);
+    partial void OnPriceChanged();
+    partial void OnisUpwardsChanging(System.Nullable<bool> value);
+    partial void OnisUpwardsChanged();
+    partial void OnStartingDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnStartingDateChanged();
+    partial void OnEndDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnEndDateChanged();
+    partial void OnItemIDChanging(System.Nullable<int> value);
+    partial void OnItemIDChanged();
+    #endregion
+		
+		public QuotationItemPrice()
+		{
+			this._QutationItem = default(EntityRef<QutationItem>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_QIPID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int QIPID
+		{
+			get
+			{
+				return this._QIPID;
+			}
+			set
+			{
+				if ((this._QIPID != value))
+				{
+					this.OnQIPIDChanging(value);
+					this.SendPropertyChanging();
+					this._QIPID = value;
+					this.SendPropertyChanged("QIPID");
+					this.OnQIPIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Price", DbType="Float")]
+		public System.Nullable<double> Price
+		{
+			get
+			{
+				return this._Price;
+			}
+			set
+			{
+				if ((this._Price != value))
+				{
+					this.OnPriceChanging(value);
+					this.SendPropertyChanging();
+					this._Price = value;
+					this.SendPropertyChanged("Price");
+					this.OnPriceChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_isUpwards", DbType="Bit")]
+		public System.Nullable<bool> isUpwards
+		{
+			get
+			{
+				return this._isUpwards;
+			}
+			set
+			{
+				if ((this._isUpwards != value))
+				{
+					this.OnisUpwardsChanging(value);
+					this.SendPropertyChanging();
+					this._isUpwards = value;
+					this.SendPropertyChanged("isUpwards");
+					this.OnisUpwardsChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StartingDate", DbType="Date")]
+		public System.Nullable<System.DateTime> StartingDate
+		{
+			get
+			{
+				return this._StartingDate;
+			}
+			set
+			{
+				if ((this._StartingDate != value))
+				{
+					this.OnStartingDateChanging(value);
+					this.SendPropertyChanging();
+					this._StartingDate = value;
+					this.SendPropertyChanged("StartingDate");
+					this.OnStartingDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EndDate", DbType="Date")]
+		public System.Nullable<System.DateTime> EndDate
+		{
+			get
+			{
+				return this._EndDate;
+			}
+			set
+			{
+				if ((this._EndDate != value))
+				{
+					this.OnEndDateChanging(value);
+					this.SendPropertyChanging();
+					this._EndDate = value;
+					this.SendPropertyChanged("EndDate");
+					this.OnEndDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ItemID", DbType="Int")]
+		public System.Nullable<int> ItemID
+		{
+			get
+			{
+				return this._ItemID;
+			}
+			set
+			{
+				if ((this._ItemID != value))
+				{
+					if (this._QutationItem.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnItemIDChanging(value);
+					this.SendPropertyChanging();
+					this._ItemID = value;
+					this.SendPropertyChanged("ItemID");
+					this.OnItemIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="QutationItem_QuotationItemPrice", Storage="_QutationItem", ThisKey="ItemID", OtherKey="ItemID", IsForeignKey=true)]
+		public QutationItem QutationItem
+		{
+			get
+			{
+				return this._QutationItem.Entity;
+			}
+			set
+			{
+				QutationItem previousValue = this._QutationItem.Entity;
+				if (((previousValue != value) 
+							|| (this._QutationItem.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._QutationItem.Entity = null;
+						previousValue.QuotationItemPrices.Remove(this);
+					}
+					this._QutationItem.Entity = value;
+					if ((value != null))
+					{
+						value.QuotationItemPrices.Add(this);
+						this._ItemID = value.ItemID;
+					}
+					else
+					{
+						this._ItemID = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("QutationItem");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.QuotationSelectedItem")]
+	public partial class QuotationSelectedItem : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _QSIID;
+		
+		private System.Nullable<int> _QuotationID;
+		
+		private System.Nullable<int> _ItemID;
+		
+		private EntityRef<Quotation> _Quotation;
+		
+		private EntityRef<QutationItem> _QutationItem;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnQSIIDChanging(int value);
+    partial void OnQSIIDChanged();
+    partial void OnQuotationIDChanging(System.Nullable<int> value);
+    partial void OnQuotationIDChanged();
+    partial void OnItemIDChanging(System.Nullable<int> value);
+    partial void OnItemIDChanged();
+    #endregion
+		
+		public QuotationSelectedItem()
+		{
+			this._Quotation = default(EntityRef<Quotation>);
+			this._QutationItem = default(EntityRef<QutationItem>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_QSIID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int QSIID
+		{
+			get
+			{
+				return this._QSIID;
+			}
+			set
+			{
+				if ((this._QSIID != value))
+				{
+					this.OnQSIIDChanging(value);
+					this.SendPropertyChanging();
+					this._QSIID = value;
+					this.SendPropertyChanged("QSIID");
+					this.OnQSIIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_QuotationID", DbType="Int")]
+		public System.Nullable<int> QuotationID
+		{
+			get
+			{
+				return this._QuotationID;
+			}
+			set
+			{
+				if ((this._QuotationID != value))
+				{
+					if (this._Quotation.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnQuotationIDChanging(value);
+					this.SendPropertyChanging();
+					this._QuotationID = value;
+					this.SendPropertyChanged("QuotationID");
+					this.OnQuotationIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ItemID", DbType="Int")]
+		public System.Nullable<int> ItemID
+		{
+			get
+			{
+				return this._ItemID;
+			}
+			set
+			{
+				if ((this._ItemID != value))
+				{
+					if (this._QutationItem.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnItemIDChanging(value);
+					this.SendPropertyChanging();
+					this._ItemID = value;
+					this.SendPropertyChanged("ItemID");
+					this.OnItemIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Quotation_QuotationSelectedItem", Storage="_Quotation", ThisKey="QuotationID", OtherKey="QuotationID", IsForeignKey=true)]
+		public Quotation Quotation
+		{
+			get
+			{
+				return this._Quotation.Entity;
+			}
+			set
+			{
+				Quotation previousValue = this._Quotation.Entity;
+				if (((previousValue != value) 
+							|| (this._Quotation.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Quotation.Entity = null;
+						previousValue.QuotationSelectedItems.Remove(this);
+					}
+					this._Quotation.Entity = value;
+					if ((value != null))
+					{
+						value.QuotationSelectedItems.Add(this);
+						this._QuotationID = value.QuotationID;
+					}
+					else
+					{
+						this._QuotationID = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("Quotation");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="QutationItem_QuotationSelectedItem", Storage="_QutationItem", ThisKey="ItemID", OtherKey="ItemID", IsForeignKey=true)]
+		public QutationItem QutationItem
+		{
+			get
+			{
+				return this._QutationItem.Entity;
+			}
+			set
+			{
+				QutationItem previousValue = this._QutationItem.Entity;
+				if (((previousValue != value) 
+							|| (this._QutationItem.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._QutationItem.Entity = null;
+						previousValue.QuotationSelectedItems.Remove(this);
+					}
+					this._QutationItem.Entity = value;
+					if ((value != null))
+					{
+						value.QuotationSelectedItems.Add(this);
+						this._ItemID = value.ItemID;
+					}
+					else
+					{
+						this._ItemID = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("QutationItem");
 				}
 			}
 		}
@@ -614,6 +1680,560 @@ namespace DataAccessLayer
 				if ((this._UserID != value))
 				{
 					this._UserID = value;
+				}
+			}
+		}
+	}
+	
+	public partial class Manali_Quotation_GetQuotationItemPriceListResult
+	{
+		
+		private int _ItemID;
+		
+		private string _ItemName;
+		
+		private System.Nullable<double> _Price;
+		
+		private System.Nullable<bool> _isUpwards;
+		
+		public Manali_Quotation_GetQuotationItemPriceListResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ItemID", DbType="Int NOT NULL")]
+		public int ItemID
+		{
+			get
+			{
+				return this._ItemID;
+			}
+			set
+			{
+				if ((this._ItemID != value))
+				{
+					this._ItemID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ItemName", DbType="VarChar(MAX)")]
+		public string ItemName
+		{
+			get
+			{
+				return this._ItemName;
+			}
+			set
+			{
+				if ((this._ItemName != value))
+				{
+					this._ItemName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Price", DbType="Float")]
+		public System.Nullable<double> Price
+		{
+			get
+			{
+				return this._Price;
+			}
+			set
+			{
+				if ((this._Price != value))
+				{
+					this._Price = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_isUpwards", DbType="Bit")]
+		public System.Nullable<bool> isUpwards
+		{
+			get
+			{
+				return this._isUpwards;
+			}
+			set
+			{
+				if ((this._isUpwards != value))
+				{
+					this._isUpwards = value;
+				}
+			}
+		}
+	}
+	
+	public partial class Manali_Quotation_SelectAQuotationResult
+	{
+		
+		private int _QuotationID;
+		
+		private System.Nullable<System.DateTime> _DateOfWedding;
+		
+		private string _Bride;
+		
+		private string _BrideAddress;
+		
+		private string _BrideEmail;
+		
+		private string _BrideContactNo;
+		
+		private System.Nullable<System.DateTime> _DateOfHomecoming;
+		
+		private string _Groom;
+		
+		private string _GroomAddress;
+		
+		private string _GroomContactNo;
+		
+		private System.Nullable<int> _CreatedBy;
+		
+		private System.Nullable<System.DateTime> _CreatedDate;
+		
+		public Manali_Quotation_SelectAQuotationResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_QuotationID", DbType="Int NOT NULL")]
+		public int QuotationID
+		{
+			get
+			{
+				return this._QuotationID;
+			}
+			set
+			{
+				if ((this._QuotationID != value))
+				{
+					this._QuotationID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateOfWedding", DbType="Date")]
+		public System.Nullable<System.DateTime> DateOfWedding
+		{
+			get
+			{
+				return this._DateOfWedding;
+			}
+			set
+			{
+				if ((this._DateOfWedding != value))
+				{
+					this._DateOfWedding = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Bride", DbType="VarChar(MAX)")]
+		public string Bride
+		{
+			get
+			{
+				return this._Bride;
+			}
+			set
+			{
+				if ((this._Bride != value))
+				{
+					this._Bride = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BrideAddress", DbType="VarChar(MAX)")]
+		public string BrideAddress
+		{
+			get
+			{
+				return this._BrideAddress;
+			}
+			set
+			{
+				if ((this._BrideAddress != value))
+				{
+					this._BrideAddress = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BrideEmail", DbType="VarChar(MAX)")]
+		public string BrideEmail
+		{
+			get
+			{
+				return this._BrideEmail;
+			}
+			set
+			{
+				if ((this._BrideEmail != value))
+				{
+					this._BrideEmail = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BrideContactNo", DbType="VarChar(15)")]
+		public string BrideContactNo
+		{
+			get
+			{
+				return this._BrideContactNo;
+			}
+			set
+			{
+				if ((this._BrideContactNo != value))
+				{
+					this._BrideContactNo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateOfHomecoming", DbType="Date")]
+		public System.Nullable<System.DateTime> DateOfHomecoming
+		{
+			get
+			{
+				return this._DateOfHomecoming;
+			}
+			set
+			{
+				if ((this._DateOfHomecoming != value))
+				{
+					this._DateOfHomecoming = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Groom", DbType="VarChar(MAX)")]
+		public string Groom
+		{
+			get
+			{
+				return this._Groom;
+			}
+			set
+			{
+				if ((this._Groom != value))
+				{
+					this._Groom = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GroomAddress", DbType="VarChar(MAX)")]
+		public string GroomAddress
+		{
+			get
+			{
+				return this._GroomAddress;
+			}
+			set
+			{
+				if ((this._GroomAddress != value))
+				{
+					this._GroomAddress = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GroomContactNo", DbType="VarChar(15)")]
+		public string GroomContactNo
+		{
+			get
+			{
+				return this._GroomContactNo;
+			}
+			set
+			{
+				if ((this._GroomContactNo != value))
+				{
+					this._GroomContactNo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedBy", DbType="Int")]
+		public System.Nullable<int> CreatedBy
+		{
+			get
+			{
+				return this._CreatedBy;
+			}
+			set
+			{
+				if ((this._CreatedBy != value))
+				{
+					this._CreatedBy = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedDate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> CreatedDate
+		{
+			get
+			{
+				return this._CreatedDate;
+			}
+			set
+			{
+				if ((this._CreatedDate != value))
+				{
+					this._CreatedDate = value;
+				}
+			}
+		}
+	}
+	
+	public partial class Manali_Quotation_SelectQuotationSelectedItemsResult
+	{
+		
+		private System.Nullable<int> _ItemID;
+		
+		public Manali_Quotation_SelectQuotationSelectedItemsResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ItemID", DbType="Int")]
+		public System.Nullable<int> ItemID
+		{
+			get
+			{
+				return this._ItemID;
+			}
+			set
+			{
+				if ((this._ItemID != value))
+				{
+					this._ItemID = value;
+				}
+			}
+		}
+	}
+	
+	public partial class Manali_Quotation_GetAllQuotationResult
+	{
+		
+		private int _QuotationID;
+		
+		private System.Nullable<System.DateTime> _DateOfWedding;
+		
+		private string _Bride;
+		
+		private string _BrideContactNo;
+		
+		private System.Nullable<System.DateTime> _DateOfHomecoming;
+		
+		private string _Groom;
+		
+		private System.Nullable<int> _CreatedBy;
+		
+		private System.Nullable<System.DateTime> _CreatedDate;
+		
+		private string _GroomAddress;
+		
+		private string _GroomContactNo;
+		
+		private string _BrideEmail;
+		
+		private string _BrideAddress;
+		
+		public Manali_Quotation_GetAllQuotationResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_QuotationID", DbType="Int NOT NULL")]
+		public int QuotationID
+		{
+			get
+			{
+				return this._QuotationID;
+			}
+			set
+			{
+				if ((this._QuotationID != value))
+				{
+					this._QuotationID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateOfWedding", DbType="Date")]
+		public System.Nullable<System.DateTime> DateOfWedding
+		{
+			get
+			{
+				return this._DateOfWedding;
+			}
+			set
+			{
+				if ((this._DateOfWedding != value))
+				{
+					this._DateOfWedding = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Bride", DbType="VarChar(MAX)")]
+		public string Bride
+		{
+			get
+			{
+				return this._Bride;
+			}
+			set
+			{
+				if ((this._Bride != value))
+				{
+					this._Bride = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BrideContactNo", DbType="VarChar(15)")]
+		public string BrideContactNo
+		{
+			get
+			{
+				return this._BrideContactNo;
+			}
+			set
+			{
+				if ((this._BrideContactNo != value))
+				{
+					this._BrideContactNo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateOfHomecoming", DbType="Date")]
+		public System.Nullable<System.DateTime> DateOfHomecoming
+		{
+			get
+			{
+				return this._DateOfHomecoming;
+			}
+			set
+			{
+				if ((this._DateOfHomecoming != value))
+				{
+					this._DateOfHomecoming = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Groom", DbType="VarChar(MAX)")]
+		public string Groom
+		{
+			get
+			{
+				return this._Groom;
+			}
+			set
+			{
+				if ((this._Groom != value))
+				{
+					this._Groom = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedBy", DbType="Int")]
+		public System.Nullable<int> CreatedBy
+		{
+			get
+			{
+				return this._CreatedBy;
+			}
+			set
+			{
+				if ((this._CreatedBy != value))
+				{
+					this._CreatedBy = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedDate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> CreatedDate
+		{
+			get
+			{
+				return this._CreatedDate;
+			}
+			set
+			{
+				if ((this._CreatedDate != value))
+				{
+					this._CreatedDate = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GroomAddress", DbType="VarChar(MAX)")]
+		public string GroomAddress
+		{
+			get
+			{
+				return this._GroomAddress;
+			}
+			set
+			{
+				if ((this._GroomAddress != value))
+				{
+					this._GroomAddress = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GroomContactNo", DbType="VarChar(15)")]
+		public string GroomContactNo
+		{
+			get
+			{
+				return this._GroomContactNo;
+			}
+			set
+			{
+				if ((this._GroomContactNo != value))
+				{
+					this._GroomContactNo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BrideEmail", DbType="VarChar(MAX)")]
+		public string BrideEmail
+		{
+			get
+			{
+				return this._BrideEmail;
+			}
+			set
+			{
+				if ((this._BrideEmail != value))
+				{
+					this._BrideEmail = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BrideAddress", DbType="VarChar(MAX)")]
+		public string BrideAddress
+		{
+			get
+			{
+				return this._BrideAddress;
+			}
+			set
+			{
+				if ((this._BrideAddress != value))
+				{
+					this._BrideAddress = value;
 				}
 			}
 		}

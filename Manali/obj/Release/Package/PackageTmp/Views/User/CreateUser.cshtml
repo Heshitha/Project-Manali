@@ -1,0 +1,112 @@
+﻿@model ModelLayer.UserDTO
+
+@{
+    Layout = null;
+    
+    bool ifUserExists = false;
+    if (Model != null)
+    {
+        ifUserExists = true;
+    }
+    
+}
+
+<form>
+    <fieldset>
+        <legend>
+            @(ifUserExists ? "Edit User" : "Create User")
+        </legend>
+    </fieldset>
+    <div class="fieldConteiner">
+        <input type="hidden" id="userID" value="@(ifUserExists ? Model.userID : 0)" />
+        <div class="leftFieldSet">
+            <label>Name</label>
+            <div class="input-control text" data-role="input-control">
+                <input type="text" placeholder="type full name" required  id="txtFullName" value="@(ifUserExists ? Model.Name : "")"/>
+            </div>
+            <label>NIC</label>
+            <div class="input-control text" data-role="input-control">
+                <input type="text" placeholder="type nic" maxlength="10" required id="txtNIC" value="@(ifUserExists ? Model.NIC : "")" />
+            </div>
+            <label>Mobile</label>
+            <div class="input-control text" data-role="input-control">
+                <input type="text" placeholder="type mobile no" maxlength="15" required id="txtMobileNo" value="@(ifUserExists ? Model.Mobile : "")" />
+            </div>
+            <label>Address</label>
+            <div class="input-control text" data-role="input-control">
+                <input type="text" placeholder="type address" required id="txtAddress" value="@(ifUserExists ? Model.Address : "")" />
+            </div>
+            <label>Username</label>
+            <div class="input-control text" data-role="input-control">
+                <input type="text" placeholder="type username" required id="txtUsername" value="@(ifUserExists ? Model.Username : "")" />
+            </div>
+            <label>Password</label>
+            <div class="input-control password" data-role="input-control">
+                <input type="password" placeholder="type password" required id="txtPassword"/>
+            </div>
+            <label>Confirm Password</label>
+            <div class="input-control password" data-role="input-control">
+                <input type="password" placeholder="retype password" required  id="txtConfirmPassword"/>
+                <span class="error loginError" id="spnCheckPasswordMatch"></span>
+            </div>
+        </div>
+        <div class="rightFieldSet">
+            <div class="profileImageContainer">
+                <img src="@(ifUserExists ? Model.ImagePath : "/Images/blank-profile-hi.png")" class="profileImage" id="profileImage" />
+            </div>
+            <button class="large success" type="button" id="flupProfileImageButton">Upload Image</button>
+            <input type="file" id="flupProfileImage" hidden />
+        </div>
+    </div>
+</form>
+<button class="large danger" type="button" onclick="SaveUser()"> 
+    Save User
+</button>
+
+<style type="text/css">
+
+    .profileImageContainer {
+        position: relative;
+        width: 100%;
+        margin: 0 0 10px 0;
+    }
+
+        .profileImageContainer .profileImage{
+            position:relative;
+            margin:0;
+            padding:0;
+            width:100%;
+            display:block;
+        }
+
+</style>
+
+<script src="~/js/user.js"></script>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        $('#flupProfileImageButton').bind('click tap', function () {
+            $('#flupProfileImage').click();
+        });
+
+        $('#flupProfileImage').bind('change', function () {
+            if (this.files && this.files[0]) {
+
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#profileImage').attr('src', e.target.result);
+                }
+
+                reader.readAsDataURL(this.files[0]);
+            }
+            else {
+                $('#profileImage').attr('src', '/Images/blank-profile-hi.png');
+            }
+        });
+
+    });
+
+</script>
