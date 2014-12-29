@@ -101,5 +101,29 @@ namespace DataAccessLayer.Datastore
                 throw;
             }
         }
+
+        public static bool UserLogin(string userName, string password, ref UserDTO loggedUser)
+        {
+            bool? isLogged = false;
+            int? userID = 0;
+
+            try
+            {
+                userDB.Manali_User_Login(userName, password, ref isLogged, ref userID);
+
+                if (isLogged.Value == true)
+                {
+                    loggedUser = GetUserDetailsByID(userID.Value);
+                }
+
+            }
+            catch (Exception)
+            {
+                loggedUser = new UserDTO();
+                throw;
+            }
+
+            return isLogged.Value;
+        }
     }
 }

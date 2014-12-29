@@ -179,6 +179,15 @@ namespace DataAccessLayer
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), dateOfWedding, bride, brideAddress, brideEmail, brideContactNo, dateOfHomecoming, groom, groomAddress, groomContactNo, selectedItems, createdBy);
 			return ((int)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.Manali_User_Login")]
+		public int Manali_User_Login([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string userName, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string password, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] ref System.Nullable<bool> isLogged, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] ref System.Nullable<int> loggedUserID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), userName, password, isLogged, loggedUserID);
+			isLogged = ((System.Nullable<bool>)(result.GetParameterValue(2)));
+			loggedUserID = ((System.Nullable<int>)(result.GetParameterValue(3)));
+			return ((int)(result.ReturnValue));
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.[User]")]

@@ -28,5 +28,10 @@ namespace BusinessLayer.BusinessStore
         {
             DataAccessLayer.Datastore.UserDataStore.UpdateUserDetails(user);
         }
+
+        public static bool UserLogin(string userName, string password, ref UserDTO user)
+        {
+            return DataAccessLayer.Datastore.UserDataStore.UserLogin(userName, password, ref user);
+        }
     }
 }

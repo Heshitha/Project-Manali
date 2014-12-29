@@ -39,7 +39,7 @@
         <classShapeMoniker Id="84eaa85a-9414-483a-bc8c-a6356c9d24f6" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(6.375 : 3.69307305724159); (6.75 : 4.06807305724159); (6.75 : 3.875); (7.125 : 4.25)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(6.375 : 3.69307305724159); (6.75 : 4.06807305724159); (6.75 : 3.875); (6.87857443490112 : 4.00357443490112 : JumpStart); (6.99642556509888 : 4.12142556509888 : JumpEnd); (7.125 : 4.25)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/ManaliDataStoreDataContext/QutationItem/QutationItem_QuotationItemPrice" />
       <nodes>
         <classShapeMoniker Id="23cdd002-b45b-4e2e-bd4e-6828c454a01d" />
@@ -53,7 +53,7 @@
         <classShapeMoniker Id="a7a963ef-6834-4ce7-85cf-d6c5a63d2266" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(6.375 : 2.63064697265625); (6.85416666666667 : 2.63064697265625 : JumpStart); (7.02083333333333 : 2.63064697265625 : JumpEnd); (7.125 : 2.63064697265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(6.375 : 2.63064697265625); (7.125 : 2.63064697265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/ManaliDataStoreDataContext/QutationItem/QutationItem_QuotationSelectedItem" />
       <nodes>
         <classShapeMoniker Id="23cdd002-b45b-4e2e-bd4e-6828c454a01d" />
