@@ -1,0 +1,128 @@
+﻿@model ModelLayer.WorkerDTO
+
+@{
+    Layout = null;
+}
+
+<form>
+    <fieldset>
+        <legend>
+            Worker Details
+        </legend>
+    </fieldset>
+    <div class="fieldConteiner">
+        <input type="hidden" id="userID" value="@Model.WorkerID" />
+        <div class="leftFieldSet">
+            <label>Name</label>
+            <div class="input-control text" data-role="input-control">
+                <input type="text" placeholder="type full name" required id="txtFullName" value="@Model.Name" />
+            </div>
+            <label>Designation</label>
+            <div class="input-control text" data-role="input-control">
+                <input type="text" placeholder="type designation" required id="txtDesignation" value="@Model.Designation" />
+            </div>
+            <label>NIC</label>
+            <div class="input-control text" data-role="input-control">
+                <input type="text" placeholder="type nic" maxlength="10" required id="txtNIC" value="@Model.NIC" />
+            </div>
+            <label>Mobile</label>
+            <div class="input-control text" data-role="input-control">
+                <input type="text" placeholder="type mobile no" maxlength="15" required id="txtMobileNo" value="@Model.Mobile" />
+            </div>
+            <label>Address</label>
+            <div class="input-control text" data-role="input-control">
+                <input type="text" placeholder="type address" required id="txtAddress" value="@Model.Address" />
+            </div>
+        </div>
+        <div class="rightFieldSet">
+            <div class="profileImageContainer">
+                <img src="@Model.Image" class="profileImage" id="profileImage" />
+            </div>
+        </div>
+    </div>
+</form>
+<button class="large danger" type="button" id="btnViewQuotations">
+    View Quotations
+</button>
+
+<div class="fieldConteiner tabContentHolder">
+
+    <div class="tab-control" data-role="tab-control">
+        <ul class="tabs">
+            <li class="active"><a href="#_page_1">Marketed Quotation - @Model.ListOfMarketedQuotations.Count</a></li>
+            <li><a href="#_page_2">Successfull Quotation  - @Model.ListOfSuccessfullQuotations.Count</a></li>
+        </ul>
+
+        <div class="frames">
+            <div class="frame" id="_page_1">
+                <div class="listview-outlook">
+
+                    @foreach (var item in Model.ListOfMarketedQuotations)
+                    {
+                        <a href="javascript:GetContent('/Quotation/EditQuotation?quotationID=@item.QuotationID', '.mainContent');" class="list">
+                            <div class="list-content">
+                                <span class="list-title">@item.NameOfBride weds @item.NameOfGroom</span>
+                                <span class="list-subtitle">@item.QuotationID</span>
+                                <span class="list-remark">Wedding : @item.DateOfWedding.ToShortDateString()</span>
+                                <span class="list-remark">Home coming : @item.DateOfHomecoming.ToShortDateString()</span>
+                            </div>
+                        </a>
+                    }
+
+                </div>
+            </div>
+            <div class="frame" id="_page_2">
+                <div class="listview-outlook">
+                    @foreach (var item in Model.ListOfSuccessfullQuotations)
+                    {
+                        <a href="javascript:GetContent('/Quotation/EditQuotation?quotationID=@item.QuotationID', '.mainContent');" class="list">
+                            <div class="list-content">
+                                <span class="list-title">@item.NameOfBride weds @item.NameOfGroom</span>
+                                <span class="list-subtitle">@item.QuotationID</span>
+                                <span class="list-remark">Wedding : @item.DateOfWedding.ToShortDateString()</span>
+                                <span class="list-remark">Home coming : @item.DateOfHomecoming.ToShortDateString()</span>
+                            </div>
+                        </a>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    <style type="text/css">
+        .profileImageContainer {
+            position: relative;
+            width: 100%;
+            margin: 0 0 10px 0;
+        }
+
+            .profileImageContainer .profileImage {
+                position: relative;
+                margin: 0;
+                padding: 0;
+                width: 100%;
+                display: block;
+            }
+
+        .tabContentHolder{
+            position:relative;
+            margin:10px 0;
+            display:none;
+        }
+    </style>
+
+    <script src="~/js/metro/metro-tab-control.js"></script>
+    <script src="~/js/metro/metro-listview.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.tab-control').tabcontrol();
+
+            $('#btnViewQuotations').bind('click tap', function () {
+                $('.tabContentHolder').slideDown();
+                $('#btnViewQuotations').fadeOut();
+            });
+        });
+    </script>

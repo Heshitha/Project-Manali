@@ -20,6 +20,7 @@ namespace ModelLayer
         public string GroomContactNo { get; set; }
         public UserDTO createdBy { get; set; }
         public DateTime createdDate { get; set; }
+        public WorkerDTO marketedBy { get; set; }
         public List<QuotationItemDTO> SelectedItem { get; set; }
     }
 

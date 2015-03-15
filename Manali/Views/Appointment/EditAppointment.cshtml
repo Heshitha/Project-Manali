@@ -1,0 +1,92 @@
+﻿@model ModelLayer.AppointmentDTO
+
+@{
+    Layout = null;
+    List<ModelLayer.WorkerDTO> lstWorkers = ViewBag.WorkersList;
+}
+
+<form>
+    <fieldset>
+        <legend>
+            Edit Appointment
+        </legend>
+        <div class="fieldConteiner">
+            <div class="leftFieldSet">
+                <input id="hdnQuotationID" type="hidden" value="@Model.Quotation.QuotationID" />
+                <label>Date of Wedding</label>
+                <div class="input-control text datepicker" data-role="datepicker">
+                    <input type="text" placeholder="type wedding date" value="@Model.Quotation.DateOfWedding.ToLongDateString()" />
+                </div>
+                <label>Name of Bride</label>
+                <div class="input-control text" data-role="input-control">
+                    <input type="text" placeholder="type bride's name" value="@Model.Quotation.NameOfBride" />
+                </div>
+                <label>Address</label>
+                <div class="input-control text" data-role="input-control">
+                    <input type="text" placeholder="type address" value="@Model.Quotation.BrideAddress" />
+                </div>
+                <label>E Mail</label>
+                <div class="input-control email" data-role="input-control">
+                    <input type="email" placeholder="type email" value="@Model.Quotation.BrideEmail" />
+                </div>
+                <label>Contact No</label>
+                <div class="input-control tel" data-role="input-control">
+                    <input type="tel" placeholder="type contact no" value="@Model.Quotation.BrideContactNo" />
+                </div>
+            </div>
+            <div class="rightFieldSet">
+                <label>Date of Homecoming</label>
+                <div class="input-control text datepicker" data-role="datepicker">
+                    <input type="text" placeholder="type homecoming date" value="@Model.Quotation.DateOfHomecoming.ToLongDateString()" />
+                </div>
+                <label>Name of Groom</label>
+                <div class="input-control text" data-role="input-control">
+                    <input type="text" placeholder="type groom's name" value="@Model.Quotation.NameOfGroom" />
+                </div>
+                <label>Address</label>
+                <div class="input-control text" data-role="input-control">
+                    <input type="text" placeholder="type address" value="@Model.Quotation.GroomAddress" />
+                </div>
+                <label>Contact No</label>
+                <div class="input-control tel" data-role="input-control">
+                    <input type="tel" placeholder="type contact no" value="@Model.Quotation.GroomContactNo" />
+                </div>
+            </div>
+        </div>
+        <div class="fieldConteiner">
+            <label>Appointment Date</label>
+            <div class="input-control text datepicker" data-role="datepicker">
+                <input type="text" placeholder="type appointment date" id="txtAppointmentDate" value="@Model.AppointmentDateTime.ToString("MMM dd, yyyy")" />
+                <button class="btn-date" tabindex="-1" type="button"></button>
+            </div>
+            <label>Appointment Time</label>
+            <div class="input-control text" data-role="input-control">
+                <input type="time" placeholder="type appointment time" id="txtAppointmentTime" value="@Model.AppointmentDateTime.ToString("HH:mm")" />
+            </div>
+            <label>Respoinsible Worker</label>
+            <div class="input-control select">
+                <select id="drpRespoinsibleWorker">
+                    @foreach (ModelLayer.WorkerDTO item in lstWorkers)
+                    {
+                        <option value="@item.WorkerID" @(item.WorkerID == Model.ResponsibleWorker.WorkerID ? "selected" : "")>@item.Name - @item.Designation</option>
+                    }
+                </select>
+            </div>
+            <label>Duration</label>
+            <div class="input-control text" data-role="input-control">
+                <input type="text" placeholder="type duration in minutes" id="txtDuration" value="@Model.Duration" />
+            </div>
+            <label>Notes</label>
+            <div class="input-control text" data-role="input-control">
+                <input type="text" placeholder="type Notes" id="txtNotes" value="@Model.Notes" />
+            </div>
+        </div>
+    </fieldset>
+</form>
+<button class="large danger" type="button" id="btnSaveAppointment">Save Appointment</button>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.datepicker').datepicker({ format: "mmmm dd, yyyy" });
+    });
+</script>

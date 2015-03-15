@@ -9,8 +9,6 @@ namespace Manali.Controllers
 {
     public class LoginController : Controller
     {
-        //
-        // GET: /Login/
         public ActionResult Index()
         {
             return View();
@@ -18,8 +16,25 @@ namespace Manali.Controllers
 
         public ActionResult LoginUser(UserDTO User)
         {
+            string userName = User.Username;
+            string password = User.Password;
+            UserDTO loggedUser = new UserDTO();
 
-            return View();
+            ActionDetailsDTO actionDetails = new ActionDetailsDTO();
+
+            if (BusinessLayer.BusinessStore.User.UserLogin(userName, password, ref loggedUser))
+            {
+                Session["LoggedUser"] = loggedUser;
+
+                actionDetails.Status = 1;
+                actionDetails.Message = "Successfully Logged";
+            }
+            else
+            {
+                actionDetails.Status = 0;
+                actionDetails.Message = "Login Failed. Check Username & Password";
+            }
+            return Json(actionDetails, JsonRequestBehavior.AllowGet);
         }
 	}
 }

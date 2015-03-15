@@ -47,6 +47,58 @@
                 </ul>
             </li>
         </ul>
+        <ul class="element-menu">
+            <li>
+                <a class="dropdown-toggle" href="javascript:return false;">
+                    Receipt
+                </a>
+                <ul class="dropdown-menu" data-role="dropdown">
+                    <li>
+                        <a href="javascript:GetContent('/Receipt/ReceiptList', '.mainContent');">
+                            Receipt List
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <ul class="element-menu">
+            <li>
+                <a class="dropdown-toggle" href="javascript:return false;">
+                    Workers
+                </a>
+                <ul class="dropdown-menu" data-role="dropdown">
+                    <li>
+                        <a href="javascript:GetContent('/Worker/Index', '.mainContent');">
+                            Workers List
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:GetContent('/Worker/CreateWorker', '.mainContent');">
+                            Create Worker
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <ul class="element-menu">
+            <li>
+                <a class="dropdown-toggle" href="javascript:return false;">
+                    Appointments
+                </a>
+                <ul class="dropdown-menu" data-role="dropdown">
+                    <li>
+                        <a href="javascript:GetContent('/Appointment/Index', '.mainContent');">
+                            Appointment List
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:GetContent('/Worker/CreateWorker', '.mainContent');">
+                            Create Appoinment
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
     </div>
 </nav>
 <div id="GeneralProgressVisualizer">
@@ -66,7 +118,7 @@
 <script type="text/javascript">
 
     function GetContent(url, element) {
-        $('#GeneralProgressVisualizer').show();
+        //$('#GeneralProgressVisualizer').show();
 
         $.ajax({
             url: url,
@@ -74,17 +126,27 @@
             contentType: 'application/json; charset=utf-8',
             success: function (data) {
                 $(element).html(data);
-                $('#GeneralProgressVisualizer').fadeOut();
+               // $('#GeneralProgressVisualizer').fadeOut();
             },
             error: function () {
 
             }
         });
 
-        setTimeout(function () {
-            $('#GeneralProgressVisualizer').fadeOut();
-        }, 2000);
+        //setTimeout(function () {
+        //    $('#GeneralProgressVisualizer').fadeOut();
+        //}, 2000);
     }
+
+    $(document).ajaxStart(function () {
+        $('#GeneralProgressVisualizer').show();
+    }).ajaxStop(function (data) {
+        
+        $('#GeneralProgressVisualizer').fadeOut();
+    }).ajaxComplete(function (event, xhr, settings) {
+       
+        $('#GeneralProgressVisualizer').fadeOut();
+    });
 
 </script>
 

@@ -16,18 +16,18 @@
                 </legend>
                 <label>Username</label>
                 <div class="input-control text" data-role="input-control">
-                    <input type="text" placeholder="type username" />
+                    <input type="text" placeholder="type username" id="txtUserName"/>
                     <button class="btn-clear" tabindex="-1" type="button"></button>
                 </div>
                 <label>Password</label>
                 <div class="input-control password" data-role="input-control">
-                    <input type="password" placeholder="type password" />
+                    <input type="password" placeholder="type password" id="txtPassword"/>
                     <button class="btn-clear" tabindex="-1" type="button"></button>
                 </div>
             </fieldset>
             <br />
             <button class="button large success" type="button" id="LoginButton">Login</button>
-            <span class="error loginError" id="LoginError">
+            <span class="error loginError" id="LoginError" style="display:none">
             </span>
 
         </form>
@@ -53,11 +53,48 @@
             $('#LoginButton').bind('click tap', function () {
                 $('#loginProgressBar').fadeIn();
 
-                setTimeout(function () {
-                    window.location.replace("/Home/");
-                    $('#loginProgressBar').fadeOut();
+                $.ajax({
 
-                }, 1500);
+                    url: '/Login/LoginUser',
+                    type: 'POST',
+                    data: JSON.stringify({
+                        Username: $('#txtUserName').val(),
+                        Password: $('#txtPassword').val()
+                    }),
+                    contentType: 'application/json; charset=utf-8',
+                    success: function (data) {
+                        if (data.Status == 1) {
+                            window.location.replace("/Home/");
+                            $('#loginProgressBar').fadeOut();
+                        }
+                        else if (data.Status == 0) {
+                            $('#LoginError').show();
+                            $('#LoginError').html(data.Message);
+                            $('#loginProgressBar').fadeOut();
+
+                            setTimeout(function () {
+                                $('#LoginError').fadeOut();
+                            }, 1500);
+                        }
+                        
+                    },
+                    error: function () {
+
+                        $('#LoginError').show();
+                        $('#LoginError').html('Error occured while proccessing. Please try again.');
+                        $('#loginProgressBar').fadeOut();
+
+                        setTimeout(function () {
+                            $('#LoginError').fadeOut();
+                        }, 1500);
+                    }
+                });
+
+                //setTimeout(function () {
+                //    window.location.replace("/Home/");
+                //    $('#loginProgressBar').fadeOut();
+
+                //}, 1500);
 
 
             });

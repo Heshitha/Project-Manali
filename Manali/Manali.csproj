@@ -191,10 +191,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AppointmentController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\QuotationController.cs" />
+    <Compile Include="Controllers\ReceiptController.cs" />
     <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Controllers\WorkerController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -271,6 +274,15 @@
     <Content Include="Views\Quotation\CreateQuotation.cshtml" />
     <Content Include="Views\Quotation\QuotationList.cshtml" />
     <Content Include="Views\Quotation\EditQuotation.cshtml" />
+    <Content Include="Views\Receipt\AdvanceReceipt.cshtml" />
+    <Content Include="Views\Receipt\ReceiptList.cshtml" />
+    <Content Include="Views\Receipt\EditReceipt.cshtml" />
+    <Content Include="Views\Worker\Index.cshtml" />
+    <Content Include="Views\Worker\ViewWorkerDetails.cshtml" />
+    <Content Include="Views\Worker\CreateWorker.cshtml" />
+    <Content Include="Views\Appointment\Index.cshtml" />
+    <Content Include="Views\Appointment\CreateAppointment.cshtml" />
+    <Content Include="Views\Appointment\EditAppointment.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -145,25 +145,43 @@ namespace DataAccessLayer
 			return ((int)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.Manali_Quotation_GetQuotationItemPriceList")]
-		public ISingleResult<Manali_Quotation_GetQuotationItemPriceListResult> Manali_Quotation_GetQuotationItemPriceList()
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.Manali_User_Login")]
+		public int Manali_User_Login([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string userName, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string password, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] ref System.Nullable<bool> isLogged, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] ref System.Nullable<int> loggedUserID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), userName, password, isLogged, loggedUserID);
+			isLogged = ((System.Nullable<bool>)(result.GetParameterValue(2)));
+			loggedUserID = ((System.Nullable<int>)(result.GetParameterValue(3)));
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.Manali_Receipt_CreateReceipt")]
+		public int Manali_Receipt_CreateReceipt([global::System.Data.Linq.Mapping.ParameterAttribute(Name="RECEIPTDATE", DbType="Date")] System.Nullable<System.DateTime> rECEIPTDATE, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MAGNO", DbType="VarChar(500)")] string mAGNO, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SECTION", DbType="VarChar(500)")] string sECTION, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FUNCTIONTIME", DbType="Int")] System.Nullable<int> fUNCTIONTIME, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ISGOINGAWAYINCLUDED", DbType="Bit")] System.Nullable<bool> iSGOINGAWAYINCLUDED, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PAYERNAME", DbType="VarChar(MAX)")] string pAYERNAME, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ACCOUNTOF", DbType="VarChar(MAX)")] string aCCOUNTOF, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PAYMENT", DbType="Float")] System.Nullable<double> pAYMENT, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CASHORCHECKNO", DbType="VarChar(MAX)")] string cASHORCHECKNO, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="QUOTATIONID", DbType="Int")] System.Nullable<int> qUOTATIONID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="RECEIPTID", DbType="Int")] ref System.Nullable<int> rECEIPTID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), rECEIPTDATE, mAGNO, sECTION, fUNCTIONTIME, iSGOINGAWAYINCLUDED, pAYERNAME, aCCOUNTOF, pAYMENT, cASHORCHECKNO, qUOTATIONID, rECEIPTID);
+			rECEIPTID = ((System.Nullable<int>)(result.GetParameterValue(10)));
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.Manali_Receipt_GetAllReceipts")]
+		public ISingleResult<Manali_Receipt_GetAllReceiptsResult> Manali_Receipt_GetAllReceipts()
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
-			return ((ISingleResult<Manali_Quotation_GetQuotationItemPriceListResult>)(result.ReturnValue));
+			return ((ISingleResult<Manali_Receipt_GetAllReceiptsResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.Manali_Quotation_SelectAQuotation")]
-		public ISingleResult<Manali_Quotation_SelectAQuotationResult> Manali_Quotation_SelectAQuotation([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> quotationID)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.Manali_Receipt_GetReceiptByID")]
+		public ISingleResult<Manali_Receipt_GetReceiptByIDResult> Manali_Receipt_GetReceiptByID([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ReceiptID", DbType="Int")] System.Nullable<int> receiptID)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), quotationID);
-			return ((ISingleResult<Manali_Quotation_SelectAQuotationResult>)(result.ReturnValue));
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), receiptID);
+			return ((ISingleResult<Manali_Receipt_GetReceiptByIDResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.Manali_Quotation_SelectQuotationSelectedItems")]
-		public ISingleResult<Manali_Quotation_SelectQuotationSelectedItemsResult> Manali_Quotation_SelectQuotationSelectedItems([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> quotationID)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.Manali_Receipt_CreateAdvanceReceipt")]
+		public int Manali_Receipt_CreateAdvanceReceipt([global::System.Data.Linq.Mapping.ParameterAttribute(Name="RECEIPTDATE", DbType="Date")] System.Nullable<System.DateTime> rECEIPTDATE, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MAGNO", DbType="VarChar(500)")] string mAGNO, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SECTION", DbType="VarChar(500)")] string sECTION, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FUNCTIONTIME", DbType="Int")] System.Nullable<int> fUNCTIONTIME, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ISGOINGAWAYINCLUDED", DbType="Bit")] System.Nullable<bool> iSGOINGAWAYINCLUDED, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PAYERNAME", DbType="VarChar(MAX)")] string pAYERNAME, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ACCOUNTOF", DbType="VarChar(MAX)")] string aCCOUNTOF, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PAYMENT", DbType="Float")] System.Nullable<double> pAYMENT, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CASHORCHECKNO", DbType="VarChar(MAX)")] string cASHORCHECKNO, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="QUOTATIONID", DbType="Int")] System.Nullable<int> qUOTATIONID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="RECEIPTID", DbType="Int")] ref System.Nullable<int> rECEIPTID)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), quotationID);
-			return ((ISingleResult<Manali_Quotation_SelectQuotationSelectedItemsResult>)(result.ReturnValue));
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), rECEIPTDATE, mAGNO, sECTION, fUNCTIONTIME, iSGOINGAWAYINCLUDED, pAYERNAME, aCCOUNTOF, pAYMENT, cASHORCHECKNO, qUOTATIONID, rECEIPTID);
+			rECEIPTID = ((System.Nullable<int>)(result.GetParameterValue(10)));
+			return ((int)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.Manali_Quotation_GetAllQuotation")]
@@ -173,19 +191,97 @@ namespace DataAccessLayer
 			return ((ISingleResult<Manali_Quotation_GetAllQuotationResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.Manali_Quotation_SaveQuotation")]
-		public int Manali_Quotation_SaveQuotation([global::System.Data.Linq.Mapping.ParameterAttribute(Name="DateOfWedding", DbType="Date")] System.Nullable<System.DateTime> dateOfWedding, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Bride", DbType="VarChar(MAX)")] string bride, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="BrideAddress", DbType="VarChar(MAX)")] string brideAddress, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="BrideEmail", DbType="VarChar(MAX)")] string brideEmail, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="BrideContactNo", DbType="VarChar(15)")] string brideContactNo, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DateOfHomecoming", DbType="Date")] System.Nullable<System.DateTime> dateOfHomecoming, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Groom", DbType="VarChar(MAX)")] string groom, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="GroomAddress", DbType="VarChar(MAX)")] string groomAddress, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="GroomContactNo", DbType="VarChar(15)")] string groomContactNo, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SelectedItems", DbType="VarChar(MAX)")] string selectedItems, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CreatedBy", DbType="Int")] System.Nullable<int> createdBy)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.Manali_Quotation_SelectQuotationSelectedItems")]
+		public ISingleResult<Manali_Quotation_SelectQuotationSelectedItemsResult> Manali_Quotation_SelectQuotationSelectedItems([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> quotationID)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), dateOfWedding, bride, brideAddress, brideEmail, brideContactNo, dateOfHomecoming, groom, groomAddress, groomContactNo, selectedItems, createdBy);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), quotationID);
+			return ((ISingleResult<Manali_Quotation_SelectQuotationSelectedItemsResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.Manali_Quotation_GetQuotationItemPriceList")]
+		public ISingleResult<Manali_Quotation_GetQuotationItemPriceListResult> Manali_Quotation_GetQuotationItemPriceList()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<Manali_Quotation_GetQuotationItemPriceListResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.Manali_Quotation_SaveQuotation")]
+		public int Manali_Quotation_SaveQuotation([global::System.Data.Linq.Mapping.ParameterAttribute(Name="DateOfWedding", DbType="Date")] System.Nullable<System.DateTime> dateOfWedding, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Bride", DbType="VarChar(MAX)")] string bride, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="BrideAddress", DbType="VarChar(MAX)")] string brideAddress, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="BrideEmail", DbType="VarChar(MAX)")] string brideEmail, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="BrideContactNo", DbType="VarChar(15)")] string brideContactNo, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DateOfHomecoming", DbType="Date")] System.Nullable<System.DateTime> dateOfHomecoming, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Groom", DbType="VarChar(MAX)")] string groom, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="GroomAddress", DbType="VarChar(MAX)")] string groomAddress, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="GroomContactNo", DbType="VarChar(15)")] string groomContactNo, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SelectedItems", DbType="VarChar(MAX)")] string selectedItems, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CreatedBy", DbType="Int")] System.Nullable<int> createdBy, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MarketedBy", DbType="Int")] System.Nullable<int> marketedBy, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="QuotationID", DbType="Int")] ref System.Nullable<int> quotationID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), dateOfWedding, bride, brideAddress, brideEmail, brideContactNo, dateOfHomecoming, groom, groomAddress, groomContactNo, selectedItems, createdBy, marketedBy, quotationID);
+			quotationID = ((System.Nullable<int>)(result.GetParameterValue(12)));
 			return ((int)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.Manali_User_Login")]
-		public int Manali_User_Login([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string userName, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string password, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] ref System.Nullable<bool> isLogged, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] ref System.Nullable<int> loggedUserID)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.Manali_Quotation_SelectAQuotation")]
+		public ISingleResult<Manali_Quotation_SelectAQuotationResult> Manali_Quotation_SelectAQuotation([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> quotationID)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), userName, password, isLogged, loggedUserID);
-			isLogged = ((System.Nullable<bool>)(result.GetParameterValue(2)));
-			loggedUserID = ((System.Nullable<int>)(result.GetParameterValue(3)));
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), quotationID);
+			return ((ISingleResult<Manali_Quotation_SelectAQuotationResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.Manali_Worker_CreateWorker")]
+		public int Manali_Worker_CreateWorker([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Name", DbType="VarChar(MAX)")] string name, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NIC", DbType="VarChar(10)")] string nIC, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Mobile", DbType="VarChar(15)")] string mobile, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Address", DbType="VarChar(MAX)")] string address, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Image", DbType="VarChar(MAX)")] string image, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Designation", DbType="VarChar(MAX)")] string designation, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="WorkerID", DbType="Int")] ref System.Nullable<int> workerID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), name, nIC, mobile, address, image, designation, workerID);
+			workerID = ((System.Nullable<int>)(result.GetParameterValue(6)));
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.Manali_Worker_GetWorkerByID")]
+		public ISingleResult<Manali_Worker_GetWorkerByIDResult> Manali_Worker_GetWorkerByID([global::System.Data.Linq.Mapping.ParameterAttribute(Name="WorkerID", DbType="Int")] System.Nullable<int> workerID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), workerID);
+			return ((ISingleResult<Manali_Worker_GetWorkerByIDResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.Manali_Worker_GetAllWorkers")]
+		public ISingleResult<Manali_Worker_GetAllWorkersResult> Manali_Worker_GetAllWorkers()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<Manali_Worker_GetAllWorkersResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.Manali_Worker_GetAllQuotationsByWorkerID")]
+		public ISingleResult<Manali_Worker_GetAllQuotationsByWorkerIDResult> Manali_Worker_GetAllQuotationsByWorkerID([global::System.Data.Linq.Mapping.ParameterAttribute(Name="WorkerID", DbType="Int")] System.Nullable<int> workerID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), workerID);
+			return ((ISingleResult<Manali_Worker_GetAllQuotationsByWorkerIDResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.Manali_Appointment_GetAppointmentsByQuotationID")]
+		public ISingleResult<Manali_Appointment_GetAppointmentsByQuotationIDResult> Manali_Appointment_GetAppointmentsByQuotationID([global::System.Data.Linq.Mapping.ParameterAttribute(Name="QuotationID", DbType="Int")] System.Nullable<int> quotationID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), quotationID);
+			return ((ISingleResult<Manali_Appointment_GetAppointmentsByQuotationIDResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.Manali_Appointment_GetAllAppointments")]
+		public ISingleResult<Manali_Appointment_GetAllAppointmentsResult> Manali_Appointment_GetAllAppointments()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<Manali_Appointment_GetAllAppointmentsResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.Manali_Appointment_GetAppointmentDetailsByID")]
+		public ISingleResult<Manali_Appointment_GetAppointmentDetailsByIDResult> Manali_Appointment_GetAppointmentDetailsByID([global::System.Data.Linq.Mapping.ParameterAttribute(Name="AppointmentID", DbType="Int")] System.Nullable<int> appointmentID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), appointmentID);
+			return ((ISingleResult<Manali_Appointment_GetAppointmentDetailsByIDResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.Manali_Appointment_GetAppointmentsAssignForWorker")]
+		public ISingleResult<Manali_Appointment_GetAppointmentsAssignForWorkerResult> Manali_Appointment_GetAppointmentsAssignForWorker([global::System.Data.Linq.Mapping.ParameterAttribute(Name="WorkerID", DbType="Int")] System.Nullable<int> workerID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), workerID);
+			return ((ISingleResult<Manali_Appointment_GetAppointmentsAssignForWorkerResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.Manali_Appointment_CreateAppointment")]
+		public int Manali_Appointment_CreateAppointment([global::System.Data.Linq.Mapping.ParameterAttribute(Name="QuotationID", DbType="Int")] System.Nullable<int> quotationID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="AppointmentDateTime", DbType="DateTime")] System.Nullable<System.DateTime> appointmentDateTime, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ResponsibleWorker", DbType="Int")] System.Nullable<int> responsibleWorker, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Duration", DbType="Float")] System.Nullable<double> duration, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Notes", DbType="VarChar(MAX)")] string notes, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="AppointmentID", DbType="Int")] ref System.Nullable<int> appointmentID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), quotationID, appointmentDateTime, responsibleWorker, duration, notes, appointmentID);
+			appointmentID = ((System.Nullable<int>)(result.GetParameterValue(5)));
 			return ((int)(result.ReturnValue));
 		}
 	}
@@ -1694,6 +1790,1190 @@ namespace DataAccessLayer
 		}
 	}
 	
+	public partial class Manali_Receipt_GetAllReceiptsResult
+	{
+		
+		private int _ReceiptID;
+		
+		private System.Nullable<System.DateTime> _ReceiptDate;
+		
+		private string _MagNo;
+		
+		private string _Section;
+		
+		private System.Nullable<int> _FunctionTime;
+		
+		private System.Nullable<bool> _IsGoingAwayIncluded;
+		
+		private string _PayerName;
+		
+		private string _AccountOf;
+		
+		private System.Nullable<double> _Payment;
+		
+		private string _CashOrCheckNo;
+		
+		private System.Nullable<System.DateTime> _DateOfWedding;
+		
+		private string _Bride;
+		
+		private string _BrideAddress;
+		
+		private string _BrideEmail;
+		
+		private string _BrideContactNo;
+		
+		private System.Nullable<System.DateTime> _DateOfHomecoming;
+		
+		private string _Groom;
+		
+		private string _GroomAddress;
+		
+		private string _GroomContactNo;
+		
+		private System.Nullable<int> _CreatedBy;
+		
+		private System.Nullable<System.DateTime> _CreatedDate;
+		
+		private int _QuotationID;
+		
+		public Manali_Receipt_GetAllReceiptsResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ReceiptID", DbType="Int NOT NULL")]
+		public int ReceiptID
+		{
+			get
+			{
+				return this._ReceiptID;
+			}
+			set
+			{
+				if ((this._ReceiptID != value))
+				{
+					this._ReceiptID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ReceiptDate", DbType="Date")]
+		public System.Nullable<System.DateTime> ReceiptDate
+		{
+			get
+			{
+				return this._ReceiptDate;
+			}
+			set
+			{
+				if ((this._ReceiptDate != value))
+				{
+					this._ReceiptDate = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MagNo", DbType="VarChar(500)")]
+		public string MagNo
+		{
+			get
+			{
+				return this._MagNo;
+			}
+			set
+			{
+				if ((this._MagNo != value))
+				{
+					this._MagNo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Section", DbType="VarChar(500)")]
+		public string Section
+		{
+			get
+			{
+				return this._Section;
+			}
+			set
+			{
+				if ((this._Section != value))
+				{
+					this._Section = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FunctionTime", DbType="Int")]
+		public System.Nullable<int> FunctionTime
+		{
+			get
+			{
+				return this._FunctionTime;
+			}
+			set
+			{
+				if ((this._FunctionTime != value))
+				{
+					this._FunctionTime = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsGoingAwayIncluded", DbType="Bit")]
+		public System.Nullable<bool> IsGoingAwayIncluded
+		{
+			get
+			{
+				return this._IsGoingAwayIncluded;
+			}
+			set
+			{
+				if ((this._IsGoingAwayIncluded != value))
+				{
+					this._IsGoingAwayIncluded = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PayerName", DbType="VarChar(MAX)")]
+		public string PayerName
+		{
+			get
+			{
+				return this._PayerName;
+			}
+			set
+			{
+				if ((this._PayerName != value))
+				{
+					this._PayerName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AccountOf", DbType="VarChar(MAX)")]
+		public string AccountOf
+		{
+			get
+			{
+				return this._AccountOf;
+			}
+			set
+			{
+				if ((this._AccountOf != value))
+				{
+					this._AccountOf = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Payment", DbType="Float")]
+		public System.Nullable<double> Payment
+		{
+			get
+			{
+				return this._Payment;
+			}
+			set
+			{
+				if ((this._Payment != value))
+				{
+					this._Payment = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CashOrCheckNo", DbType="VarChar(MAX)")]
+		public string CashOrCheckNo
+		{
+			get
+			{
+				return this._CashOrCheckNo;
+			}
+			set
+			{
+				if ((this._CashOrCheckNo != value))
+				{
+					this._CashOrCheckNo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateOfWedding", DbType="Date")]
+		public System.Nullable<System.DateTime> DateOfWedding
+		{
+			get
+			{
+				return this._DateOfWedding;
+			}
+			set
+			{
+				if ((this._DateOfWedding != value))
+				{
+					this._DateOfWedding = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Bride", DbType="VarChar(MAX)")]
+		public string Bride
+		{
+			get
+			{
+				return this._Bride;
+			}
+			set
+			{
+				if ((this._Bride != value))
+				{
+					this._Bride = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BrideAddress", DbType="VarChar(MAX)")]
+		public string BrideAddress
+		{
+			get
+			{
+				return this._BrideAddress;
+			}
+			set
+			{
+				if ((this._BrideAddress != value))
+				{
+					this._BrideAddress = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BrideEmail", DbType="VarChar(MAX)")]
+		public string BrideEmail
+		{
+			get
+			{
+				return this._BrideEmail;
+			}
+			set
+			{
+				if ((this._BrideEmail != value))
+				{
+					this._BrideEmail = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BrideContactNo", DbType="VarChar(15)")]
+		public string BrideContactNo
+		{
+			get
+			{
+				return this._BrideContactNo;
+			}
+			set
+			{
+				if ((this._BrideContactNo != value))
+				{
+					this._BrideContactNo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateOfHomecoming", DbType="Date")]
+		public System.Nullable<System.DateTime> DateOfHomecoming
+		{
+			get
+			{
+				return this._DateOfHomecoming;
+			}
+			set
+			{
+				if ((this._DateOfHomecoming != value))
+				{
+					this._DateOfHomecoming = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Groom", DbType="VarChar(MAX)")]
+		public string Groom
+		{
+			get
+			{
+				return this._Groom;
+			}
+			set
+			{
+				if ((this._Groom != value))
+				{
+					this._Groom = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GroomAddress", DbType="VarChar(MAX)")]
+		public string GroomAddress
+		{
+			get
+			{
+				return this._GroomAddress;
+			}
+			set
+			{
+				if ((this._GroomAddress != value))
+				{
+					this._GroomAddress = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GroomContactNo", DbType="VarChar(15)")]
+		public string GroomContactNo
+		{
+			get
+			{
+				return this._GroomContactNo;
+			}
+			set
+			{
+				if ((this._GroomContactNo != value))
+				{
+					this._GroomContactNo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedBy", DbType="Int")]
+		public System.Nullable<int> CreatedBy
+		{
+			get
+			{
+				return this._CreatedBy;
+			}
+			set
+			{
+				if ((this._CreatedBy != value))
+				{
+					this._CreatedBy = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedDate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> CreatedDate
+		{
+			get
+			{
+				return this._CreatedDate;
+			}
+			set
+			{
+				if ((this._CreatedDate != value))
+				{
+					this._CreatedDate = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_QuotationID", DbType="Int NOT NULL")]
+		public int QuotationID
+		{
+			get
+			{
+				return this._QuotationID;
+			}
+			set
+			{
+				if ((this._QuotationID != value))
+				{
+					this._QuotationID = value;
+				}
+			}
+		}
+	}
+	
+	public partial class Manali_Receipt_GetReceiptByIDResult
+	{
+		
+		private int _ReceiptID;
+		
+		private System.Nullable<System.DateTime> _ReceiptDate;
+		
+		private string _MagNo;
+		
+		private string _Section;
+		
+		private System.Nullable<int> _FunctionTime;
+		
+		private System.Nullable<bool> _IsGoingAwayIncluded;
+		
+		private string _PayerName;
+		
+		private string _AccountOf;
+		
+		private System.Nullable<double> _Payment;
+		
+		private string _CashOrCheckNo;
+		
+		private int _QuotationID;
+		
+		private System.Nullable<System.DateTime> _DateOfWedding;
+		
+		private string _Bride;
+		
+		private string _BrideAddress;
+		
+		private string _BrideEmail;
+		
+		private string _BrideContactNo;
+		
+		private System.Nullable<System.DateTime> _DateOfHomecoming;
+		
+		private string _Groom;
+		
+		private string _GroomAddress;
+		
+		private string _GroomContactNo;
+		
+		private System.Nullable<int> _CreatedBy;
+		
+		private System.Nullable<System.DateTime> _CreatedDate;
+		
+		public Manali_Receipt_GetReceiptByIDResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ReceiptID", DbType="Int NOT NULL")]
+		public int ReceiptID
+		{
+			get
+			{
+				return this._ReceiptID;
+			}
+			set
+			{
+				if ((this._ReceiptID != value))
+				{
+					this._ReceiptID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ReceiptDate", DbType="Date")]
+		public System.Nullable<System.DateTime> ReceiptDate
+		{
+			get
+			{
+				return this._ReceiptDate;
+			}
+			set
+			{
+				if ((this._ReceiptDate != value))
+				{
+					this._ReceiptDate = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MagNo", DbType="VarChar(500)")]
+		public string MagNo
+		{
+			get
+			{
+				return this._MagNo;
+			}
+			set
+			{
+				if ((this._MagNo != value))
+				{
+					this._MagNo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Section", DbType="VarChar(500)")]
+		public string Section
+		{
+			get
+			{
+				return this._Section;
+			}
+			set
+			{
+				if ((this._Section != value))
+				{
+					this._Section = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FunctionTime", DbType="Int")]
+		public System.Nullable<int> FunctionTime
+		{
+			get
+			{
+				return this._FunctionTime;
+			}
+			set
+			{
+				if ((this._FunctionTime != value))
+				{
+					this._FunctionTime = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsGoingAwayIncluded", DbType="Bit")]
+		public System.Nullable<bool> IsGoingAwayIncluded
+		{
+			get
+			{
+				return this._IsGoingAwayIncluded;
+			}
+			set
+			{
+				if ((this._IsGoingAwayIncluded != value))
+				{
+					this._IsGoingAwayIncluded = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PayerName", DbType="VarChar(MAX)")]
+		public string PayerName
+		{
+			get
+			{
+				return this._PayerName;
+			}
+			set
+			{
+				if ((this._PayerName != value))
+				{
+					this._PayerName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AccountOf", DbType="VarChar(MAX)")]
+		public string AccountOf
+		{
+			get
+			{
+				return this._AccountOf;
+			}
+			set
+			{
+				if ((this._AccountOf != value))
+				{
+					this._AccountOf = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Payment", DbType="Float")]
+		public System.Nullable<double> Payment
+		{
+			get
+			{
+				return this._Payment;
+			}
+			set
+			{
+				if ((this._Payment != value))
+				{
+					this._Payment = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CashOrCheckNo", DbType="VarChar(MAX)")]
+		public string CashOrCheckNo
+		{
+			get
+			{
+				return this._CashOrCheckNo;
+			}
+			set
+			{
+				if ((this._CashOrCheckNo != value))
+				{
+					this._CashOrCheckNo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_QuotationID", DbType="Int NOT NULL")]
+		public int QuotationID
+		{
+			get
+			{
+				return this._QuotationID;
+			}
+			set
+			{
+				if ((this._QuotationID != value))
+				{
+					this._QuotationID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateOfWedding", DbType="Date")]
+		public System.Nullable<System.DateTime> DateOfWedding
+		{
+			get
+			{
+				return this._DateOfWedding;
+			}
+			set
+			{
+				if ((this._DateOfWedding != value))
+				{
+					this._DateOfWedding = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Bride", DbType="VarChar(MAX)")]
+		public string Bride
+		{
+			get
+			{
+				return this._Bride;
+			}
+			set
+			{
+				if ((this._Bride != value))
+				{
+					this._Bride = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BrideAddress", DbType="VarChar(MAX)")]
+		public string BrideAddress
+		{
+			get
+			{
+				return this._BrideAddress;
+			}
+			set
+			{
+				if ((this._BrideAddress != value))
+				{
+					this._BrideAddress = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BrideEmail", DbType="VarChar(MAX)")]
+		public string BrideEmail
+		{
+			get
+			{
+				return this._BrideEmail;
+			}
+			set
+			{
+				if ((this._BrideEmail != value))
+				{
+					this._BrideEmail = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BrideContactNo", DbType="VarChar(15)")]
+		public string BrideContactNo
+		{
+			get
+			{
+				return this._BrideContactNo;
+			}
+			set
+			{
+				if ((this._BrideContactNo != value))
+				{
+					this._BrideContactNo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateOfHomecoming", DbType="Date")]
+		public System.Nullable<System.DateTime> DateOfHomecoming
+		{
+			get
+			{
+				return this._DateOfHomecoming;
+			}
+			set
+			{
+				if ((this._DateOfHomecoming != value))
+				{
+					this._DateOfHomecoming = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Groom", DbType="VarChar(MAX)")]
+		public string Groom
+		{
+			get
+			{
+				return this._Groom;
+			}
+			set
+			{
+				if ((this._Groom != value))
+				{
+					this._Groom = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GroomAddress", DbType="VarChar(MAX)")]
+		public string GroomAddress
+		{
+			get
+			{
+				return this._GroomAddress;
+			}
+			set
+			{
+				if ((this._GroomAddress != value))
+				{
+					this._GroomAddress = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GroomContactNo", DbType="VarChar(15)")]
+		public string GroomContactNo
+		{
+			get
+			{
+				return this._GroomContactNo;
+			}
+			set
+			{
+				if ((this._GroomContactNo != value))
+				{
+					this._GroomContactNo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedBy", DbType="Int")]
+		public System.Nullable<int> CreatedBy
+		{
+			get
+			{
+				return this._CreatedBy;
+			}
+			set
+			{
+				if ((this._CreatedBy != value))
+				{
+					this._CreatedBy = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedDate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> CreatedDate
+		{
+			get
+			{
+				return this._CreatedDate;
+			}
+			set
+			{
+				if ((this._CreatedDate != value))
+				{
+					this._CreatedDate = value;
+				}
+			}
+		}
+	}
+	
+	public partial class Manali_Quotation_GetAllQuotationResult
+	{
+		
+		private int _QuotationID;
+		
+		private System.Nullable<System.DateTime> _DateOfWedding;
+		
+		private string _Bride;
+		
+		private string _BrideContactNo;
+		
+		private System.Nullable<System.DateTime> _DateOfHomecoming;
+		
+		private string _Groom;
+		
+		private System.Nullable<int> _CreatedBy;
+		
+		private System.Nullable<System.DateTime> _CreatedDate;
+		
+		private string _GroomAddress;
+		
+		private string _GroomContactNo;
+		
+		private string _BrideEmail;
+		
+		private string _BrideAddress;
+		
+		private int _WorkerID;
+		
+		private string _Name;
+		
+		private string _NIC;
+		
+		private string _Mobile;
+		
+		private string _Address;
+		
+		private string _Image;
+		
+		private string _Designation;
+		
+		public Manali_Quotation_GetAllQuotationResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_QuotationID", DbType="Int NOT NULL")]
+		public int QuotationID
+		{
+			get
+			{
+				return this._QuotationID;
+			}
+			set
+			{
+				if ((this._QuotationID != value))
+				{
+					this._QuotationID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateOfWedding", DbType="Date")]
+		public System.Nullable<System.DateTime> DateOfWedding
+		{
+			get
+			{
+				return this._DateOfWedding;
+			}
+			set
+			{
+				if ((this._DateOfWedding != value))
+				{
+					this._DateOfWedding = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Bride", DbType="VarChar(MAX)")]
+		public string Bride
+		{
+			get
+			{
+				return this._Bride;
+			}
+			set
+			{
+				if ((this._Bride != value))
+				{
+					this._Bride = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BrideContactNo", DbType="VarChar(15)")]
+		public string BrideContactNo
+		{
+			get
+			{
+				return this._BrideContactNo;
+			}
+			set
+			{
+				if ((this._BrideContactNo != value))
+				{
+					this._BrideContactNo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateOfHomecoming", DbType="Date")]
+		public System.Nullable<System.DateTime> DateOfHomecoming
+		{
+			get
+			{
+				return this._DateOfHomecoming;
+			}
+			set
+			{
+				if ((this._DateOfHomecoming != value))
+				{
+					this._DateOfHomecoming = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Groom", DbType="VarChar(MAX)")]
+		public string Groom
+		{
+			get
+			{
+				return this._Groom;
+			}
+			set
+			{
+				if ((this._Groom != value))
+				{
+					this._Groom = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedBy", DbType="Int")]
+		public System.Nullable<int> CreatedBy
+		{
+			get
+			{
+				return this._CreatedBy;
+			}
+			set
+			{
+				if ((this._CreatedBy != value))
+				{
+					this._CreatedBy = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedDate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> CreatedDate
+		{
+			get
+			{
+				return this._CreatedDate;
+			}
+			set
+			{
+				if ((this._CreatedDate != value))
+				{
+					this._CreatedDate = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GroomAddress", DbType="VarChar(MAX)")]
+		public string GroomAddress
+		{
+			get
+			{
+				return this._GroomAddress;
+			}
+			set
+			{
+				if ((this._GroomAddress != value))
+				{
+					this._GroomAddress = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GroomContactNo", DbType="VarChar(15)")]
+		public string GroomContactNo
+		{
+			get
+			{
+				return this._GroomContactNo;
+			}
+			set
+			{
+				if ((this._GroomContactNo != value))
+				{
+					this._GroomContactNo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BrideEmail", DbType="VarChar(MAX)")]
+		public string BrideEmail
+		{
+			get
+			{
+				return this._BrideEmail;
+			}
+			set
+			{
+				if ((this._BrideEmail != value))
+				{
+					this._BrideEmail = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BrideAddress", DbType="VarChar(MAX)")]
+		public string BrideAddress
+		{
+			get
+			{
+				return this._BrideAddress;
+			}
+			set
+			{
+				if ((this._BrideAddress != value))
+				{
+					this._BrideAddress = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WorkerID", DbType="Int NOT NULL")]
+		public int WorkerID
+		{
+			get
+			{
+				return this._WorkerID;
+			}
+			set
+			{
+				if ((this._WorkerID != value))
+				{
+					this._WorkerID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="VarChar(MAX)")]
+		public string Name
+		{
+			get
+			{
+				return this._Name;
+			}
+			set
+			{
+				if ((this._Name != value))
+				{
+					this._Name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NIC", DbType="VarChar(10)")]
+		public string NIC
+		{
+			get
+			{
+				return this._NIC;
+			}
+			set
+			{
+				if ((this._NIC != value))
+				{
+					this._NIC = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Mobile", DbType="VarChar(15)")]
+		public string Mobile
+		{
+			get
+			{
+				return this._Mobile;
+			}
+			set
+			{
+				if ((this._Mobile != value))
+				{
+					this._Mobile = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Address", DbType="VarChar(MAX)")]
+		public string Address
+		{
+			get
+			{
+				return this._Address;
+			}
+			set
+			{
+				if ((this._Address != value))
+				{
+					this._Address = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image", DbType="VarChar(MAX)")]
+		public string Image
+		{
+			get
+			{
+				return this._Image;
+			}
+			set
+			{
+				if ((this._Image != value))
+				{
+					this._Image = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Designation", DbType="VarChar(MAX)")]
+		public string Designation
+		{
+			get
+			{
+				return this._Designation;
+			}
+			set
+			{
+				if ((this._Designation != value))
+				{
+					this._Designation = value;
+				}
+			}
+		}
+	}
+	
+	public partial class Manali_Quotation_SelectQuotationSelectedItemsResult
+	{
+		
+		private System.Nullable<int> _ItemID;
+		
+		public Manali_Quotation_SelectQuotationSelectedItemsResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ItemID", DbType="Int")]
+		public System.Nullable<int> ItemID
+		{
+			get
+			{
+				return this._ItemID;
+			}
+			set
+			{
+				if ((this._ItemID != value))
+				{
+					this._ItemID = value;
+				}
+			}
+		}
+	}
+	
 	public partial class Manali_Quotation_GetQuotationItemPriceListResult
 	{
 		
@@ -1800,6 +3080,20 @@ namespace DataAccessLayer
 		private System.Nullable<int> _CreatedBy;
 		
 		private System.Nullable<System.DateTime> _CreatedDate;
+		
+		private int _WorkerID;
+		
+		private string _Name;
+		
+		private string _NIC;
+		
+		private string _Mobile;
+		
+		private string _Address;
+		
+		private string _Image;
+		
+		private string _Designation;
 		
 		public Manali_Quotation_SelectAQuotationResult()
 		{
@@ -1996,35 +3290,389 @@ namespace DataAccessLayer
 				}
 			}
 		}
-	}
-	
-	public partial class Manali_Quotation_SelectQuotationSelectedItemsResult
-	{
 		
-		private System.Nullable<int> _ItemID;
-		
-		public Manali_Quotation_SelectQuotationSelectedItemsResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ItemID", DbType="Int")]
-		public System.Nullable<int> ItemID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WorkerID", DbType="Int NOT NULL")]
+		public int WorkerID
 		{
 			get
 			{
-				return this._ItemID;
+				return this._WorkerID;
 			}
 			set
 			{
-				if ((this._ItemID != value))
+				if ((this._WorkerID != value))
 				{
-					this._ItemID = value;
+					this._WorkerID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="VarChar(MAX)")]
+		public string Name
+		{
+			get
+			{
+				return this._Name;
+			}
+			set
+			{
+				if ((this._Name != value))
+				{
+					this._Name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NIC", DbType="VarChar(10)")]
+		public string NIC
+		{
+			get
+			{
+				return this._NIC;
+			}
+			set
+			{
+				if ((this._NIC != value))
+				{
+					this._NIC = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Mobile", DbType="VarChar(15)")]
+		public string Mobile
+		{
+			get
+			{
+				return this._Mobile;
+			}
+			set
+			{
+				if ((this._Mobile != value))
+				{
+					this._Mobile = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Address", DbType="VarChar(MAX)")]
+		public string Address
+		{
+			get
+			{
+				return this._Address;
+			}
+			set
+			{
+				if ((this._Address != value))
+				{
+					this._Address = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image", DbType="VarChar(MAX)")]
+		public string Image
+		{
+			get
+			{
+				return this._Image;
+			}
+			set
+			{
+				if ((this._Image != value))
+				{
+					this._Image = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Designation", DbType="VarChar(MAX)")]
+		public string Designation
+		{
+			get
+			{
+				return this._Designation;
+			}
+			set
+			{
+				if ((this._Designation != value))
+				{
+					this._Designation = value;
 				}
 			}
 		}
 	}
 	
-	public partial class Manali_Quotation_GetAllQuotationResult
+	public partial class Manali_Worker_GetWorkerByIDResult
+	{
+		
+		private int _WorkerID;
+		
+		private string _Name;
+		
+		private string _NIC;
+		
+		private string _Mobile;
+		
+		private string _Address;
+		
+		private string _Image;
+		
+		private string _Designation;
+		
+		public Manali_Worker_GetWorkerByIDResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WorkerID", DbType="Int NOT NULL")]
+		public int WorkerID
+		{
+			get
+			{
+				return this._WorkerID;
+			}
+			set
+			{
+				if ((this._WorkerID != value))
+				{
+					this._WorkerID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="VarChar(MAX)")]
+		public string Name
+		{
+			get
+			{
+				return this._Name;
+			}
+			set
+			{
+				if ((this._Name != value))
+				{
+					this._Name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NIC", DbType="VarChar(10)")]
+		public string NIC
+		{
+			get
+			{
+				return this._NIC;
+			}
+			set
+			{
+				if ((this._NIC != value))
+				{
+					this._NIC = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Mobile", DbType="VarChar(15)")]
+		public string Mobile
+		{
+			get
+			{
+				return this._Mobile;
+			}
+			set
+			{
+				if ((this._Mobile != value))
+				{
+					this._Mobile = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Address", DbType="VarChar(MAX)")]
+		public string Address
+		{
+			get
+			{
+				return this._Address;
+			}
+			set
+			{
+				if ((this._Address != value))
+				{
+					this._Address = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image", DbType="VarChar(MAX)")]
+		public string Image
+		{
+			get
+			{
+				return this._Image;
+			}
+			set
+			{
+				if ((this._Image != value))
+				{
+					this._Image = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Designation", DbType="VarChar(MAX)")]
+		public string Designation
+		{
+			get
+			{
+				return this._Designation;
+			}
+			set
+			{
+				if ((this._Designation != value))
+				{
+					this._Designation = value;
+				}
+			}
+		}
+	}
+	
+	public partial class Manali_Worker_GetAllWorkersResult
+	{
+		
+		private int _WorkerID;
+		
+		private string _Name;
+		
+		private string _NIC;
+		
+		private string _Mobile;
+		
+		private string _Address;
+		
+		private string _Image;
+		
+		private string _Designation;
+		
+		public Manali_Worker_GetAllWorkersResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WorkerID", DbType="Int NOT NULL")]
+		public int WorkerID
+		{
+			get
+			{
+				return this._WorkerID;
+			}
+			set
+			{
+				if ((this._WorkerID != value))
+				{
+					this._WorkerID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="VarChar(MAX)")]
+		public string Name
+		{
+			get
+			{
+				return this._Name;
+			}
+			set
+			{
+				if ((this._Name != value))
+				{
+					this._Name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NIC", DbType="VarChar(10)")]
+		public string NIC
+		{
+			get
+			{
+				return this._NIC;
+			}
+			set
+			{
+				if ((this._NIC != value))
+				{
+					this._NIC = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Mobile", DbType="VarChar(15)")]
+		public string Mobile
+		{
+			get
+			{
+				return this._Mobile;
+			}
+			set
+			{
+				if ((this._Mobile != value))
+				{
+					this._Mobile = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Address", DbType="VarChar(MAX)")]
+		public string Address
+		{
+			get
+			{
+				return this._Address;
+			}
+			set
+			{
+				if ((this._Address != value))
+				{
+					this._Address = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image", DbType="VarChar(MAX)")]
+		public string Image
+		{
+			get
+			{
+				return this._Image;
+			}
+			set
+			{
+				if ((this._Image != value))
+				{
+					this._Image = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Designation", DbType="VarChar(MAX)")]
+		public string Designation
+		{
+			get
+			{
+				return this._Designation;
+			}
+			set
+			{
+				if ((this._Designation != value))
+				{
+					this._Designation = value;
+				}
+			}
+		}
+	}
+	
+	public partial class Manali_Worker_GetAllQuotationsByWorkerIDResult
 	{
 		
 		private int _QuotationID;
@@ -2033,25 +3681,27 @@ namespace DataAccessLayer
 		
 		private string _Bride;
 		
+		private string _BrideAddress;
+		
+		private string _BrideEmail;
+		
 		private string _BrideContactNo;
 		
 		private System.Nullable<System.DateTime> _DateOfHomecoming;
 		
 		private string _Groom;
 		
-		private System.Nullable<int> _CreatedBy;
-		
-		private System.Nullable<System.DateTime> _CreatedDate;
-		
 		private string _GroomAddress;
 		
 		private string _GroomContactNo;
 		
-		private string _BrideEmail;
+		private System.Nullable<int> _CreatedBy;
 		
-		private string _BrideAddress;
+		private System.Nullable<System.DateTime> _CreatedDate;
 		
-		public Manali_Quotation_GetAllQuotationResult()
+		private System.Nullable<int> _EventID;
+		
+		public Manali_Worker_GetAllQuotationsByWorkerIDResult()
 		{
 		}
 		
@@ -2099,6 +3749,38 @@ namespace DataAccessLayer
 				if ((this._Bride != value))
 				{
 					this._Bride = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BrideAddress", DbType="VarChar(MAX)")]
+		public string BrideAddress
+		{
+			get
+			{
+				return this._BrideAddress;
+			}
+			set
+			{
+				if ((this._BrideAddress != value))
+				{
+					this._BrideAddress = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BrideEmail", DbType="VarChar(MAX)")]
+		public string BrideEmail
+		{
+			get
+			{
+				return this._BrideEmail;
+			}
+			set
+			{
+				if ((this._BrideEmail != value))
+				{
+					this._BrideEmail = value;
 				}
 			}
 		}
@@ -2151,6 +3833,38 @@ namespace DataAccessLayer
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GroomAddress", DbType="VarChar(MAX)")]
+		public string GroomAddress
+		{
+			get
+			{
+				return this._GroomAddress;
+			}
+			set
+			{
+				if ((this._GroomAddress != value))
+				{
+					this._GroomAddress = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GroomContactNo", DbType="VarChar(15)")]
+		public string GroomContactNo
+		{
+			get
+			{
+				return this._GroomContactNo;
+			}
+			set
+			{
+				if ((this._GroomContactNo != value))
+				{
+					this._GroomContactNo = value;
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedBy", DbType="Int")]
 		public System.Nullable<int> CreatedBy
 		{
@@ -2179,6 +3893,414 @@ namespace DataAccessLayer
 				if ((this._CreatedDate != value))
 				{
 					this._CreatedDate = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EventID", DbType="Int")]
+		public System.Nullable<int> EventID
+		{
+			get
+			{
+				return this._EventID;
+			}
+			set
+			{
+				if ((this._EventID != value))
+				{
+					this._EventID = value;
+				}
+			}
+		}
+	}
+	
+	public partial class Manali_Appointment_GetAppointmentsByQuotationIDResult
+	{
+		
+		private int _AppointmentID;
+		
+		private System.Nullable<System.DateTime> _AppointmentDateTime;
+		
+		private System.Nullable<bool> _IsBrideVisited;
+		
+		private System.Nullable<double> _Duration;
+		
+		private string _Notes;
+		
+		private System.Nullable<int> _Status;
+		
+		private int _WorkerID;
+		
+		private string _Name;
+		
+		private string _NIC;
+		
+		private string _Mobile;
+		
+		private string _Address;
+		
+		private string _Image;
+		
+		private string _Designation;
+		
+		private int _QuotationID;
+		
+		private System.Nullable<System.DateTime> _DateOfWedding;
+		
+		private string _Bride;
+		
+		private string _BrideAddress;
+		
+		private string _BrideEmail;
+		
+		private string _BrideContactNo;
+		
+		private System.Nullable<System.DateTime> _DateOfHomecoming;
+		
+		private string _Groom;
+		
+		private string _GroomAddress;
+		
+		private string _GroomContactNo;
+		
+		private System.Nullable<System.DateTime> _CreatedDate;
+		
+		public Manali_Appointment_GetAppointmentsByQuotationIDResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AppointmentID", DbType="Int NOT NULL")]
+		public int AppointmentID
+		{
+			get
+			{
+				return this._AppointmentID;
+			}
+			set
+			{
+				if ((this._AppointmentID != value))
+				{
+					this._AppointmentID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AppointmentDateTime", DbType="DateTime")]
+		public System.Nullable<System.DateTime> AppointmentDateTime
+		{
+			get
+			{
+				return this._AppointmentDateTime;
+			}
+			set
+			{
+				if ((this._AppointmentDateTime != value))
+				{
+					this._AppointmentDateTime = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsBrideVisited", DbType="Bit")]
+		public System.Nullable<bool> IsBrideVisited
+		{
+			get
+			{
+				return this._IsBrideVisited;
+			}
+			set
+			{
+				if ((this._IsBrideVisited != value))
+				{
+					this._IsBrideVisited = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Duration", DbType="Float")]
+		public System.Nullable<double> Duration
+		{
+			get
+			{
+				return this._Duration;
+			}
+			set
+			{
+				if ((this._Duration != value))
+				{
+					this._Duration = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Notes", DbType="VarChar(MAX)")]
+		public string Notes
+		{
+			get
+			{
+				return this._Notes;
+			}
+			set
+			{
+				if ((this._Notes != value))
+				{
+					this._Notes = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="Int")]
+		public System.Nullable<int> Status
+		{
+			get
+			{
+				return this._Status;
+			}
+			set
+			{
+				if ((this._Status != value))
+				{
+					this._Status = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WorkerID", DbType="Int NOT NULL")]
+		public int WorkerID
+		{
+			get
+			{
+				return this._WorkerID;
+			}
+			set
+			{
+				if ((this._WorkerID != value))
+				{
+					this._WorkerID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="VarChar(MAX)")]
+		public string Name
+		{
+			get
+			{
+				return this._Name;
+			}
+			set
+			{
+				if ((this._Name != value))
+				{
+					this._Name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NIC", DbType="VarChar(10)")]
+		public string NIC
+		{
+			get
+			{
+				return this._NIC;
+			}
+			set
+			{
+				if ((this._NIC != value))
+				{
+					this._NIC = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Mobile", DbType="VarChar(15)")]
+		public string Mobile
+		{
+			get
+			{
+				return this._Mobile;
+			}
+			set
+			{
+				if ((this._Mobile != value))
+				{
+					this._Mobile = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Address", DbType="VarChar(MAX)")]
+		public string Address
+		{
+			get
+			{
+				return this._Address;
+			}
+			set
+			{
+				if ((this._Address != value))
+				{
+					this._Address = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image", DbType="VarChar(MAX)")]
+		public string Image
+		{
+			get
+			{
+				return this._Image;
+			}
+			set
+			{
+				if ((this._Image != value))
+				{
+					this._Image = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Designation", DbType="VarChar(MAX)")]
+		public string Designation
+		{
+			get
+			{
+				return this._Designation;
+			}
+			set
+			{
+				if ((this._Designation != value))
+				{
+					this._Designation = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_QuotationID", DbType="Int NOT NULL")]
+		public int QuotationID
+		{
+			get
+			{
+				return this._QuotationID;
+			}
+			set
+			{
+				if ((this._QuotationID != value))
+				{
+					this._QuotationID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateOfWedding", DbType="Date")]
+		public System.Nullable<System.DateTime> DateOfWedding
+		{
+			get
+			{
+				return this._DateOfWedding;
+			}
+			set
+			{
+				if ((this._DateOfWedding != value))
+				{
+					this._DateOfWedding = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Bride", DbType="VarChar(MAX)")]
+		public string Bride
+		{
+			get
+			{
+				return this._Bride;
+			}
+			set
+			{
+				if ((this._Bride != value))
+				{
+					this._Bride = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BrideAddress", DbType="VarChar(MAX)")]
+		public string BrideAddress
+		{
+			get
+			{
+				return this._BrideAddress;
+			}
+			set
+			{
+				if ((this._BrideAddress != value))
+				{
+					this._BrideAddress = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BrideEmail", DbType="VarChar(MAX)")]
+		public string BrideEmail
+		{
+			get
+			{
+				return this._BrideEmail;
+			}
+			set
+			{
+				if ((this._BrideEmail != value))
+				{
+					this._BrideEmail = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BrideContactNo", DbType="VarChar(15)")]
+		public string BrideContactNo
+		{
+			get
+			{
+				return this._BrideContactNo;
+			}
+			set
+			{
+				if ((this._BrideContactNo != value))
+				{
+					this._BrideContactNo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateOfHomecoming", DbType="Date")]
+		public System.Nullable<System.DateTime> DateOfHomecoming
+		{
+			get
+			{
+				return this._DateOfHomecoming;
+			}
+			set
+			{
+				if ((this._DateOfHomecoming != value))
+				{
+					this._DateOfHomecoming = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Groom", DbType="VarChar(MAX)")]
+		public string Groom
+		{
+			get
+			{
+				return this._Groom;
+			}
+			set
+			{
+				if ((this._Groom != value))
+				{
+					this._Groom = value;
 				}
 			}
 		}
@@ -2215,18 +4337,330 @@ namespace DataAccessLayer
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BrideEmail", DbType="VarChar(MAX)")]
-		public string BrideEmail
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedDate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> CreatedDate
 		{
 			get
 			{
-				return this._BrideEmail;
+				return this._CreatedDate;
 			}
 			set
 			{
-				if ((this._BrideEmail != value))
+				if ((this._CreatedDate != value))
 				{
-					this._BrideEmail = value;
+					this._CreatedDate = value;
+				}
+			}
+		}
+	}
+	
+	public partial class Manali_Appointment_GetAllAppointmentsResult
+	{
+		
+		private int _AppointmentID;
+		
+		private System.Nullable<System.DateTime> _AppointmentDateTime;
+		
+		private System.Nullable<bool> _IsBrideVisited;
+		
+		private System.Nullable<double> _Duration;
+		
+		private string _Notes;
+		
+		private System.Nullable<int> _Status;
+		
+		private int _WorkerID;
+		
+		private string _Name;
+		
+		private string _NIC;
+		
+		private string _Mobile;
+		
+		private string _Address;
+		
+		private string _Image;
+		
+		private string _Designation;
+		
+		private int _QuotationID;
+		
+		private System.Nullable<System.DateTime> _DateOfWedding;
+		
+		private string _Bride;
+		
+		private string _BrideAddress;
+		
+		private string _BrideEmail;
+		
+		private string _BrideContactNo;
+		
+		private System.Nullable<System.DateTime> _DateOfHomecoming;
+		
+		private string _Groom;
+		
+		private string _GroomAddress;
+		
+		private string _GroomContactNo;
+		
+		private System.Nullable<System.DateTime> _CreatedDate;
+		
+		public Manali_Appointment_GetAllAppointmentsResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AppointmentID", DbType="Int NOT NULL")]
+		public int AppointmentID
+		{
+			get
+			{
+				return this._AppointmentID;
+			}
+			set
+			{
+				if ((this._AppointmentID != value))
+				{
+					this._AppointmentID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AppointmentDateTime", DbType="DateTime")]
+		public System.Nullable<System.DateTime> AppointmentDateTime
+		{
+			get
+			{
+				return this._AppointmentDateTime;
+			}
+			set
+			{
+				if ((this._AppointmentDateTime != value))
+				{
+					this._AppointmentDateTime = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsBrideVisited", DbType="Bit")]
+		public System.Nullable<bool> IsBrideVisited
+		{
+			get
+			{
+				return this._IsBrideVisited;
+			}
+			set
+			{
+				if ((this._IsBrideVisited != value))
+				{
+					this._IsBrideVisited = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Duration", DbType="Float")]
+		public System.Nullable<double> Duration
+		{
+			get
+			{
+				return this._Duration;
+			}
+			set
+			{
+				if ((this._Duration != value))
+				{
+					this._Duration = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Notes", DbType="VarChar(MAX)")]
+		public string Notes
+		{
+			get
+			{
+				return this._Notes;
+			}
+			set
+			{
+				if ((this._Notes != value))
+				{
+					this._Notes = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="Int")]
+		public System.Nullable<int> Status
+		{
+			get
+			{
+				return this._Status;
+			}
+			set
+			{
+				if ((this._Status != value))
+				{
+					this._Status = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WorkerID", DbType="Int NOT NULL")]
+		public int WorkerID
+		{
+			get
+			{
+				return this._WorkerID;
+			}
+			set
+			{
+				if ((this._WorkerID != value))
+				{
+					this._WorkerID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="VarChar(MAX)")]
+		public string Name
+		{
+			get
+			{
+				return this._Name;
+			}
+			set
+			{
+				if ((this._Name != value))
+				{
+					this._Name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NIC", DbType="VarChar(10)")]
+		public string NIC
+		{
+			get
+			{
+				return this._NIC;
+			}
+			set
+			{
+				if ((this._NIC != value))
+				{
+					this._NIC = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Mobile", DbType="VarChar(15)")]
+		public string Mobile
+		{
+			get
+			{
+				return this._Mobile;
+			}
+			set
+			{
+				if ((this._Mobile != value))
+				{
+					this._Mobile = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Address", DbType="VarChar(MAX)")]
+		public string Address
+		{
+			get
+			{
+				return this._Address;
+			}
+			set
+			{
+				if ((this._Address != value))
+				{
+					this._Address = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image", DbType="VarChar(MAX)")]
+		public string Image
+		{
+			get
+			{
+				return this._Image;
+			}
+			set
+			{
+				if ((this._Image != value))
+				{
+					this._Image = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Designation", DbType="VarChar(MAX)")]
+		public string Designation
+		{
+			get
+			{
+				return this._Designation;
+			}
+			set
+			{
+				if ((this._Designation != value))
+				{
+					this._Designation = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_QuotationID", DbType="Int NOT NULL")]
+		public int QuotationID
+		{
+			get
+			{
+				return this._QuotationID;
+			}
+			set
+			{
+				if ((this._QuotationID != value))
+				{
+					this._QuotationID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateOfWedding", DbType="Date")]
+		public System.Nullable<System.DateTime> DateOfWedding
+		{
+			get
+			{
+				return this._DateOfWedding;
+			}
+			set
+			{
+				if ((this._DateOfWedding != value))
+				{
+					this._DateOfWedding = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Bride", DbType="VarChar(MAX)")]
+		public string Bride
+		{
+			get
+			{
+				return this._Bride;
+			}
+			set
+			{
+				if ((this._Bride != value))
+				{
+					this._Bride = value;
 				}
 			}
 		}
@@ -2243,6 +4677,998 @@ namespace DataAccessLayer
 				if ((this._BrideAddress != value))
 				{
 					this._BrideAddress = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BrideEmail", DbType="VarChar(MAX)")]
+		public string BrideEmail
+		{
+			get
+			{
+				return this._BrideEmail;
+			}
+			set
+			{
+				if ((this._BrideEmail != value))
+				{
+					this._BrideEmail = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BrideContactNo", DbType="VarChar(15)")]
+		public string BrideContactNo
+		{
+			get
+			{
+				return this._BrideContactNo;
+			}
+			set
+			{
+				if ((this._BrideContactNo != value))
+				{
+					this._BrideContactNo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateOfHomecoming", DbType="Date")]
+		public System.Nullable<System.DateTime> DateOfHomecoming
+		{
+			get
+			{
+				return this._DateOfHomecoming;
+			}
+			set
+			{
+				if ((this._DateOfHomecoming != value))
+				{
+					this._DateOfHomecoming = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Groom", DbType="VarChar(MAX)")]
+		public string Groom
+		{
+			get
+			{
+				return this._Groom;
+			}
+			set
+			{
+				if ((this._Groom != value))
+				{
+					this._Groom = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GroomAddress", DbType="VarChar(MAX)")]
+		public string GroomAddress
+		{
+			get
+			{
+				return this._GroomAddress;
+			}
+			set
+			{
+				if ((this._GroomAddress != value))
+				{
+					this._GroomAddress = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GroomContactNo", DbType="VarChar(15)")]
+		public string GroomContactNo
+		{
+			get
+			{
+				return this._GroomContactNo;
+			}
+			set
+			{
+				if ((this._GroomContactNo != value))
+				{
+					this._GroomContactNo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedDate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> CreatedDate
+		{
+			get
+			{
+				return this._CreatedDate;
+			}
+			set
+			{
+				if ((this._CreatedDate != value))
+				{
+					this._CreatedDate = value;
+				}
+			}
+		}
+	}
+	
+	public partial class Manali_Appointment_GetAppointmentDetailsByIDResult
+	{
+		
+		private int _AppointmentID;
+		
+		private System.Nullable<System.DateTime> _AppointmentDateTime;
+		
+		private System.Nullable<bool> _IsBrideVisited;
+		
+		private System.Nullable<double> _Duration;
+		
+		private string _Notes;
+		
+		private System.Nullable<int> _Status;
+		
+		private int _WorkerID;
+		
+		private string _Name;
+		
+		private string _NIC;
+		
+		private string _Mobile;
+		
+		private string _Address;
+		
+		private string _Image;
+		
+		private string _Designation;
+		
+		private int _QuotationID;
+		
+		private System.Nullable<System.DateTime> _DateOfWedding;
+		
+		private string _Bride;
+		
+		private string _BrideAddress;
+		
+		private string _BrideEmail;
+		
+		private string _BrideContactNo;
+		
+		private System.Nullable<System.DateTime> _DateOfHomecoming;
+		
+		private string _Groom;
+		
+		private string _GroomAddress;
+		
+		private string _GroomContactNo;
+		
+		private System.Nullable<System.DateTime> _CreatedDate;
+		
+		public Manali_Appointment_GetAppointmentDetailsByIDResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AppointmentID", DbType="Int NOT NULL")]
+		public int AppointmentID
+		{
+			get
+			{
+				return this._AppointmentID;
+			}
+			set
+			{
+				if ((this._AppointmentID != value))
+				{
+					this._AppointmentID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AppointmentDateTime", DbType="DateTime")]
+		public System.Nullable<System.DateTime> AppointmentDateTime
+		{
+			get
+			{
+				return this._AppointmentDateTime;
+			}
+			set
+			{
+				if ((this._AppointmentDateTime != value))
+				{
+					this._AppointmentDateTime = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsBrideVisited", DbType="Bit")]
+		public System.Nullable<bool> IsBrideVisited
+		{
+			get
+			{
+				return this._IsBrideVisited;
+			}
+			set
+			{
+				if ((this._IsBrideVisited != value))
+				{
+					this._IsBrideVisited = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Duration", DbType="Float")]
+		public System.Nullable<double> Duration
+		{
+			get
+			{
+				return this._Duration;
+			}
+			set
+			{
+				if ((this._Duration != value))
+				{
+					this._Duration = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Notes", DbType="VarChar(MAX)")]
+		public string Notes
+		{
+			get
+			{
+				return this._Notes;
+			}
+			set
+			{
+				if ((this._Notes != value))
+				{
+					this._Notes = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="Int")]
+		public System.Nullable<int> Status
+		{
+			get
+			{
+				return this._Status;
+			}
+			set
+			{
+				if ((this._Status != value))
+				{
+					this._Status = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WorkerID", DbType="Int NOT NULL")]
+		public int WorkerID
+		{
+			get
+			{
+				return this._WorkerID;
+			}
+			set
+			{
+				if ((this._WorkerID != value))
+				{
+					this._WorkerID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="VarChar(MAX)")]
+		public string Name
+		{
+			get
+			{
+				return this._Name;
+			}
+			set
+			{
+				if ((this._Name != value))
+				{
+					this._Name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NIC", DbType="VarChar(10)")]
+		public string NIC
+		{
+			get
+			{
+				return this._NIC;
+			}
+			set
+			{
+				if ((this._NIC != value))
+				{
+					this._NIC = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Mobile", DbType="VarChar(15)")]
+		public string Mobile
+		{
+			get
+			{
+				return this._Mobile;
+			}
+			set
+			{
+				if ((this._Mobile != value))
+				{
+					this._Mobile = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Address", DbType="VarChar(MAX)")]
+		public string Address
+		{
+			get
+			{
+				return this._Address;
+			}
+			set
+			{
+				if ((this._Address != value))
+				{
+					this._Address = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image", DbType="VarChar(MAX)")]
+		public string Image
+		{
+			get
+			{
+				return this._Image;
+			}
+			set
+			{
+				if ((this._Image != value))
+				{
+					this._Image = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Designation", DbType="VarChar(MAX)")]
+		public string Designation
+		{
+			get
+			{
+				return this._Designation;
+			}
+			set
+			{
+				if ((this._Designation != value))
+				{
+					this._Designation = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_QuotationID", DbType="Int NOT NULL")]
+		public int QuotationID
+		{
+			get
+			{
+				return this._QuotationID;
+			}
+			set
+			{
+				if ((this._QuotationID != value))
+				{
+					this._QuotationID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateOfWedding", DbType="Date")]
+		public System.Nullable<System.DateTime> DateOfWedding
+		{
+			get
+			{
+				return this._DateOfWedding;
+			}
+			set
+			{
+				if ((this._DateOfWedding != value))
+				{
+					this._DateOfWedding = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Bride", DbType="VarChar(MAX)")]
+		public string Bride
+		{
+			get
+			{
+				return this._Bride;
+			}
+			set
+			{
+				if ((this._Bride != value))
+				{
+					this._Bride = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BrideAddress", DbType="VarChar(MAX)")]
+		public string BrideAddress
+		{
+			get
+			{
+				return this._BrideAddress;
+			}
+			set
+			{
+				if ((this._BrideAddress != value))
+				{
+					this._BrideAddress = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BrideEmail", DbType="VarChar(MAX)")]
+		public string BrideEmail
+		{
+			get
+			{
+				return this._BrideEmail;
+			}
+			set
+			{
+				if ((this._BrideEmail != value))
+				{
+					this._BrideEmail = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BrideContactNo", DbType="VarChar(15)")]
+		public string BrideContactNo
+		{
+			get
+			{
+				return this._BrideContactNo;
+			}
+			set
+			{
+				if ((this._BrideContactNo != value))
+				{
+					this._BrideContactNo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateOfHomecoming", DbType="Date")]
+		public System.Nullable<System.DateTime> DateOfHomecoming
+		{
+			get
+			{
+				return this._DateOfHomecoming;
+			}
+			set
+			{
+				if ((this._DateOfHomecoming != value))
+				{
+					this._DateOfHomecoming = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Groom", DbType="VarChar(MAX)")]
+		public string Groom
+		{
+			get
+			{
+				return this._Groom;
+			}
+			set
+			{
+				if ((this._Groom != value))
+				{
+					this._Groom = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GroomAddress", DbType="VarChar(MAX)")]
+		public string GroomAddress
+		{
+			get
+			{
+				return this._GroomAddress;
+			}
+			set
+			{
+				if ((this._GroomAddress != value))
+				{
+					this._GroomAddress = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GroomContactNo", DbType="VarChar(15)")]
+		public string GroomContactNo
+		{
+			get
+			{
+				return this._GroomContactNo;
+			}
+			set
+			{
+				if ((this._GroomContactNo != value))
+				{
+					this._GroomContactNo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedDate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> CreatedDate
+		{
+			get
+			{
+				return this._CreatedDate;
+			}
+			set
+			{
+				if ((this._CreatedDate != value))
+				{
+					this._CreatedDate = value;
+				}
+			}
+		}
+	}
+	
+	public partial class Manali_Appointment_GetAppointmentsAssignForWorkerResult
+	{
+		
+		private int _AppointmentID;
+		
+		private System.Nullable<System.DateTime> _AppointmentDateTime;
+		
+		private System.Nullable<bool> _IsBrideVisited;
+		
+		private System.Nullable<double> _Duration;
+		
+		private string _Notes;
+		
+		private System.Nullable<int> _Status;
+		
+		private int _WorkerID;
+		
+		private string _Name;
+		
+		private string _NIC;
+		
+		private string _Mobile;
+		
+		private string _Address;
+		
+		private string _Image;
+		
+		private string _Designation;
+		
+		private int _QuotationID;
+		
+		private System.Nullable<System.DateTime> _DateOfWedding;
+		
+		private string _Bride;
+		
+		private string _BrideAddress;
+		
+		private string _BrideEmail;
+		
+		private string _BrideContactNo;
+		
+		private System.Nullable<System.DateTime> _DateOfHomecoming;
+		
+		private string _Groom;
+		
+		private string _GroomAddress;
+		
+		private string _GroomContactNo;
+		
+		private System.Nullable<System.DateTime> _CreatedDate;
+		
+		public Manali_Appointment_GetAppointmentsAssignForWorkerResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AppointmentID", DbType="Int NOT NULL")]
+		public int AppointmentID
+		{
+			get
+			{
+				return this._AppointmentID;
+			}
+			set
+			{
+				if ((this._AppointmentID != value))
+				{
+					this._AppointmentID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AppointmentDateTime", DbType="DateTime")]
+		public System.Nullable<System.DateTime> AppointmentDateTime
+		{
+			get
+			{
+				return this._AppointmentDateTime;
+			}
+			set
+			{
+				if ((this._AppointmentDateTime != value))
+				{
+					this._AppointmentDateTime = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsBrideVisited", DbType="Bit")]
+		public System.Nullable<bool> IsBrideVisited
+		{
+			get
+			{
+				return this._IsBrideVisited;
+			}
+			set
+			{
+				if ((this._IsBrideVisited != value))
+				{
+					this._IsBrideVisited = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Duration", DbType="Float")]
+		public System.Nullable<double> Duration
+		{
+			get
+			{
+				return this._Duration;
+			}
+			set
+			{
+				if ((this._Duration != value))
+				{
+					this._Duration = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Notes", DbType="VarChar(MAX)")]
+		public string Notes
+		{
+			get
+			{
+				return this._Notes;
+			}
+			set
+			{
+				if ((this._Notes != value))
+				{
+					this._Notes = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="Int")]
+		public System.Nullable<int> Status
+		{
+			get
+			{
+				return this._Status;
+			}
+			set
+			{
+				if ((this._Status != value))
+				{
+					this._Status = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WorkerID", DbType="Int NOT NULL")]
+		public int WorkerID
+		{
+			get
+			{
+				return this._WorkerID;
+			}
+			set
+			{
+				if ((this._WorkerID != value))
+				{
+					this._WorkerID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="VarChar(MAX)")]
+		public string Name
+		{
+			get
+			{
+				return this._Name;
+			}
+			set
+			{
+				if ((this._Name != value))
+				{
+					this._Name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NIC", DbType="VarChar(10)")]
+		public string NIC
+		{
+			get
+			{
+				return this._NIC;
+			}
+			set
+			{
+				if ((this._NIC != value))
+				{
+					this._NIC = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Mobile", DbType="VarChar(15)")]
+		public string Mobile
+		{
+			get
+			{
+				return this._Mobile;
+			}
+			set
+			{
+				if ((this._Mobile != value))
+				{
+					this._Mobile = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Address", DbType="VarChar(MAX)")]
+		public string Address
+		{
+			get
+			{
+				return this._Address;
+			}
+			set
+			{
+				if ((this._Address != value))
+				{
+					this._Address = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image", DbType="VarChar(MAX)")]
+		public string Image
+		{
+			get
+			{
+				return this._Image;
+			}
+			set
+			{
+				if ((this._Image != value))
+				{
+					this._Image = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Designation", DbType="VarChar(MAX)")]
+		public string Designation
+		{
+			get
+			{
+				return this._Designation;
+			}
+			set
+			{
+				if ((this._Designation != value))
+				{
+					this._Designation = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_QuotationID", DbType="Int NOT NULL")]
+		public int QuotationID
+		{
+			get
+			{
+				return this._QuotationID;
+			}
+			set
+			{
+				if ((this._QuotationID != value))
+				{
+					this._QuotationID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateOfWedding", DbType="Date")]
+		public System.Nullable<System.DateTime> DateOfWedding
+		{
+			get
+			{
+				return this._DateOfWedding;
+			}
+			set
+			{
+				if ((this._DateOfWedding != value))
+				{
+					this._DateOfWedding = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Bride", DbType="VarChar(MAX)")]
+		public string Bride
+		{
+			get
+			{
+				return this._Bride;
+			}
+			set
+			{
+				if ((this._Bride != value))
+				{
+					this._Bride = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BrideAddress", DbType="VarChar(MAX)")]
+		public string BrideAddress
+		{
+			get
+			{
+				return this._BrideAddress;
+			}
+			set
+			{
+				if ((this._BrideAddress != value))
+				{
+					this._BrideAddress = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BrideEmail", DbType="VarChar(MAX)")]
+		public string BrideEmail
+		{
+			get
+			{
+				return this._BrideEmail;
+			}
+			set
+			{
+				if ((this._BrideEmail != value))
+				{
+					this._BrideEmail = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BrideContactNo", DbType="VarChar(15)")]
+		public string BrideContactNo
+		{
+			get
+			{
+				return this._BrideContactNo;
+			}
+			set
+			{
+				if ((this._BrideContactNo != value))
+				{
+					this._BrideContactNo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateOfHomecoming", DbType="Date")]
+		public System.Nullable<System.DateTime> DateOfHomecoming
+		{
+			get
+			{
+				return this._DateOfHomecoming;
+			}
+			set
+			{
+				if ((this._DateOfHomecoming != value))
+				{
+					this._DateOfHomecoming = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Groom", DbType="VarChar(MAX)")]
+		public string Groom
+		{
+			get
+			{
+				return this._Groom;
+			}
+			set
+			{
+				if ((this._Groom != value))
+				{
+					this._Groom = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GroomAddress", DbType="VarChar(MAX)")]
+		public string GroomAddress
+		{
+			get
+			{
+				return this._GroomAddress;
+			}
+			set
+			{
+				if ((this._GroomAddress != value))
+				{
+					this._GroomAddress = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GroomContactNo", DbType="VarChar(15)")]
+		public string GroomContactNo
+		{
+			get
+			{
+				return this._GroomContactNo;
+			}
+			set
+			{
+				if ((this._GroomContactNo != value))
+				{
+					this._GroomContactNo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedDate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> CreatedDate
+		{
+			get
+			{
+				return this._CreatedDate;
+			}
+			set
+			{
+				if ((this._CreatedDate != value))
+				{
+					this._CreatedDate = value;
 				}
 			}
 		}

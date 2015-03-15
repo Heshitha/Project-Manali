@@ -44,7 +44,7 @@ function SaveUser()
                 processData: false,
                 success: function (data) {
                     if (data > 0) alert("This User Already Exist!");
-                    else alert("User Saved SuccessFully!");
+                    else alert("User Saved Successfuly!");
                 },
                 error: function () {
                 }

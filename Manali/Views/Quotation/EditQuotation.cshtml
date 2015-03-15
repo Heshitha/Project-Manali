@@ -35,6 +35,15 @@
                 <div class="input-control tel" data-role="input-control">
                     <input type="tel" placeholder="type contact no" value="@quotation.BrideContactNo" />
                 </div>
+                <label>Marketed By</label>
+                <div class="input-control select">
+                    <select id="drpMarketer">
+                        @foreach (ModelLayer.WorkerDTO item in ViewBag.WorkerList)
+                        {
+                            <option value="@item.WorkerID" @(item.WorkerID == quotation.marketedBy.WorkerID ? "selected" : "")>@item.Name - @item.Designation</option>
+                        }
+                    </select>
+                </div>
             </div>
             <div class="rightFieldSet">
                 <label>Date of Homecoming</label>
@@ -123,11 +132,21 @@
 <br />
 
 <button class="large danger" type="button" id="btnSaveQuotation">Save Quotaion</button>
+<button class="large success" type="button" id="btnAdvancePayment">Make Advance Payment</button>
+<button class="large success" type="button" id="btnMakeAnAppointment">Make An Appointment</button>
 
 <script src="~/js/metro/metro-table.js"></script>
 <script type="text/javascript">
 
     $(document).ready(function () {
+        $('#btnAdvancePayment').bind('click tap', function () {
+            GetContent('/Receipt/AdvanceReceipt?quotationID=@(quotation.QuotationID)', '.mainContent');
+        });
+
+        $('#btnMakeAnAppointment').bind('click tap', function () {
+            GetContent('/Appointment/CreateAppointment?QuotationID=@(quotation.QuotationID)', '.mainContent');
+        });
+
         $('.datepicker').datepicker();
 
         $('.triggerRadioTick').bind('click tap', function () {

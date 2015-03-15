@@ -12,7 +12,15 @@ namespace Manali.Controllers
         // GET: /Home/
         public ActionResult Index()
         {
-            return View();
+            if (Session["LoggedUser"] != null)
+            {
+                return View();
+            }
+            else
+            {
+                Response.Redirect("/Login/", false);
+                return null;
+            }
         }
 	}
 }

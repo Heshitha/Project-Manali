@@ -1,0 +1,74 @@
+﻿@model List<ModelLayer.ReceiptDTO>
+
+@{
+    Layout = null;
+}
+
+<h3>Receipt List</h3>
+
+<div class="fieldConteiner">
+    <div class="leftFieldSet">
+        <div class="input-control text">
+            <input type="text" placeholder="Search by Quotation No" id="txtSearchByQuotationID"/>
+            <button class="btn-search"></button>
+        </div>
+    </div>
+    <div class="rightFieldSet">
+        <div class="input-control text">
+            <input type="text" placeholder="Search by Receipt No" id="txtSearchByReceiptID" />
+            <button class="btn-search"></button>
+        </div>
+    </div>
+</div>
+
+        <div class="listview-outlook">
+
+            @foreach (ModelLayer.ReceiptDTO item in Model)
+            {
+                <a href="javascript:GetContent('/Receipt/EditReceipt?receiptID=@item.ReceiptID', '.mainContent');" class="list receiptListItem" data-receiptid="@item.ReceiptID" data-quotationid="@item.Quotation.QuotationID">
+                    <div class="list-content">
+                        <span class="list-subtitle">Receipt No : @item.ReceiptID</span>
+                        <span class="list-title">Cuple Name: @item.Quotation.NameOfBride weds @item.Quotation.NameOfGroom</span>
+                        <span class="list-remark">Payer Name : @item.PayerName</span>
+                        <span class="list-remark">Amount : @item.Payment.ToString("0.00")</span>
+                    </div>
+                </a>
+            }
+
+        </div>
+
+        <script src="~/js/metro/metro-listview.js"></script>
+
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('#txtSearchByQuotationID').bind('keyup', function () {
+                    debugger;
+                    var quotationID = $('#txtSearchByQuotationID').val();
+
+                    $('.receiptListItem').each(function () {
+                        var quotationIDOnItem = $(this).attr('data-quotationid');
+                        if (quotationIDOnItem.indexOf(quotationID) > -1) {
+                            $(this).show();
+                        }
+                        else {
+                            $(this).hide();
+                        }
+                    });
+                });
+
+                $('#txtSearchByReceiptID').bind('keyup', function () {
+                    debugger;
+                    var receiptID = $('#txtSearchByReceiptID').val();
+
+                    $('.receiptListItem').each(function () {
+                        var receiptIDOnItem = $(this).attr('data-receiptid');
+                        if (receiptIDOnItem.indexOf(receiptID) > -1) {
+                            $(this).show();
+                        }
+                        else {
+                            $(this).hide();
+                        }
+                    });
+                });
+            });
+        </script>

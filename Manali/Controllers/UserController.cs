@@ -66,6 +66,10 @@ namespace Manali.Controllers
         {
             if (file != null && file.ContentLength > 0)
             {
+                if (!Directory.Exists(Server.MapPath("~/SystemData/UserImages")))
+                {
+                    Directory.CreateDirectory(Server.MapPath("~/SystemData/UserImages"));
+                }
                 string path = Path.Combine(Server.MapPath("~/SystemData/UserImages"), userDTO.Username + Path.GetExtension(file.FileName));
                 file.SaveAs(path);
                 Bitmap img = new Bitmap(file.InputStream);
@@ -79,7 +83,7 @@ namespace Manali.Controllers
             }
             else
             {
-                userDTO.ImagePath = "";
+                userDTO.ImagePath = "/Images/blank-profile-hi.png";
             }
             BusinessLayer.BusinessStore.User.UpdateUserDetails(userDTO);
             return Json(true, JsonRequestBehavior.AllowGet);

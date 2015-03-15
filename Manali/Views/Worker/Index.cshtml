@@ -1,0 +1,58 @@
+﻿@model List<ModelLayer.WorkerDTO>
+
+<h3>Workers List</h3>
+
+<div class="fieldConteiner">
+        <div class="input-control text">
+            <input type="text" placeholder="Search by Name" id="txtSearchByName" />
+            <button class="btn-search"></button>
+        </div>
+</div>
+
+<div class="listview-outlook">
+
+    @foreach (ModelLayer.WorkerDTO item in Model)
+{
+    <a href="javascript:GetContent('/Worker/ViewWorkerDetails?WorkerID=@item.WorkerID', '.mainContent');" class="list lstWorkerItem" data-name="@item.Name">
+        <div class="list-content">
+            <span class="list-icon">
+
+                @{
+    if (item.Image != "/Images/blank-profile-hi.png")
+    {
+        item.Image = "/SystemData/WorkerImages/" + item.NIC + "-thumb" + Path.GetExtension(item.Image);
+    }
+                }
+
+                <img src="@item.Image" />
+            </span>
+            <span class="list-title">@item.Name</span>
+            <span class="list-subtitle">#@item.Designation</span>
+            <span class="list-remark">@item.Mobile - @item.Address</span>
+        </div>
+    </a>
+}
+
+</div>
+
+<script src="~/js/metro/metro-listview.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#txtSearchByName').bind('keyup', function () {
+            debugger;
+            var searchKey = $('#txtSearchByName').val();
+
+            $('.lstWorkerItem').each(function () {
+                var nameOnItem = $(this).attr('data-name');
+                if (nameOnItem.toUpperCase().indexOf(searchKey.toUpperCase()) > -1) {
+                    $(this).fadeIn();
+                }
+                else {
+                    $(this).fadeOut();
+                }
+            });
+        });
+    });
+</script>
+

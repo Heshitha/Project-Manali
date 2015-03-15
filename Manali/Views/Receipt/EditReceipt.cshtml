@@ -1,0 +1,101 @@
+﻿@model ModelLayer.ReceiptDTO
+
+@{
+    Layout = null;
+}
+
+<form>
+    <fieldset>
+        <legend>
+            Payment Receipt
+        </legend>
+        <div class="fieldConteiner">
+            <div class="leftFieldSet">
+                <label>Receipt Date</label>
+                <div class="input-control text datepicker" data-role="datepicker">
+                    <input type="text" placeholder="enter receipt date" id="txtDateofReceipt" value="@Model.ReceiptDate.ToString("dd - MMM - yyyy")"/>
+                    <button class="btn-date" tabindex="-1" type="button"></button>
+                </div>
+                <label>Receipt No</label>
+                <div class="input-control text" data-role="input-control">
+                    <input type="text" placeholder="enter receipt no" id="txtReceiptNo" value="@Model.ReceiptID" />
+                </div>
+                <label>Mag. No</label>
+                <div class="input-control text" data-role="input-control">
+                    <input type="text" placeholder="enter mag. no" id="txtMagNo" value="@Model.MagNo" />
+                </div>
+                <label>Section</label>
+                <div class="input-control text" data-role="input-control">
+                    <input type="text" placeholder="enter section" id="txtSection" value="@Model.Section" />
+                </div>
+            </div>
+            <div class="rightFieldSet">
+                <label>Wedding Date</label>
+                <div class="input-control text datepicker" data-role="datepicker">
+                    <input type="text" placeholder="enter wedding date" id="txtDateofWedding" value="@Model.Quotation.DateOfWedding.ToString("dd - MMM - yyyy")" />
+                    <button class="btn-date" tabindex="-1" type="button"></button>
+                </div>
+                <label>Function Time</label>
+                <div class="input-control select">
+                    <select>
+                        <option @(Model.FunctionTime == 1 ? "selected" : "")>Morning</option>
+                        <option @(Model.FunctionTime == 2 ? "selected" : "")>Evening</option>
+                        <option @(Model.FunctionTime == 3 ? "selected" : "")>Special</option>
+                    </select>
+                </div>
+                <label>Home Coming Date</label>
+                <div class="input-control text datepicker" data-role="datepicker">
+                    <input type="text" placeholder="enter homecoming date" id="txtDateofHomecoming" value="@Model.Quotation.DateOfHomecoming.ToString("dd - MMM - yyyy")" />
+                    <button class="btn-date" tabindex="-1" type="button"></button>
+                </div>
+                <label>Function Time</label>
+                <div class="input-control select">
+                    <select>
+                        <option @(Model.FunctionTime == 1 ? "selected" : "")>Morning</option>
+                        <option @(Model.FunctionTime == 2 ? "selected" : "")>Evening</option>
+                        <option @(Model.FunctionTime == 3 ? "selected" : "")>Special</option>
+                    </select>
+                </div>
+                <label>Going Away Included</label>
+                <div class="input-control switch" data-role="input-control">
+                    <label>
+                        <input type="checkbox" @(Model.IsGoingAwayIncluded == true ? "checked" : "") />
+                        <span class="check"></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="fieldConteiner">
+            <label>Received with thanks from</label>
+            <div class="input-control text" data-role="input-control">
+                <input type="text" placeholder="enter name" id="txtReceivedFromName" value="@Model.PayerName" />
+            </div>
+            <label>On account of</label>
+            <div class="input-control text" data-role="input-control">
+                <input type="text" placeholder="enter account information" id="txtOnAccountOf" value="@Model.AccountOf" />
+            </div>
+            <label>The sum of rupees</label>
+            <div class="input-control text" data-role="input-control">
+                <input type="text" placeholder="enter amount" id="txtAmount" value="@Model.Payment.ToString("0.00")" />
+            </div>
+            <label>Brides Contact No</label>
+            <div class="input-control text" data-role="input-control">
+                <input type="text" placeholder="enter contact numbers" id="txtBridesContactNo" value="@Model.Quotation.BrideContactNo" />
+            </div>
+            <label>Cash / Cheque No</label>
+            <div class="input-control text" data-role="input-control">
+                <input type="text" placeholder="enter cheque no" id="txtCashChequeNo" value="@Model.CashOrCheckNo" />
+            </div>
+        </div>
+    </fieldset>
+</form>
+
+<button class="large danger" type="button" id="btnSaveAdvanceReceipt">Save Receipt</button>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        $('.datepicker').datepicker();
+    });
+
+</script>

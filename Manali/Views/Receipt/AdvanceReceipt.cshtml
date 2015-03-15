@@ -1,0 +1,131 @@
+﻿@model ModelLayer.QuotationDTO
+@{
+    Layout = null;
+}
+
+<form>
+    <fieldset>
+        <legend>
+            Advance Receipt
+        </legend>
+        <div class="fieldConteiner">
+            <div class="leftFieldSet">
+                <label>Name of Bride</label>
+                <div class="input-control text" data-role="input-control">
+                    <input type="text" placeholder="type bride's name" value="@Model.NameOfBride" readonly />
+                </div>
+                <label>Name of Groom</label>
+                <div class="input-control text" data-role="input-control">
+                    <input type="text" placeholder="type groom's name" value="@Model.NameOfGroom" readonly />
+                </div>
+                <label>Receipt Date</label>
+                <div class="input-control text datepicker" data-role="datepicker">
+                    <input type="text" placeholder="enter receipt date" id="txtDateofReceipt" />
+                    <button class="btn-date" tabindex="-1" type="button"></button>
+                </div>
+                <label>Receipt No</label>
+                <div class="input-control text" data-role="input-control">
+                    <input type="text" placeholder="enter receipt no" id="txtReceiptNo" />
+                </div>
+                <label>Mag. No</label>
+                <div class="input-control text" data-role="input-control">
+                    <input type="text" placeholder="enter mag. no" id="txtMagNo" />
+                </div>
+                <label>Section</label>
+                <div class="input-control text" data-role="input-control">
+                    <input type="text" placeholder="enter section" id="txtSection" />
+                </div>
+            </div>
+            <div class="rightFieldSet">
+                <label>Wedding Date</label>
+                <div class="input-control text datepicker" data-role="datepicker">
+                    <input type="text" placeholder="enter wedding date" id="txtDateofWedding" value="@Model.DateOfWedding.ToString("dd - MMM - yyyy")" readonly />
+                    <button class="btn-date" tabindex="-1" type="button"></button>
+                </div>
+                <label>Function Time</label>
+                <div class="input-control select">
+                    <select id="drpFunctionTime">
+                        <option value="1">Morning</option>
+                        <option value="2">Evening</option>
+                        <option value="3">Special</option>
+                    </select>
+                </div>
+                <label>Home Coming Date</label>
+                <div class="input-control text datepicker" data-role="datepicker">
+                    <input type="text" placeholder="enter homecoming date" id="txtDateofHomecoming" value="@Model.DateOfHomecoming.ToString("dd - MMM - yyyy")" readonly />
+                    <button class="btn-date" tabindex="-1" type="button"></button>
+                </div>
+                <label>Function Time</label>
+                <div class="input-control select">
+                    <select>
+                        <option value="1">Morning</option>
+                        <option value="2">Evening</option>
+                        <option value="3">Special</option>
+                    </select>
+                </div>
+                <label>Going Away Included</label>
+                <div class="input-control switch" data-role="input-control">
+                    <label>
+                        <input type="checkbox" id="chbGoingAwayIncluded"/>
+                        <span class="check"></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="fieldConteiner">
+            <label>Received with thanks from</label>
+            <div class="input-control text" data-role="input-control">
+                <input type="text" placeholder="enter name" id="txtReceivedFromName" />
+            </div>
+            <label>On account of</label>
+            <div class="input-control text" data-role="input-control">
+                <input type="text" placeholder="enter account information" id="txtOnAccountOf" />
+            </div>
+            <label>The sum of rupees</label>
+            <div class="input-control text" data-role="input-control">
+                <input type="text" placeholder="enter amount" id="txtAmount" />
+            </div>
+            <label>Brides Contact No</label>
+            <div class="input-control text" data-role="input-control">
+                <input type="text" placeholder="enter contact numbers" id="txtBridesContactNo" value="@Model.BrideContactNo" readonly />
+            </div>
+            <label>Cash / Cheque No</label>
+            <div class="input-control text" data-role="input-control">
+                <input type="text" placeholder="enter cheque no" id="txtCashChequeNo" />
+            </div>
+            <input type="hidden" id="hdnQuotationID" value="@ViewBag.QuotationID"/>
+        </div>
+    </fieldset>
+</form>
+
+<button class="large danger" type="button" id="btnSaveAdvanceReceipt">Save Advance Receipt</button>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        $('.datepicker').datepicker();
+
+        $('#btnSaveAdvanceReceipt').bind('click tap', function () {
+            $.ajax({
+                url: '/Receipt/SaveAdvanceReceipt',
+                type: 'POST',
+                data: JSON.stringify({
+                    ReceiptDate: $('#txtDateofReceipt').val(),
+                    MagNo: $('#txtMagNo').val(),
+                    Section: $('#txtSection').val(),
+                    FunctionTime: $('#drpFunctionTime option:selected').val(),
+                    IsGoingAwayIncluded: $('#chbGoingAwayIncluded:checked').length > 0 ? true : false,
+                    PayerName: $('#txtReceivedFromName').val(),
+                    AccountOf: $('#txtOnAccountOf').val(),
+                    Payment: $('#txtAmount').val(),
+                    CashOrCheckNo: $('#txtCashChequeNo').val(),
+                    Quotation: { QuotationID: $('#hdnQuotationID').val() }
+                }),
+                contentType: 'application/json; charset=utf-8',
+                success: function (data) { debugger; alert('Successfully Saved') },
+                error: function () { alert('Error Occured') }
+            });
+        });
+    });
+
+</script>

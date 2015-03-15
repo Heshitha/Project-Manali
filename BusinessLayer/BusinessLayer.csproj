@@ -39,9 +39,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusinessStore\Appointment.cs" />
     <Compile Include="BusinessStore\Quotation.cs" />
+    <Compile Include="BusinessStore\Receipt.cs" />
     <Compile Include="BusinessStore\User.cs" />
     <Compile Include="BusinessStore\UtilityMethods.cs" />
+    <Compile Include="BusinessStore\Worker.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

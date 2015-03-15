@@ -48,6 +48,17 @@ namespace DataAccessLayer.Datastore
 
                 var SelectedItems = db.Manali_Quotation_SelectQuotationSelectedItems(QuotationID);
 
+                WorkerDTO marketer = new WorkerDTO
+                {
+                    WorkerID = QuotationResult.WorkerID,
+                    Name = QuotationResult.Name,
+                    NIC = QuotationResult.NIC,
+                    Mobile = QuotationResult.Mobile,
+                    Address = QuotationResult.Address,
+                    Designation = QuotationResult.Designation,
+                    Image = QuotationResult.Image
+                };
+
                 QuotationDTO Quotation = new QuotationDTO
                 {
                     QuotationID = QuotationResult.QuotationID,
@@ -60,6 +71,7 @@ namespace DataAccessLayer.Datastore
                     NameOfGroom = QuotationResult.Groom,
                     GroomAddress = QuotationResult.GroomAddress,
                     GroomContactNo = QuotationResult.GroomContactNo,
+                    marketedBy = marketer
                 };
 
                 List<QuotationItemDTO> lstQuotationItems = new List<QuotationItemDTO>();
@@ -94,6 +106,17 @@ namespace DataAccessLayer.Datastore
 
                 foreach (var item in QuotationList)
                 {
+                    WorkerDTO marketer = new WorkerDTO
+                    {
+                        WorkerID = item.WorkerID,
+                        Name = item.Name,
+                        NIC = item.NIC,
+                        Mobile = item.Mobile,
+                        Address = item.Address,
+                        Designation = item.Designation,
+                        Image = item.Image
+                    };
+
                     QuotationDTO quotation = new QuotationDTO
                     {
                         QuotationID = item.QuotationID,
@@ -106,6 +129,7 @@ namespace DataAccessLayer.Datastore
                         NameOfGroom = item.Groom,
                         GroomAddress = item.GroomAddress,
                         GroomContactNo = item.GroomContactNo,
+                        marketedBy = marketer
                     };
 
                     lstQuotations.Add(quotation);
@@ -119,7 +143,7 @@ namespace DataAccessLayer.Datastore
             }
         }
 
-        public static bool SaveQuotation(QuotationDTO quotation)
+        public static bool SaveQuotation(ref QuotationDTO quotation)
         {
             try 
             {
@@ -136,6 +160,7 @@ namespace DataAccessLayer.Datastore
                     }
                 }
 
+                int? quotationID = 0;
 
                 db.Manali_Quotation_SaveQuotation(
                         quotation.DateOfWedding,
@@ -148,8 +173,16 @@ namespace DataAccessLayer.Datastore
                         quotation.GroomAddress,
                         quotation.GroomContactNo,
                         selectedItems,
-                        quotation.createdBy.userID
+                        quotation.createdBy.userID,
+                        quotation.marketedBy.WorkerID,
+                        ref quotationID
                     );
+
+                if (quotationID != null && quotationID != 0)
+                {
+                    quotation.QuotationID = quotationID.Value;
+                }
+
                 return true;
             }
             catch (Exception)

@@ -24,11 +24,11 @@ namespace BusinessLayer.BusinessStore
             return DataAccessLayer.Datastore.QuotationDataStore.GetAllQuotations();
         }
 
-        public static bool SaveQuotationDetails(QuotationDTO quotation)
+        public static bool SaveQuotationDetails(ref QuotationDTO quotation)
         {
             try 
             {
-                return DataAccessLayer.Datastore.QuotationDataStore.SaveQuotation(quotation);
+                return DataAccessLayer.Datastore.QuotationDataStore.SaveQuotation(ref quotation);
             }
             catch (Exception)
             {

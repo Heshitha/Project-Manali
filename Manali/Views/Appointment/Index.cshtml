@@ -1,0 +1,75 @@
+﻿@model List<ModelLayer.AppointmentDTO>
+
+@{
+    Layout = null;
+}
+
+<h3>Appointment List</h3>
+
+<div class="fieldConteiner">
+    <div class="leftFieldSet">
+        <div class="input-control text">
+            <input type="text" placeholder="Search by Quotation No" id="txtSearchByQuotationID" />
+            <button class="btn-search"></button>
+        </div>
+    </div>
+    <div class="rightFieldSet">
+        <div class="input-control text">
+            <input type="text" placeholder="Search by Names" id="txtSearchByNames" />
+            <button class="btn-search"></button>
+        </div>
+    </div>
+</div>
+
+<div class="listview-outlook">
+
+    @foreach (ModelLayer.AppointmentDTO item in Model)
+{
+    <a href="javascript:GetContent('/Appointment/EditAppointment?AppoinmentID=@item.AppointmentID', '.mainContent');" class="list lstAppointmentItem" data-appointmentid="@item.AppointmentID" data-quotationid="@item.Quotation.QuotationID" data-names="@item.Quotation.NameOfBride @item.Quotation.NameOfGroom">
+        <div class="list-content">
+            <span class="list-title">@item.Quotation.NameOfBride weds @item.Quotation.NameOfGroom</span>
+            <span class="list-subtitle">#@item.AppointmentID @("@" + item.AppointmentDateTime.ToString("dd - MMM - yyyy HH:mm"))</span>
+            <span class="list-remark">Responsible Person : @item.ResponsibleWorker.Name</span>
+            <span class="list-remark">Duration : @item.Duration Minuets</span>
+        </div>
+    </a>
+}
+
+</div>
+
+<script src="~/js/metro/metro-listview.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#txtSearchByQuotationID').bind('keyup', function () {
+            debugger;
+            var quotationID = $('#txtSearchByQuotationID').val();
+
+            $('.lstAppointmentItem').each(function () {
+                var quotationIDOnItem = $(this).attr('data-quotationid');
+                if (quotationIDOnItem.indexOf(quotationID) > -1) {
+                    $(this).fadeIn();
+                }
+                else {
+                    $(this).fadeOut();
+                }
+            });
+        });
+
+        $('#txtSearchByNames').bind('keyup', function () {
+            debugger;
+            var names = $('#txtSearchByNames').val();
+
+            $('.lstAppointmentItem').each(function () {
+                var nameonitem = $(this).attr('data-names');
+                if (nameonitem.indexOf(names) > -1) {
+                    $(this).fadeIn();
+                }
+                else {
+                    $(this).fadeOut();
+                }
+            });
+        });
+    });
+</script>
+

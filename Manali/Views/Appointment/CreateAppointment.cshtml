@@ -1,0 +1,121 @@
+﻿@model ModelLayer.QuotationDTO
+@{
+    Layout = null;
+    List<ModelLayer.WorkerDTO> lstWorkers = ViewBag.WorkersList;
+}
+
+<form>
+    <fieldset>
+        <legend>
+            Create Appointment
+        </legend>
+        <div class="fieldConteiner">
+            <div class="leftFieldSet">
+                <input id="hdnQuotationID" type="hidden" value="@Model.QuotationID"/>
+                <label>Date of Wedding</label>
+                <div class="input-control text datepicker" data-role="datepicker">
+                    <input type="text" placeholder="type wedding date" value="@Model.DateOfWedding.ToLongDateString()" />
+                </div>
+                <label>Name of Bride</label>
+                <div class="input-control text" data-role="input-control">
+                    <input type="text" placeholder="type bride's name" value="@Model.NameOfBride" />
+                </div>
+                <label>Address</label>
+                <div class="input-control text" data-role="input-control">
+                    <input type="text" placeholder="type address" value="@Model.BrideAddress" />
+                </div>
+                <label>E Mail</label>
+                <div class="input-control email" data-role="input-control">
+                    <input type="email" placeholder="type email" value="@Model.BrideEmail" />
+                </div>
+                <label>Contact No</label>
+                <div class="input-control tel" data-role="input-control">
+                    <input type="tel" placeholder="type contact no" value="@Model.BrideContactNo" />
+                </div>
+                <label>Marketed By</label>
+                <div class="input-control text" data-role="input-control">
+                    <input type="text" value="@Model.marketedBy.Name" />
+                </div>
+            </div>
+            <div class="rightFieldSet">
+                <label>Date of Homecoming</label>
+                <div class="input-control text datepicker" data-role="datepicker">
+                    <input type="text" placeholder="type homecoming date" value="@Model.DateOfHomecoming.ToLongDateString()" />
+                </div>
+                <label>Name of Groom</label>
+                <div class="input-control text" data-role="input-control">
+                    <input type="text" placeholder="type groom's name" value="@Model.NameOfGroom" />
+                </div>
+                <label>Address</label>
+                <div class="input-control text" data-role="input-control">
+                    <input type="text" placeholder="type address" value="@Model.GroomAddress" />
+                </div>
+                <label>Contact No</label>
+                <div class="input-control tel" data-role="input-control">
+                    <input type="tel" placeholder="type contact no" value="@Model.GroomContactNo" />
+                </div>
+            </div>
+        </div>
+        <div class="fieldConteiner">
+            <label>Appointment Date</label>
+            <div class="input-control text datepicker" data-role="datepicker">
+                <input type="text" placeholder="type appointment date" id="txtAppointmentDate" />
+                <button class="btn-date" tabindex="-1" type="button"></button>
+            </div>
+            <label>Appointment Time</label>
+            <div class="input-control text" data-role="input-control">
+                <input type="time" placeholder="type appointment time" id="txtAppointmentTime"  />
+            </div>
+            <label>Respoinsible Worker</label>
+            <div class="input-control select">
+                <select id="drpRespoinsibleWorker">
+                    @foreach (ModelLayer.WorkerDTO item in lstWorkers)
+                    {
+                        <option value="@item.WorkerID" >@item.Name - @item.Designation</option>
+                    }
+                </select>
+            </div>
+            <label>Duration</label>
+            <div class="input-control text" data-role="input-control">
+                <input type="text" placeholder="type duration in minutes" id="txtDuration" />
+            </div>
+            <label>Notes</label>
+            <div class="input-control text" data-role="input-control">
+                <input type="text" placeholder="type Notes" id="txtNotes" />
+            </div>
+        </div>
+    </fieldset>
+</form>
+<button class="large danger" type="button" id="btnSaveAppointment">Save Appointment</button>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.datepicker').datepicker({ format: "mmmm dd, yyyy" });
+
+        $('#btnSaveAppointment').bind('click tap', function () {
+            debugger;
+
+            var AppoinmentDate = $('#txtAppointmentDate').val();
+            var AppoinmentTime = $('#txtAppointmentTime').val();
+            var AppoinemtDateWithTime = new Date(AppoinmentDate + ' ' + AppoinmentTime);
+
+            $.ajax({
+                url: '/Appointment/SaveAppointment',
+                type: 'POST',
+                data: JSON.stringify({
+                    Quotation: { QuotationID: $('#hdnQuotationID').val() },
+                    AppointmentDateTime: AppoinemtDateWithTime,
+                    ResponsibleWorker: { WorkerID: $('#drpRespoinsibleWorker option:selected').val() },
+                    Duration: $('#txtDuration').val(),
+                    Notes: $('#txtNotes').val()
+                }),
+                contentType: 'application/json; charset=utf-8',
+                success: function (data) { debugger; alert('Successfully Saved') },
+                error: function () { alert('Error Occured') }
+            });
+
+
+        });
+    });
+</script>
+

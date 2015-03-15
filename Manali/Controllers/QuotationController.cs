@@ -18,6 +18,7 @@ namespace Manali.Controllers
 
         public ActionResult CreateQuotation()
         {
+            ViewBag.WorkerList = BusinessLayer.BusinessStore.Worker.GetAllWorkers();
             List<QuotationItemDTO> lstQuotationItemList = BusinessLayer.BusinessStore.Quotation.GetQuotationitemList();
             return View(lstQuotationItemList);
         }
@@ -30,6 +31,7 @@ namespace Manali.Controllers
 
         public ActionResult EditQuotation(int quotationID = 0)
         {
+            ViewBag.WorkerList = BusinessLayer.BusinessStore.Worker.GetAllWorkers();
             List<QuotationItemDTO> lstQuotationItemList = BusinessLayer.BusinessStore.Quotation.GetQuotationitemList();
             QuotationDTO Quotation = BusinessLayer.BusinessStore.Quotation.GetQuotationByID(quotationID);
             ViewBag.Quotation = Quotation;
@@ -61,8 +63,14 @@ namespace Manali.Controllers
             quotation.SelectedItem = lstQuotationItems;
             quotation.createdBy = new UserDTO { userID = 10 };
 
-            result = BusinessLayer.BusinessStore.Quotation.SaveQuotationDetails(quotation);
-            return Json(result, JsonRequestBehavior.AllowGet);
+            result = BusinessLayer.BusinessStore.Quotation.SaveQuotationDetails(ref quotation);
+
+            ActionDetailsDTO actionDetails = new ActionDetailsDTO{
+                Status = result == true ? 1 : 0,
+                Content = quotation.QuotationID.ToString()
+            };
+
+            return Json(actionDetails, JsonRequestBehavior.AllowGet);
         }
 	}
 }

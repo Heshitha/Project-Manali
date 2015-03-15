@@ -102,6 +102,123 @@
     <Parameter Name="imagePath" Type="System.String" DbType="VarChar(MAX)" />
     <Return Type="System.Int32" />
   </Function>
+  <Function Name="dbo.Manali_User_Login" Method="Manali_User_Login">
+    <Parameter Name="userName" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="password" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="isLogged" Type="System.Boolean" DbType="Bit" Direction="InOut" />
+    <Parameter Name="loggedUserID" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.Manali_Receipt_CreateReceipt" Method="Manali_Receipt_CreateReceipt">
+    <Parameter Name="RECEIPTDATE" Parameter="rECEIPTDATE" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="MAGNO" Parameter="mAGNO" Type="System.String" DbType="VarChar(500)" />
+    <Parameter Name="SECTION" Parameter="sECTION" Type="System.String" DbType="VarChar(500)" />
+    <Parameter Name="FUNCTIONTIME" Parameter="fUNCTIONTIME" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ISGOINGAWAYINCLUDED" Parameter="iSGOINGAWAYINCLUDED" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="PAYERNAME" Parameter="pAYERNAME" Type="System.String" DbType="VarChar(MAX)" />
+    <Parameter Name="ACCOUNTOF" Parameter="aCCOUNTOF" Type="System.String" DbType="VarChar(MAX)" />
+    <Parameter Name="PAYMENT" Parameter="pAYMENT" Type="System.Double" DbType="Float" />
+    <Parameter Name="CASHORCHECKNO" Parameter="cASHORCHECKNO" Type="System.String" DbType="VarChar(MAX)" />
+    <Parameter Name="QUOTATIONID" Parameter="qUOTATIONID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="RECEIPTID" Parameter="rECEIPTID" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.Manali_Receipt_GetAllReceipts" Method="Manali_Receipt_GetAllReceipts">
+    <ElementType Name="Manali_Receipt_GetAllReceiptsResult">
+      <Column Name="ReceiptID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ReceiptDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="MagNo" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="Section" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="FunctionTime" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IsGoingAwayIncluded" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="PayerName" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="AccountOf" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Payment" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CashOrCheckNo" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="DateOfWedding" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Bride" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="BrideAddress" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="BrideEmail" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="BrideContactNo" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="DateOfHomecoming" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Groom" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="GroomAddress" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="GroomContactNo" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="QuotationID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Manali_Receipt_GetReceiptByID" Method="Manali_Receipt_GetReceiptByID">
+    <Parameter Name="ReceiptID" Parameter="receiptID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="Manali_Receipt_GetReceiptByIDResult">
+      <Column Name="ReceiptID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ReceiptDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="MagNo" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="Section" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="FunctionTime" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IsGoingAwayIncluded" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="PayerName" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="AccountOf" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Payment" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CashOrCheckNo" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="QuotationID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DateOfWedding" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Bride" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="BrideAddress" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="BrideEmail" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="BrideContactNo" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="DateOfHomecoming" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Groom" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="GroomAddress" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="GroomContactNo" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Manali_Receipt_CreateAdvanceReceipt" Method="Manali_Receipt_CreateAdvanceReceipt">
+    <Parameter Name="RECEIPTDATE" Parameter="rECEIPTDATE" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="MAGNO" Parameter="mAGNO" Type="System.String" DbType="VarChar(500)" />
+    <Parameter Name="SECTION" Parameter="sECTION" Type="System.String" DbType="VarChar(500)" />
+    <Parameter Name="FUNCTIONTIME" Parameter="fUNCTIONTIME" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ISGOINGAWAYINCLUDED" Parameter="iSGOINGAWAYINCLUDED" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="PAYERNAME" Parameter="pAYERNAME" Type="System.String" DbType="VarChar(MAX)" />
+    <Parameter Name="ACCOUNTOF" Parameter="aCCOUNTOF" Type="System.String" DbType="VarChar(MAX)" />
+    <Parameter Name="PAYMENT" Parameter="pAYMENT" Type="System.Double" DbType="Float" />
+    <Parameter Name="CASHORCHECKNO" Parameter="cASHORCHECKNO" Type="System.String" DbType="VarChar(MAX)" />
+    <Parameter Name="QUOTATIONID" Parameter="qUOTATIONID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="RECEIPTID" Parameter="rECEIPTID" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.Manali_Quotation_GetAllQuotation" Method="Manali_Quotation_GetAllQuotation">
+    <ElementType Name="Manali_Quotation_GetAllQuotationResult">
+      <Column Name="QuotationID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DateOfWedding" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Bride" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="BrideContactNo" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="DateOfHomecoming" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Groom" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="GroomAddress" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="GroomContactNo" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="BrideEmail" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="BrideAddress" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="WorkerID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="NIC" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Mobile" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="Address" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Image" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Designation" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Manali_Quotation_SelectQuotationSelectedItems" Method="Manali_Quotation_SelectQuotationSelectedItems">
+    <Parameter Name="quotationID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="Manali_Quotation_SelectQuotationSelectedItemsResult">
+      <Column Name="ItemID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
   <Function Name="dbo.Manali_Quotation_GetQuotationItemPriceList" Method="Manali_Quotation_GetQuotationItemPriceList">
     <ElementType Name="Manali_Quotation_GetQuotationItemPriceListResult">
       <Column Name="ItemID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
@@ -109,6 +226,22 @@
       <Column Name="Price" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="isUpwards" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
     </ElementType>
+  </Function>
+  <Function Name="dbo.Manali_Quotation_SaveQuotation" Method="Manali_Quotation_SaveQuotation">
+    <Parameter Name="DateOfWedding" Parameter="dateOfWedding" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="Bride" Parameter="bride" Type="System.String" DbType="VarChar(MAX)" />
+    <Parameter Name="BrideAddress" Parameter="brideAddress" Type="System.String" DbType="VarChar(MAX)" />
+    <Parameter Name="BrideEmail" Parameter="brideEmail" Type="System.String" DbType="VarChar(MAX)" />
+    <Parameter Name="BrideContactNo" Parameter="brideContactNo" Type="System.String" DbType="VarChar(15)" />
+    <Parameter Name="DateOfHomecoming" Parameter="dateOfHomecoming" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="Groom" Parameter="groom" Type="System.String" DbType="VarChar(MAX)" />
+    <Parameter Name="GroomAddress" Parameter="groomAddress" Type="System.String" DbType="VarChar(MAX)" />
+    <Parameter Name="GroomContactNo" Parameter="groomContactNo" Type="System.String" DbType="VarChar(15)" />
+    <Parameter Name="SelectedItems" Parameter="selectedItems" Type="System.String" DbType="VarChar(MAX)" />
+    <Parameter Name="CreatedBy" Parameter="createdBy" Type="System.Int32" DbType="Int" />
+    <Parameter Name="MarketedBy" Parameter="marketedBy" Type="System.Int32" DbType="Int" />
+    <Parameter Name="QuotationID" Parameter="quotationID" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.Manali_Quotation_SelectAQuotation" Method="Manali_Quotation_SelectAQuotation">
     <Parameter Name="quotationID" Type="System.Int32" DbType="Int" />
@@ -125,49 +258,188 @@
       <Column Name="GroomContactNo" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
       <Column Name="CreatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="WorkerID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="NIC" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Mobile" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="Address" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Image" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Designation" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Name="dbo.Manali_Quotation_SelectQuotationSelectedItems" Method="Manali_Quotation_SelectQuotationSelectedItems">
-    <Parameter Name="quotationID" Type="System.Int32" DbType="Int" />
-    <ElementType Name="Manali_Quotation_SelectQuotationSelectedItemsResult">
-      <Column Name="ItemID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+  <Function Name="dbo.Manali_Worker_CreateWorker" Method="Manali_Worker_CreateWorker">
+    <Parameter Name="Name" Parameter="name" Type="System.String" DbType="VarChar(MAX)" />
+    <Parameter Name="NIC" Parameter="nIC" Type="System.String" DbType="VarChar(10)" />
+    <Parameter Name="Mobile" Parameter="mobile" Type="System.String" DbType="VarChar(15)" />
+    <Parameter Name="Address" Parameter="address" Type="System.String" DbType="VarChar(MAX)" />
+    <Parameter Name="Image" Parameter="image" Type="System.String" DbType="VarChar(MAX)" />
+    <Parameter Name="Designation" Parameter="designation" Type="System.String" DbType="VarChar(MAX)" />
+    <Parameter Name="WorkerID" Parameter="workerID" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.Manali_Worker_GetWorkerByID" Method="Manali_Worker_GetWorkerByID">
+    <Parameter Name="WorkerID" Parameter="workerID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="Manali_Worker_GetWorkerByIDResult">
+      <Column Name="WorkerID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="NIC" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Mobile" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="Address" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Image" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Designation" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Name="dbo.Manali_Quotation_GetAllQuotation" Method="Manali_Quotation_GetAllQuotation">
-    <ElementType Name="Manali_Quotation_GetAllQuotationResult">
+  <Function Name="dbo.Manali_Worker_GetAllWorkers" Method="Manali_Worker_GetAllWorkers">
+    <ElementType Name="Manali_Worker_GetAllWorkersResult">
+      <Column Name="WorkerID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="NIC" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Mobile" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="Address" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Image" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Designation" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Manali_Worker_GetAllQuotationsByWorkerID" Method="Manali_Worker_GetAllQuotationsByWorkerID">
+    <Parameter Name="WorkerID" Parameter="workerID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="Manali_Worker_GetAllQuotationsByWorkerIDResult">
       <Column Name="QuotationID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="DateOfWedding" Type="System.DateTime" DbType="Date" CanBeNull="true" />
       <Column Name="Bride" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="BrideAddress" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="BrideEmail" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
       <Column Name="BrideContactNo" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
       <Column Name="DateOfHomecoming" Type="System.DateTime" DbType="Date" CanBeNull="true" />
       <Column Name="Groom" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
-      <Column Name="CreatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="GroomAddress" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
       <Column Name="GroomContactNo" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
-      <Column Name="BrideEmail" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
-      <Column Name="BrideAddress" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="EventID" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Name="dbo.Manali_Quotation_SaveQuotation" Method="Manali_Quotation_SaveQuotation">
-    <Parameter Name="DateOfWedding" Parameter="dateOfWedding" Type="System.DateTime" DbType="Date" />
-    <Parameter Name="Bride" Parameter="bride" Type="System.String" DbType="VarChar(MAX)" />
-    <Parameter Name="BrideAddress" Parameter="brideAddress" Type="System.String" DbType="VarChar(MAX)" />
-    <Parameter Name="BrideEmail" Parameter="brideEmail" Type="System.String" DbType="VarChar(MAX)" />
-    <Parameter Name="BrideContactNo" Parameter="brideContactNo" Type="System.String" DbType="VarChar(15)" />
-    <Parameter Name="DateOfHomecoming" Parameter="dateOfHomecoming" Type="System.DateTime" DbType="Date" />
-    <Parameter Name="Groom" Parameter="groom" Type="System.String" DbType="VarChar(MAX)" />
-    <Parameter Name="GroomAddress" Parameter="groomAddress" Type="System.String" DbType="VarChar(MAX)" />
-    <Parameter Name="GroomContactNo" Parameter="groomContactNo" Type="System.String" DbType="VarChar(15)" />
-    <Parameter Name="SelectedItems" Parameter="selectedItems" Type="System.String" DbType="VarChar(MAX)" />
-    <Parameter Name="CreatedBy" Parameter="createdBy" Type="System.Int32" DbType="Int" />
-    <Return Type="System.Int32" />
+  <Function Name="dbo.Manali_Appointment_GetAppointmentsByQuotationID" Method="Manali_Appointment_GetAppointmentsByQuotationID">
+    <Parameter Name="QuotationID" Parameter="quotationID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="Manali_Appointment_GetAppointmentsByQuotationIDResult">
+      <Column Name="AppointmentID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AppointmentDateTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IsBrideVisited" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Duration" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Notes" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="WorkerID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="NIC" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Mobile" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="Address" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Image" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Designation" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="QuotationID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DateOfWedding" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Bride" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="BrideAddress" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="BrideEmail" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="BrideContactNo" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="DateOfHomecoming" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Groom" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="GroomAddress" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="GroomContactNo" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </ElementType>
   </Function>
-  <Function Name="dbo.Manali_User_Login" Method="Manali_User_Login">
-    <Parameter Name="userName" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="password" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="isLogged" Type="System.Boolean" DbType="Bit" Direction="InOut" />
-    <Parameter Name="loggedUserID" Type="System.Int32" DbType="Int" Direction="InOut" />
+  <Function Name="dbo.Manali_Appointment_GetAllAppointments" Method="Manali_Appointment_GetAllAppointments">
+    <ElementType Name="Manali_Appointment_GetAllAppointmentsResult">
+      <Column Name="AppointmentID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AppointmentDateTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IsBrideVisited" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Duration" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Notes" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="WorkerID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="NIC" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Mobile" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="Address" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Image" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Designation" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="QuotationID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DateOfWedding" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Bride" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="BrideAddress" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="BrideEmail" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="BrideContactNo" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="DateOfHomecoming" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Groom" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="GroomAddress" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="GroomContactNo" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Manali_Appointment_GetAppointmentDetailsByID" Method="Manali_Appointment_GetAppointmentDetailsByID">
+    <Parameter Name="AppointmentID" Parameter="appointmentID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="Manali_Appointment_GetAppointmentDetailsByIDResult">
+      <Column Name="AppointmentID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AppointmentDateTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IsBrideVisited" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Duration" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Notes" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="WorkerID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="NIC" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Mobile" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="Address" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Image" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Designation" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="QuotationID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DateOfWedding" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Bride" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="BrideAddress" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="BrideEmail" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="BrideContactNo" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="DateOfHomecoming" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Groom" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="GroomAddress" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="GroomContactNo" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Manali_Appointment_GetAppointmentsAssignForWorker" Method="Manali_Appointment_GetAppointmentsAssignForWorker">
+    <Parameter Name="WorkerID" Parameter="workerID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="Manali_Appointment_GetAppointmentsAssignForWorkerResult">
+      <Column Name="AppointmentID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AppointmentDateTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IsBrideVisited" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Duration" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Notes" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="WorkerID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="NIC" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Mobile" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="Address" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Image" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Designation" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="QuotationID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DateOfWedding" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Bride" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="BrideAddress" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="BrideEmail" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="BrideContactNo" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="DateOfHomecoming" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Groom" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="GroomAddress" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="GroomContactNo" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Manali_Appointment_CreateAppointment" Method="Manali_Appointment_CreateAppointment">
+    <Parameter Name="QuotationID" Parameter="quotationID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="AppointmentDateTime" Parameter="appointmentDateTime" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="ResponsibleWorker" Parameter="responsibleWorker" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Duration" Parameter="duration" Type="System.Double" DbType="Float" />
+    <Parameter Name="Notes" Parameter="notes" Type="System.String" DbType="VarChar(MAX)" />
+    <Parameter Name="AppointmentID" Parameter="appointmentID" Type="System.Int32" DbType="Int" Direction="InOut" />
     <Return Type="System.Int32" />
   </Function>
 </Database>
